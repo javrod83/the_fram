@@ -19,76 +19,43 @@
         <link rel="stylesheet" href="styles/vendor/bootstrap/bootstrap.css">
         <!-- endbuild -->
 </head>
-    <body>
+   <body ng-app="angularApp">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
 
-    <!-- Page content of course! -->
-    <!-- Custom styles for this template -->
-<style>
-  /* Move down content because we have a fixed navbar that is 50px tall */
-  body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-  }
-
-  /* Set widths on the navbar form inputs since otherwise they're 100% wide */
-  .navbar-form input[type="text"],
-  .navbar-form input[type="password"] {
-    width: 180px;
-  }
-
-  /* Wrapping element */
-  /* Set some basic padding to keep content from hitting the edges */
-  .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-
-  /* Responsive: Portrait tablets and up */
-  @media screen and (min-width: 768px) {
-    /* Let the jumbotron breathe */
-    .jumbotron {
-      margin-top: 20px;
-    }
-    /* Remove padding from wrapping element since we kick in the grid classes here */
-    .body-content {
-      padding: 0;
-    }
-  }
-</style>
-
-
-<div class="navbar navbar-inverse navbar-fixed-top" >
-  <div class="container">
-    <a class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </a>
-    <a class="navbar-brand" href="#">the farm</a>
-
-    <div class="nav-collapse collapse">
-    
-    </div><!--/.nav-collapse -->
-  </div>
-
-</div>
-
-<div class="container">
-
-  <!-- Main jumbotron for a primary marketing message or call to action -->
-  <div class="jumbotron">
-      <h1 id='token'>0</h1>
-      
-      <p>Press  ( + ) to increment counter , close and  open app again .</p>
-      <div class="alert alert-warning" role="alert">Warning! Remenber use  a "allways accept policy" for cookies on ios7 platform   </div>
-          <div class="row">
-      <div class="col col-lg-4">
-
-        <p><a class="btn btn-default" id="plus_button" href="#">+</a></p>
+    <!-- Add your site or application content here -->
+    <div class="container">
+      <div class="header">
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a ng-href="#">Home</a></li>
+          <li><a ng-href="#/about">About</a></li>
+          <li><a ng-href="#">Contact</a></li>
+        </ul>
+        <h3 class="text-muted">angular</h3>
       </div>
- 
+
+      <div ng-view=""></div>
+
+      <div class="footer">
+        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+      </div>
     </div>
-  </div>
+
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+     <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script>
+
+
+
 
 
     <!-- JS and analytics only. -->
@@ -107,7 +74,28 @@
         <!-- build:js scripts/main.js -->
         <script src="bower_components/jquery/jquery.js"></script>
         <script src="bower_components/angular/angular.js"></script>
+                <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
         <script src="scripts/main.js"></script>
+           <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js"></script>
+        <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js"></script>
+        <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/button.js"></script>
+        <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/carousel.js"></script>
+        <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js"></script>
+        <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/dropdown.js"></script>
+        <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tab.js"></script>
+        <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/transition.js"></script>
+        <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy.js"></script>
+        <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js"></script>
+        <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js"></script>
+        <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.js"></script>
+        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
+        <script src="bower_components/angular-touch/angular-touch.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
         <!-- endbuild -->
 
 
