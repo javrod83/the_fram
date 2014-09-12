@@ -1,0 +1,12 @@
+{
+  "name": "the-farm",
+  "version": "0.0.0",
+  "dependencies": {
+    "bootstrap": "~3.0.0",
+    "modernizr": "~2.6.2",
+    "jquery": "~1.9.1",
+    "angular": "~1.2.24",
+    "angular-ui-router": "~0.2.11"
+  },
+  "devDependencies": {}
+}

@@ -1,0 +1,126 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- build:js scripts/vendor/modernizr.js -->
+        <script src="bower_components/modernizr/modernizr.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:css styles/vendor/bootstrap.css -->
+        <link rel="stylesheet" href="styles/vendor/bootstrap/bootstrap.css">
+        <!-- endbuild -->
+</head>
+    <body>
+
+    <!-- Page content of course! -->
+    <!-- Custom styles for this template -->
+<style>
+  /* Move down content because we have a fixed navbar that is 50px tall */
+  body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+  }
+
+  /* Set widths on the navbar form inputs since otherwise they're 100% wide */
+  .navbar-form input[type="text"],
+  .navbar-form input[type="password"] {
+    width: 180px;
+  }
+
+  /* Wrapping element */
+  /* Set some basic padding to keep content from hitting the edges */
+  .body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  /* Responsive: Portrait tablets and up */
+  @media screen and (min-width: 768px) {
+    /* Let the jumbotron breathe */
+    .jumbotron {
+      margin-top: 20px;
+    }
+    /* Remove padding from wrapping element since we kick in the grid classes here */
+    .body-content {
+      padding: 0;
+    }
+  }
+</style>
+
+
+<div class="navbar navbar-inverse navbar-fixed-top" >
+  <div class="container">
+    <a class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </a>
+    <a class="navbar-brand" href="#">the farm</a>
+
+    <div class="nav-collapse collapse">
+    
+    </div><!--/.nav-collapse -->
+  </div>
+
+</div>
+
+<div class="container">
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+      <h1 id='token'>0</h1>
+      
+      <p>Press  ( + ) to increment counter , close and  open app again .</p>
+      <div class="alert alert-warning" role="alert">Warning! Remenber use  a "allways accept policy" for cookies on ios7 platform   </div>
+          <div class="row">
+      <div class="col col-lg-4">
+
+        <p><a class="btn btn-default" id="plus_button" href="#">+</a></p>
+      </div>
+ 
+    </div>
+  </div>
+
+
+    <!-- JS and analytics only. -->
+    <!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+
+
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+
+
+        <!-- build:js scripts/main.js -->
+        <script src="bower_components/jquery/jquery.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="scripts/main.js"></script>
+        <!-- endbuild -->
+
+
+
+        <!-- build:js scripts/async-local-storage.js -->
+       <!-- <script src="scripts/async.localStorage.js"></script> --> 
+        <!-- endbuild -->
+
+
+
+        <!-- build:js scripts/fastclick.js -->
+        <script src="scripts/fastclick.js"></script>
+        <script src="scripts/fastclick.example.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
