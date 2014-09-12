@@ -15,11 +15,18 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'facebook'
   ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
+
+
+  .config(function (FacebookProvider,$routeProvider) {
+  
+
+    var myAppId = '423840851054944';
+    FacebookProvider.init(myAppId);
+
+      $routeProvider.when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
