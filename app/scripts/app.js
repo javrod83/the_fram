@@ -27,6 +27,22 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
+      .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl'
+      })
+      .when('/userPrompt', {
+        templateUrl: 'views/userPrompt.html',
+        controller: 'UserPromptCtrl'
+      })
+      .when('/textContainer', {
+        templateUrl: 'views/textContainer.html',
+        controller: 'TextContainerCtrl'
+      })
+      .when('/imageContainer', {
+        templateUrl: 'views/imageContainer.html',
+        controller: 'ImageContainerCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
