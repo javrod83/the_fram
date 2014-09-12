@@ -23,7 +23,7 @@ angular
   .config(function (FacebookProvider,$routeProvider) {
   
 
-    var myAppId = '423840851054944';
+    var myAppId = '698019256941090';
     FacebookProvider.init(myAppId);
 
       $routeProvider.when('/', {

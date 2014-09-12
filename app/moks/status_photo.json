@@ -1,0 +1,17 @@
+{
+  "id": 1404293132113,
+  "frame": {
+    "fid": "4499", 
+    "sid": "104", 
+    "type": "photo",
+    "status": "11", 
+    "media": {
+      "large": "http://cdn.farm.scrnz.com/showData/9/stam_large.jpg",
+      "medium": "http://cdn.farm.scrnz.com/showData/9/stam_medium.jpg"
+    }
+  },
+  "interval": 2,
+  "timeout": 3,
+  "status-url": "http://cdn.farm.scrnz.com/showData/9/status.json",
+  "secret-key-update-time": 1401281448
+}
