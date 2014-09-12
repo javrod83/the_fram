@@ -12,81 +12,92 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 
 /* Space out content a bit */
 body {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  /*padding-top: 20px;*/
+  /*padding-bottom: 20px;*/
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
+.container{
+  padding: 0!important;
 }
 
 /* Custom page header */
 .header {
-  border-bottom: 1px solid #e5e5e5;
-
-  /* Make the masthead heading the same height as the navigation */
-  h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px;
+  /*border-bottom: 1px solid #e5e5e5;*/
+  height: 75px;
+  background-color: #384ca5;
+  a{
+    float: left;
+    position: relative;
+    display: block;
   }
+  .closeHeader{
+    padding: 19px 25px 0 0;
+  }
+}
+
+.blue-background{
+  background-color: #469ad4;
+  min-height: 398px;
+  width: 100%;
 }
 
 /* Custom page footer */
 .footer {
   padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
+  background-color: #469ad4;
+  background-image: url('../images/field_large.png');
+  background-position-x: -430px;
+  height: 167px;
 }
 
-.container-narrow > hr {
-  margin: 30px 0;
+.footer-animal{
+  position: absolute;
 }
 
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-
-  .btn {
-    font-size: 21px;
-    padding: 14px 24px;
-  }
+.barn-container{
+  overflow: hidden;
+  width: 150px;
+  height: 180px;
+  bottom: 0;
+  right: 0;
+  position: absolute;
 }
 
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-
-  p + h4 {
-    margin-top: 28px;
-  }
+.logo{
+  margin-left: 20%;
 }
+
+.cow{
+  bottom: 0;
+  padding: 0 0 15px 15px;
+}
+
+.sheep{
+  right: 0;
+  bottom: 0;
+  margin-right: 16px;
+}
+
+.ostrich{
+  bottom: 0;
+  right: 0;
+  margin: 0 120px 20px;
+}
+
 
 /* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
+@media screen and (min-width: 400400px) {
+  .footer {
+    background-position-x: 0px;
   }
 
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
+  .barn-container{
+    overflow: hidden;
+    width: 200px;
+    height: 165px;
+    bottom: 0;
+    right: 0;
+    position: absolute;
   }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
+
 }
