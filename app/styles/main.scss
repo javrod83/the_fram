@@ -12,12 +12,14 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 
 /* Space out content a bit */
 body {
+  background-color: #469ad4;
   /*padding-top: 20px;*/
   /*padding-bottom: 20px;*/
 }
 
-.container{
-  padding: 0!important;
+.mobile-container{
+  max-width: 100%;
+  max-height: 100%;
 }
 
 /* Custom page header */
@@ -25,6 +27,7 @@ body {
   /*border-bottom: 1px solid #e5e5e5;*/
   height: 75px;
   background-color: #384ca5;
+  width: 100%;
   a{
     float: left;
     position: relative;
@@ -33,71 +36,118 @@ body {
   .closeHeader{
     padding: 19px 25px 0 0;
   }
+  .logo{
+    @include center-block;
+    padding-top: 75px;
+    padding-left: 60px;
+  }
 }
 
 .blue-background{
-  background-color: #469ad4;
   min-height: 398px;
   width: 100%;
 }
 
 /* Custom page footer */
 .footer {
-  padding-top: 19px;
-  background-color: #469ad4;
-  background-image: url('../images/field_large.png');
   background-position-x: -430px;
   height: 167px;
-}
+  
+  .field_big, .field_small{
+    width: 100%;
+    bottom:0; 
+    position: absolute;
+  }
 
-.footer-animal{
-  position: absolute;
-}
+  .barn-container{
+    overflow: hidden;
+    width: 150px;
+    margin-right: 0;
+    right:0;
+    z-index: 1;
+    bottom:0; 
+    position: absolute;
+  }
+  
+  .cow{
+    padding: 0 0 15px 15px;
+    bottom:0; 
+    position: absolute;
+    z-index: 5;
+  }
 
-.barn-container{
-  overflow: hidden;
-  width: 150px;
-  height: 180px;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-}
+  .sheep{
+    right: 0;
+    margin-right: 16px;
+    bottom:0; 
+    position: absolute;
+    z-index: 5;
+  }
 
-.logo{
-  margin-left: 20%;
-}
+  .cow_big{
+    right: 0;
+    z-index: 5;
+    bottom:0; 
+    position: absolute;
+  }
 
-.cow{
-  bottom: 0;
-  padding: 0 0 15px 15px;
-}
+  .sheep_big{
+    left:0;
+    z-index: 5;
+    bottom:0; 
+    position: absolute;
+  }
 
-.sheep{
-  right: 0;
-  bottom: 0;
-  margin-right: 16px;
+  .ostrich{
+    right: 0;
+    margin: 0 120px 20px;
+    z-index: 5;
+    bottom:0; 
+    position: absolute;
+  }
 }
-
-.ostrich{
-  bottom: 0;
-  right: 0;
-  margin: 0 120px 20px;
-}
-
 
 /* Responsive: Portrait tablets and up */
-@media screen and (min-width: 400400px) {
+@media screen and (min-width: 400px) {
   .footer {
     background-position-x: 0px;
   }
 
   .barn-container{
-    overflow: hidden;
-    width: 200px;
-    height: 165px;
-    bottom: 0;
-    right: 0;
-    position: absolute;
+    width: 200px!important;
+    margin-right: 108px!important;
   }
 
+  .ostrich{
+    margin: 0 210px 20px!important;
+  }
+
+  .field_small, .cow, .sheep{
+    display: none;
+  }
+
+}
+
+@media screen and (max-width: 400px) {
+
+  .header{
+    .logo {
+      width: 75%;
+    }
+  }
+
+  .footer {
+    background-position-x: 0px;
+  }
+
+  .field_big, .cow_big, .sheep_big{
+    display: none;
+  }
+
+}
+
+@mixin center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
