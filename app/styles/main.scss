@@ -40,13 +40,58 @@ body {
     @include center-block;
     padding-top: 75px;
     padding-left: 60px;
+    z-index: 5
   }
 }
 
-.blue-background{
-  min-height: 398px;
-  width: 100%;
+.content{
+  @include center-block;
+  .wood-container{
+    left: 0;
+    position: absolute;
+    margin-left: -20px;
+    z-index: 6;
+    margin-top: 57%;
+    li {
+      list-style: none;
+    }
+    .wood-1, .wood-2{
+      width: 335px;
+      height: 78px;
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+    .wood-1{
+      background-image: url('../images/wood-1.png');
+    }
+    .wood-2{
+      background-image: url('../images/wood-2.png'); 
+    }
+  }
+
+  .rope-container-left, .rope-container-right{
+    position: absolute;
+    z-index: -2;
+    overflow: hidden;
+    height: 430px;
+  }
+
+  .rope-container-left{
+    margin-left: 12%;
+  }
+
+  .rope-container-right{
+    right:0;
+    margin-right: 12%;
+  }
+
+  .rope{
+    width: 9px;
+    height: 100%;
+    background-image: url('../images/rope.png');
+  }
 }
+
 
 /* Custom page footer */
 .footer {
@@ -108,7 +153,27 @@ body {
 }
 
 /* Responsive: Portrait tablets and up */
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 750px) {
+  .content{
+    .wood-container{
+      margin: 25% 0 0 25%;
+      .wood-1, .wood-2{
+        width: 435px;
+        margin-bottom: 10px;
+        background-size: 100%;
+        background-repeat: no-repeat;
+      }
+    }
+    .rope-container-left{
+      margin-left: 30%;
+    }
+
+    .rope-container-right{
+      right:0;
+      margin-right: 30%;
+    }
+  }
+
   .footer {
     background-position-x: 0px;
   }
@@ -128,6 +193,35 @@ body {
 
 }
 
+@media screen and (max-width: 750px) {
+
+  .header{
+    .logo {
+      width: 75%;
+    }
+  }
+
+  .footer {
+    background-position-x: 0px;
+  }
+
+  .field_big, .cow_big, .sheep_big{
+    display: none;
+  }
+
+  .content{
+    .wood-container{
+      margin-top: 50%;
+      .wood-1, .wood-2{
+        width: 375px;
+        margin-bottom: 0px;
+      }
+    }
+  }
+
+}
+
+
 @media screen and (max-width: 400px) {
 
   .header{
@@ -144,7 +238,46 @@ body {
     display: none;
   }
 
+  .content{
+    .wood-container{
+      margin-top: 50%;
+      .wood-1, .wood-2{
+        width: 340px;
+        margin-bottom: -5px;
+      }
+    }
+  }
+
 }
+
+@media screen and (max-width: 380px) {
+
+  .content{
+    .wood-container{
+      margin-top: 50%;
+      .wood-1, .wood-2{
+        width: 315px;
+        margin-bottom: -10px;
+      }
+    }
+  }
+
+}
+
+@media screen and (max-width: 325px) {
+
+  .content{
+    .wood-container{
+      margin-top: 50%;
+      .wood-1, .wood-2{
+        width: 280px;
+        margin-bottom: -20px;
+      }
+    }
+  }
+}
+
+
 
 @mixin center-block {
   display: block;
