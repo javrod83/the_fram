@@ -17,11 +17,17 @@ angular.module('theFarmApp')
 // Define user empty data :/
       $scope.user = {};
 
-      console.log('vamos  aver si persiste la info cros controller')
-      console.log(FarmServices.model)
-      
+      renderView();
+
+      if (!FarmServices.model.init)
+          {
+            window.location.href = '#/';  
+          }
+          
+
+
       // Defining user logged status
-      $scope.logged = false;
+      $scope.logged = true;
       
       // And3 some fancy flags to display messages upon user status change
       $scope.byebye = false;
@@ -94,6 +100,43 @@ angular.module('theFarmApp')
         });
       };
       
+
+
+
+
+
+
+
+      /*
+      set view 
+
+      */
+
+      function renderView()
+        {
+          
+
+           $scope.title = FarmServices.model.data.dictionary.login.title;
+
+           $scope.facebook = {
+              title : FarmServices.model.data.dictionary.login.facebook,
+              error : FarmServices.model.data.dictionary.login.facebook,
+           }
+
+           $scope.twitter = {
+              title : FarmServices.model.data.dictionary.login.twitter,
+              error : FarmServices.model.data.dictionary.login.twitter,
+            }
+
+            $scope.google = {
+                title : FarmServices.model.data.dictionary.login.google,
+                error : FarmServices.model.data.dictionary.login.google,
+             }
+
+           $scope.show = FarmServices.model.config.social;
+        }
+
+
       /**
        * Taking approach of Events :D
        */
@@ -115,7 +158,6 @@ angular.module('theFarmApp')
             }, 2000);
           });
         }
-        
         
       });
 

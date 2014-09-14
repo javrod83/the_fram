@@ -8,7 +8,9 @@ angular.module('theFarmApp')
 
 
     Collection.model = {
-    	config : {}
+    	config : {},
+    	data   : {},
+    	init : false
     }
 
     Collection.getConfig = function(url) {
@@ -32,6 +34,7 @@ angular.module('theFarmApp')
         var deferred = $q.defer();
         return $http.get(url+tid+'/'+filename).then(function(response) {
             if (response.status === 200) {
+            	Collection.model.data= response.data;
                 deferred.resolve(response.data);
             } else {
                 deferred.reject({
@@ -44,7 +47,7 @@ angular.module('theFarmApp')
 
     Collection.getStatus = function(url,tid,filename) {
         var deferred = $q.defer();
-        return $http.get(url+'/showData/'+tid+'/'+filename).then(function(response) {
+        return $http.get(url+tid+'/'+filename).then(function(response) {
             if (response.status === 200) {
                 deferred.resolve(response.data);
             } else {

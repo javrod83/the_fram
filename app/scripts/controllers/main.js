@@ -55,9 +55,10 @@ angular.module('theFarmApp')
 		  				res.jsons['territory-data'] )
 		  			.then(function(res){
 		  				console.log('data.json success');
+		  				FarmServices.model.init = true;
 		  				//$scope.config = res; 
 		  				console.log(res)
-		  				window.location.href = '#/login'
+		  				//window.location.href = '#/login'
 
 		  		
 
