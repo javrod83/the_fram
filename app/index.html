@@ -21,12 +21,30 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container">
-    
-      <header ng-include="'templates/header.html'"></header>
+
+    <div class="mobile-container">
+      <div class="header">
+        <ul class="nav nav-pills pull-right">
+          <a ng-href="#"><img class="closeHeader" src="images/close.png"/></a>
+        </ul>
+        <img class="logo" src="images/logo.png" /> 
+      </div>
+
       <div ng-view=""></div>
 
-      <footer ng-include="'templates/footer.html'"></footer>
+      <div class="footer">
+        <img class="field_small" src="images/field_small.png" />
+        <img class="field_big" src="images/field_big.png" />
+        <img class="sheep" src="images/sheep.png" />
+        <img class="cow" src="images/cow.png" />
+        <img class="sheep_big" src="images/sheep_big.png" />
+        <img class="cow_big" src="images/cow_big.png" />
+        <img class="ostrich" src="images/ostrich.png" />
+        <div class="barn-container"><img class="barn" src="images/barn.png" /></div>
+      </div>
+    </div>
+
+
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -77,12 +95,12 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
-        <!--
+        
         <script src="scripts/controllers/login.js"></script>
         <script src="scripts/controllers/userPrompt.js"></script>
         <script src="scripts/controllers/textContainer.js"></script>
         <script src="scripts/controllers/imageContainer.js"></script>
-        -->
+        
         <!-- endbuild -->
 </body>
 </html>

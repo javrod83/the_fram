@@ -12,92 +12,277 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 
 /* Space out content a bit */
 body {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  background-color: #469ad4;
+  /*padding-top: 20px;*/
+  /*padding-bottom: 20px;*/
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
+.mobile-container{
+  max-width: 100%;
+  max-height: 100%;
 }
 
 /* Custom page header */
 .header {
-  border-bottom: 1px solid #e5e5e5;
-
-  /* Make the masthead heading the same height as the navigation */
-  h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px;
+  /*border-bottom: 1px solid #e5e5e5;*/
+  height: 75px;
+  background-color: #384ca5;
+  width: 100%;
+  a{
+    float: left;
+    position: relative;
+    display: block;
+  }
+  .closeHeader{
+    padding: 19px 25px 0 0;
+  }
+  .logo{
+    @include center-block;
+    padding-top: 75px;
+    padding-left: 60px;
+    z-index: 5
   }
 }
+
+.content{
+  @include center-block;
+  .wood-container{
+    left: 0;
+    position: absolute;
+    margin-left: -20px;
+    z-index: 6;
+    margin-top: 57%;
+    li {
+      list-style: none;
+    }
+    .wood-1, .wood-2{
+      width: 335px;
+      height: 78px;
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+    .wood-1{
+      background-image: url('../images/wood-1.png');
+    }
+    .wood-2{
+      background-image: url('../images/wood-2.png'); 
+    }
+  }
+
+  .rope-container-left, .rope-container-right{
+    position: absolute;
+    z-index: -2;
+    overflow: hidden;
+    height: 430px;
+  }
+
+  .rope-container-left{
+    margin-left: 12%;
+  }
+
+  .rope-container-right{
+    right:0;
+    margin-right: 12%;
+  }
+
+  .rope{
+    width: 9px;
+    height: 100%;
+    background-image: url('../images/rope.png');
+  }
+}
+
 
 /* Custom page footer */
 .footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-}
-
-.container-narrow > hr {
-  margin: 30px 0;
-}
-
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-
-  .btn {
-    font-size: 21px;
-    padding: 14px 24px;
+  background-position-x: -430px;
+  height: 167px;
+  
+  .field_big, .field_small{
+    width: 100%;
+    bottom:0; 
+    position: absolute;
   }
-}
 
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
+  .barn-container{
+    overflow: hidden;
+    width: 150px;
+    margin-right: 0;
+    right:0;
+    z-index: 1;
+    bottom:0; 
+    position: absolute;
+  }
+  
+  .cow{
+    padding: 0 0 15px 15px;
+    bottom:0; 
+    position: absolute;
+    z-index: 5;
+  }
 
-  p + h4 {
-    margin-top: 28px;
+  .sheep{
+    right: 0;
+    margin-right: 16px;
+    bottom:0; 
+    position: absolute;
+    z-index: 5;
+  }
+
+  .cow_big{
+    right: 0;
+    z-index: 5;
+    bottom:0; 
+    position: absolute;
+  }
+
+  .sheep_big{
+    left:0;
+    z-index: 5;
+    bottom:0; 
+    position: absolute;
+  }
+
+  .ostrich{
+    right: 0;
+    margin: 0 120px 20px;
+    z-index: 5;
+    bottom:0; 
+    position: absolute;
   }
 }
 
 /* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
+@media screen and (min-width: 750px) {
+  .content{
+    .wood-container{
+      margin: 25% 0 0 25%;
+      .wood-1, .wood-2{
+        width: 435px;
+        margin-bottom: 10px;
+        background-size: 100%;
+        background-repeat: no-repeat;
+      }
+    }
+    .rope-container-left{
+      margin-left: 30%;
+    }
+
+    .rope-container-right{
+      right:0;
+      margin-right: 30%;
+    }
   }
 
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
   .footer {
-    padding-left: 0;
-    padding-right: 0;
+    background-position-x: 0px;
   }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
+
+  .barn-container{
+    width: 200px!important;
+    margin-right: 108px!important;
   }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
+
+  .ostrich{
+    margin: 0 210px 20px!important;
+  }
+
+  .field_small, .cow, .sheep{
+    display: none;
+  }
+
+}
+
+@media screen and (max-width: 750px) {
+
+  .header{
+    .logo {
+      width: 75%;
+    }
+  }
+
+  .footer {
+    background-position-x: 0px;
+  }
+
+  .field_big, .cow_big, .sheep_big{
+    display: none;
+  }
+
+  .content{
+    .wood-container{
+      margin-top: 50%;
+      .wood-1, .wood-2{
+        width: 375px;
+        margin-bottom: 0px;
+      }
+    }
+  }
+
+}
+
+
+@media screen and (max-width: 400px) {
+
+  .header{
+    .logo {
+      width: 75%;
+    }
+  }
+
+  .footer {
+    background-position-x: 0px;
+  }
+
+  .field_big, .cow_big, .sheep_big{
+    display: none;
+  }
+
+  .content{
+    .wood-container{
+      margin-top: 50%;
+      .wood-1, .wood-2{
+        width: 340px;
+        margin-bottom: -5px;
+      }
+    }
+  }
+
+}
+
+@media screen and (max-width: 380px) {
+
+  .content{
+    .wood-container{
+      margin-top: 50%;
+      .wood-1, .wood-2{
+        width: 315px;
+        margin-bottom: -10px;
+      }
+    }
+  }
+
+}
+
+@media screen and (max-width: 325px) {
+
+  .content{
+    .wood-container{
+      margin-top: 50%;
+      .wood-1, .wood-2{
+        width: 280px;
+        margin-bottom: -20px;
+      }
+    }
   }
 }
 
 
-.footer{
-  width:100%;
-  display:block;
-  background-color: rgb(248, 210, 210);
+
+
+@mixin center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.header{
-  background-color: #D8E1FD;
-}
