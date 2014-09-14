@@ -8,7 +8,7 @@
  * Controller of the theFarmApp
  */
 angular.module('theFarmApp')
-  .controller('UserPromptCtrl', function ($scope) {
+  .controller('PromptCtrl', function ($scope) {
     $scope.social = [
       'facebook',
       'twitter',

@@ -8,7 +8,7 @@
  * Controller of the theFarmApp
  */
 angular.module('theFarmApp')
-  .controller('AboutCtrl', function ($scope) {
+  .controller('VoteCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

@@ -8,7 +8,7 @@
  * Controller of the theFarmApp
  */
 angular.module('theFarmApp')
-  .controller('ImageContainerCtrl', function ($scope) {
+  .controller('PhotoCtrl', function ($scope) {
     $scope.social = [
       'facebook',
       'twitter',

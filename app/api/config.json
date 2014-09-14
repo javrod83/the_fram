@@ -7,7 +7,7 @@
     "status-qa": "statusqa.json"
   },
   "urls": {
-    "base": "http://cdn.farm.scrnz.com/showData/",
+    "base": "/api/",
     "login": "http://register.farm.scrnz.com/register.php",
     "vote": "http://vote.farm.scrnz.com/v?"
   },

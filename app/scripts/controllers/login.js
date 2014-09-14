@@ -12,9 +12,13 @@ angular.module('theFarmApp')
   	'$scope',
     '$timeout',
     'Facebook',
-   function ($scope, $timeout, Facebook) {
+    'FarmServices',
+   function ($scope, $timeout, Facebook, FarmServices) {
 // Define user empty data :/
       $scope.user = {};
+
+      console.log('vamos  aver si persiste la info cros controller')
+      console.log(FarmServices.model)
       
       // Defining user logged status
       $scope.logged = false;
