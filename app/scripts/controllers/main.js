@@ -9,9 +9,9 @@
  */
 angular.module('theFarmApp')
   .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+    $scope.footerImages = ['cow','cow_big', 'ostrich', 'sheep', 'sheep_big', 'field', 'field_big'];
+    $scope.showBarn = true;
+    setTimeout(function () {
+        window.location.href = '#/login';
+    }, 5000);
   });

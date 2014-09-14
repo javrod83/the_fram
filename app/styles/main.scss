@@ -46,7 +46,7 @@ body {
 
 .content{
   @include center-block;
-  .wood-container{
+  .wood-container, .social-container{
     left: 0;
     position: absolute;
     margin-left: -20px;
@@ -66,6 +66,11 @@ body {
     }
     .wood-2{
       background-image: url('../images/wood-2.png'); 
+    }
+    .social-buttons{
+      @include center-block;
+      width: 80%;
+      margin-bottom: 10px;
     }
   }
 
@@ -90,6 +95,17 @@ body {
     height: 100%;
     background-image: url('../images/rope.png');
   }
+
+  .login-text{
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 26px;
+    width: 270px;
+    text-align: center;
+    line-height: 31px;
+    margin-bottom: 15px;
+    @include center-block;
+  }
 }
 
 
@@ -98,10 +114,11 @@ body {
   background-position-x: -430px;
   height: 167px;
   
-  .field_big, .field_small{
+  .field, .field_big, .field_login{
     width: 100%;
     bottom:0; 
     position: absolute;
+    z-index: -1;
   }
 
   .barn-container{
@@ -121,7 +138,7 @@ body {
     z-index: 5;
   }
 
-  .sheep{
+  .sheep, .rabbit{
     right: 0;
     margin-right: 16px;
     bottom:0; 
@@ -136,7 +153,7 @@ body {
     position: absolute;
   }
 
-  .sheep_big{
+  .sheep_big, .hen{
     left:0;
     z-index: 5;
     bottom:0; 
@@ -155,7 +172,7 @@ body {
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 750px) {
   .content{
-    .wood-container{
+    .wood-container, .social-container{
       margin: 25% 0 0 25%;
       .wood-1, .wood-2{
         width: 435px;
@@ -187,7 +204,7 @@ body {
     margin: 0 210px 20px!important;
   }
 
-  .field_small, .cow, .sheep{
+  .field, .cow, .sheep{
     display: none;
   }
 
@@ -210,7 +227,7 @@ body {
   }
 
   .content{
-    .wood-container{
+    .wood-container, .social-container{
       margin-top: 50%;
       .wood-1, .wood-2{
         width: 375px;
@@ -239,7 +256,7 @@ body {
   }
 
   .content{
-    .wood-container{
+    .wood-container, .social-container{
       margin-top: 50%;
       .wood-1, .wood-2{
         width: 340px;
@@ -253,7 +270,7 @@ body {
 @media screen and (max-width: 380px) {
 
   .content{
-    .wood-container{
+    .wood-container, .social-container{
       margin-top: 50%;
       .wood-1, .wood-2{
         width: 315px;
@@ -267,11 +284,16 @@ body {
 @media screen and (max-width: 325px) {
 
   .content{
-    .wood-container{
+    .wood-container, .social-container{
       margin-top: 50%;
       .wood-1, .wood-2{
         width: 280px;
         margin-bottom: -20px;
+      }
+      .login-text {
+        font-size: 18px;
+        width: 270px;
+        line-height: 21px;
       }
     }
   }

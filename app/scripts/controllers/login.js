@@ -23,6 +23,8 @@ angular.module('theFarmApp')
       $scope.byebye = false;
       $scope.salutation = false;
       
+      $scope.footerImages = ['rabbit','hen', 'field_login'];
+      $scope.showBarn = false;
 
       $scope.$watch(
         function() {
@@ -39,7 +41,7 @@ angular.module('theFarmApp')
        */
       $scope.IntentLogin = function() {
         Facebook.getLoginStatus(function(response) {
-          if (response.status == 'connected') {
+          if (response.status === 'connected') {
             $scope.logged = true;
             $scope.me(); 
           }
@@ -86,7 +88,7 @@ angular.module('theFarmApp')
             $scope.logged = false;  
           });
         });
-      }
+      };
       
       /**
        * Taking approach of Events :D
@@ -106,7 +108,7 @@ angular.module('theFarmApp')
             // Dismiss byebye message after two seconds
             $timeout(function() {
               $scope.byebye = false;
-            }, 2000)
+            }, 2000);
           });
         }
         
