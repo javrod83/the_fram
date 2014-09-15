@@ -16,7 +16,7 @@
 </div>
 <div class="row-fluid"></div>
 <div class="footer">
-	<img ng-repeat="img in footerImages" class="{{img}}" ng-src="images/{{img}}.png" />
-	<div ng-if="showBarn" class="barn-container"><img class="barn" src="images/barn.png" /></div>
+	<img img-preload ng-repeat="img in footerImages" class="{{img}}" ng-src="images/{{img}}.png" />
+	<div ng-if="showBarn" class="barn-container"><img img-preload class="barn" src="images/barn.png" /></div>
 </div>
 
