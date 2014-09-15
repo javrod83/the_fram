@@ -23,32 +23,28 @@ angular
   .config(function (FacebookProvider,$routeProvider) {
   
 
-    var myAppId = '698019256941090';
+    var myAppId = '698853513524331';
     FacebookProvider.init(myAppId);
 
       $routeProvider.when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
-      })
       .when('/login', {
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl'
       })
-      .when('/userPrompt', {
-        templateUrl: 'views/userPrompt.html',
-        controller: 'UserPromptCtrl'
+      .when('/prompt', {
+        templateUrl: 'views/prompt.html',
+        controller: 'promptCtrl'
       })
-      .when('/textContainer', {
-        templateUrl: 'views/textContainer.html',
-        controller: 'TextContainerCtrl'
+      .when('/text', {
+        templateUrl: 'views/text.html',
+        controller: 'TextCtrl'
       })
-      .when('/imageContainer', {
-        templateUrl: 'views/imageContainer.html',
-        controller: 'ImageContainerCtrl'
+      .when('/photo', {
+        templateUrl: 'views/photo.html',
+        controller: 'PhotoCtrl'
       })
       .otherwise({
         redirectTo: '/'
