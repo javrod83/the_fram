@@ -6,12 +6,102 @@ angular.module('theFarmApp')
         angular.extend(this, data);
     };
 
-
     Collection.model = {
-    	config : {},
-    	data   : {},
-    	init : false
-    }
+    	config       : {},
+    	data         : {},
+        registration : {
+            token        : -1,
+            uid          : -1,
+
+        },
+        lastStatusId : -1,
+        lastVoteId   : -1,
+        status       : {
+            current : {
+                id : -1
+            },
+            last : {
+                id: -1
+            }
+        }
+    };
+
+    Collection.timeStatus = {
+        lastStatus    : -1,
+        lastTerritory : -1 
+    };
+
+    Collection.flags = {
+        logedIn     : false,
+        initialized : false
+    };
+
+    Collection.saveVote = function(vid)
+        {
+            localStorage.vid = vid ;
+        };
+
+    Collection.allReadyVoted = function ()
+        {
+            if (localStorage.vid === undefined)
+               { 
+                    return false;
+                }
+            else
+                {
+                    return (Collection.model.status.current.frame.vote.vid  === localStorage.vid );
+                }
+        };
+
+    Collection.loadLocalLogin = function()
+        {
+            if (localStorage.token !== undefined)
+                {
+                    Collection.model.registration.token = localStorage.token;
+                    Collection.model.registration.uid   = localStorage.uid;
+                    Collection.flags.logedIn            = true ;
+                }
+        };
+
+    Collection.saveLocalLogin = function(token,uid)
+        {
+            localStorage.token = token ;
+            localStorage.uid   = uid; 
+        };
+
+    Collection.setStatusReloadInterval = function(interval,callBack)
+        {
+            setTimeout(function() {
+                callBack(Collection.getStatus()) ; 
+                   
+            }, interval*1000);
+            
+        };
+
+    Collection.setRegionReloadInterval = function (interval)
+        {
+             setTimeout(function() {
+               Collection.getData();
+                   
+            }, interval*1000);
+        };
+
+    Collection.logued =  function()
+        {
+            return (Collection.model.token !== -1 );
+        };
+
+    //aplicacion ready ?  
+    Collection.ready = function ()
+        {
+            return Collection.flags.logedIn === Collection.flags.initialized ;
+        }; 
+
+    //aplicacion its updated? 
+    Collection.updated = function ()
+        {
+            return (Collection.model.status.current.id > -1  && Collection.model.status.current.id > Collection.model.status.last.id);    
+        }; 
 
     Collection.getConfig = function(url) {
         var deferred = $q.defer();
@@ -30,8 +120,13 @@ angular.module('theFarmApp')
         });
     };
 
-    Collection.getData = function(url,tid,filename) {
+    Collection.getData = function() {
         var deferred = $q.defer();
+
+        var url      = Collection.model.config.urls.base;
+        var tid      = Collection.model.config.tid;
+        var filename = Collection.model.config.jsons['territory-data'];
+
         return $http.get(url+tid+'/'+filename).then(function(response) {
             if (response.status === 200) {
             	Collection.model.data= response.data;
@@ -45,11 +140,19 @@ angular.module('theFarmApp')
         });
     };
 
-    Collection.getStatus = function(url,tid,filename) {
+    Collection.getStatus = function() {
+
         var deferred = $q.defer();
+
+        var url = Collection.model.config.urls.base;
+        var tid = Collection.model.config.tid;
+        var filename = Collection.model.config.jsons.status; 
+
         return $http.get(url+tid+'/'+filename).then(function(response) {
             if (response.status === 200) {
                 deferred.resolve(response.data);
+                Collection.model.status.current = response.data; 
+
             } else {
                 deferred.reject({
                     'errorMsg': 'status file ['+filename+'] unreacheable ! '
@@ -74,11 +177,15 @@ angular.module('theFarmApp')
         });
     };
 
-    Collection.postVote = function(url,tid,payload) {
+    Collection.vote = function(payload) {
         var deferred = $q.defer();
+        var url = Collection.model.config.urls.vote;
+        var uid = Collection.model.registration.uid;
+        var token = Collection.model.registration.token;
+
 
         //http://vote.farm.scrnz.com/v?u=<UID>&t=<TOKEN>&vi=<VID>&v=<SELECTION>
-        return $http.post(url+'?u='+payload.uid+'&t='+payload.token+'&vi='+payload.vid+'&v='+payload.selection,{}).then(function(response) {
+        return $http.post(url+'u='+uid+'&t='+token+'&vi='+payload.vid+'&v='+payload.selection,{}).then(function(response) {
             if (response.status === 200) {
                 deferred.resolve(response.data);
             } else {
@@ -92,4 +199,4 @@ angular.module('theFarmApp')
 
     return Collection;
 
-}])
+}]);

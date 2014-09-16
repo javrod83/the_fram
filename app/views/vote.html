@@ -3,11 +3,11 @@
 		<div class="rope"></div>
 	</div> -->
 	<div class="title-container">
-		<p ng-model="title"></p>
+		<p ng-bind="title"></p>
 	 </div>
-	 <ul class="wood-container">
-	 	<li></li>
-	 	<li class="wood-1"></li>
+	 <ul class="wood-container" ng-repeat="option in options">
+	 
+	 	<li data-vote-option></li>
 	 	<li class="wood-2"></li>
 	 	<li class="wood-1"></li>
 	 </ul>
