@@ -45,13 +45,12 @@ body {
 }
 
 .overlay{
-  display: none;
   background-color: #007dc5;
   opacity: 0.5;
   width: 100%;
   height: 100%;
   position: absolute;
-  z-index: 3;
+  z-index: 6;
 }
 
 .content{
@@ -62,6 +61,7 @@ body {
     margin-left: -20px;
     z-index: 6;
     margin-top: 57%;
+    z-index: 5;
     li {
       list-style: none;
     }
@@ -95,10 +95,9 @@ body {
   }
 
   .hen-container{
-    display: none;
     .hen_big, .hands, .thanks-for-voting{
       position: absolute;
-      z-index: 5;
+      z-index: 7;
       bottom: 0;
     }
 
@@ -114,7 +113,7 @@ body {
     }
 
     .thanks-for-voting{
-      z-index: 6;
+      z-index: 10;
       left: 41%;
       margin-bottom: 95px;
       width: 200px;
