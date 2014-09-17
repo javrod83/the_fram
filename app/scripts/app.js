@@ -16,7 +16,6 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'directives.voteOption',
     'facebook'
   ])
 
