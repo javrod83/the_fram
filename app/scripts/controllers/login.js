@@ -15,10 +15,6 @@ angular.module('theFarmApp')
     'FarmServices',
    function ($scope, $timeout, Facebook, FarmServices) {
 // Define user empty data :/
-
-      if (!FarmServices.flags.initialized){ 
-        window.location.href = '#/';  
-      }
           
       $scope.user = {};
 

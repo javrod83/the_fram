@@ -36,19 +36,55 @@ angular
       })
       .when('/prompt', {
         templateUrl: 'views/prompt.html',
-        controller: 'PromptCtrl'
+        controller: 'PromptCtrl',
+        resolve:{
+          check:[ 'FarmServices', function(FarmServices) {
+            if(FarmServices._ready()){
+              window.location.href = '#/prompt';
+            }else{
+              window.location.href = '/';
+            }
+          }
+        }
       })
       .when('/vote', {
         templateUrl: 'views/vote.html',
-        controller: 'VoteCtrl'
+        controller: 'VoteCtrl',
+        resolve:{
+          check:[ 'FarmServices', function(FarmServices) {
+            if(FarmServices._ready()){
+              window.location.href = '#/vote';
+            }else{
+              window.location.href = '/';
+            }
+          }
+        }
       })
       .when('/text', {
         templateUrl: 'views/text.html',
-        controller: 'TextCtrl'
+        controller: 'TextCtrl',
+        resolve:{
+          check:[ 'FarmServices', function(FarmServices) {
+            if(FarmServices._ready()){
+              window.location.href = '#/text';
+            }else{
+              window.location.href = '/';
+            }
+          }
+        }
       })
       .when('/photo', {
         templateUrl: 'views/photo.html',
-        controller: 'PhotoCtrl'
+        controller: 'PhotoCtrl',
+        resolve:{
+          check:[ 'FarmServices', function(FarmServices) {
+            if(FarmServices._ready()){
+              window.location.href = '#/photo';
+            }else{
+              window.location.href = '/';
+            }
+          }
+        }
       })
       .otherwise({
         redirectTo: '/'

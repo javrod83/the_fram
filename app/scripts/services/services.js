@@ -66,6 +66,7 @@ angular.module('theFarmApp')
             return (Collection.token !== -1 );
         },
         _ready : function (){
+            localStorage.ready = (Collection.flags.logedIn === Collection.flags.initialized);
             return Collection.flags.logedIn === Collection.flags.initialized ;
         },
         _updatedStatus : function (){

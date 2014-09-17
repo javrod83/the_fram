@@ -68,9 +68,6 @@ angular.module('theFarmApp')
 
   	//activity
   		
-  		/*if (!FarmServices._ready()){
-			window.location.href = '#/';	
-		}*/
   		console.log(FarmServices._updatedStatus())
   		
   		if (FarmServices._updatedStatus()){
