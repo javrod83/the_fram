@@ -64,14 +64,6 @@ angular.module('theFarmApp')
 
   		}
 
-		//atributes
-
-  		//open     : Votation Open
-  		//closed   : Votation Closed
-  		//warning  : Votation AboutToClose
-  		//success  : Votacion success
-		//$scope.state = 'open';
-
 
   	//activity
   		

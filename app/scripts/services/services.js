@@ -52,10 +52,10 @@ angular.module('theFarmApp')
             localStorage.token = token ;
             localStorage.uid   = uid; 
         },
-        _setStatusReloadInterval : function(interval,callBack){
+        _setStatusReloadInterval : function(callBack){
             setTimeout(function() {
                 callBack(Collection.getStatus()) ; 
-            }, interval*1000);
+            }, Collection.status.current.interval*1000);
         },
         _setRegionReloadInterval : function (interval){
              setTimeout(function() {
@@ -126,6 +126,27 @@ angular.module('theFarmApp')
                 return deferred.promise;
             });
         },
+        getPhotoMock : function() {
+            var deferred = $q.defer();
+
+            var url = 'api/';
+            var tid = '9';
+            var filename = "status_photo.json"; 
+
+            return $http.get(url+tid+'/'+filename).then(function(response) {
+                if (response.status === 200) {
+                    deferred.resolve(response.data);
+                    Collection.status.current = response.data; 
+
+                } else {
+                    deferred.reject({
+                        'errorMsg': 'status file ['+filename+'] unreacheable ! '
+                    });
+                }
+                return deferred.promise;
+            });
+        },
+
         register : function(url,tid,payload) {
             var deferred = $q.defer();
 

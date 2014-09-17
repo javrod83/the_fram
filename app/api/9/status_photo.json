@@ -6,8 +6,8 @@
     "type": "photo",
     "status": "11", 
     "media": {
-      "large": "http://cdn.farm.scrnz.com/showData/9/stam_large.jpg",
-      "medium": "http://cdn.farm.scrnz.com/showData/9/stam_medium.jpg"
+      "large": "/media/joker.jpg",
+      "medium": "/media/joker.jpg"
     }
   },
   "interval": 2,
