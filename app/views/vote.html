@@ -1,10 +1,17 @@
+<div class="overlay"></div>
+
 <div class="content">
 	<!-- <div class="rope-container-left">
 		<div class="rope"></div>
 	</div> -->
+	<div class="hen-container">
+		<img class="hen_big" img-preload src="images/hen_big.png">
+		<p class="login-text thanks-for-voting">Thank you for Voting</p>
+		<img class="hands" img-preload src="images/hands.png">
+	</div>
 	 <ul class="wood-container" ng-repeat="option in options">
 	 	<p class="login-text">{{title}}</p>
-	 	<li class="wood-1" ng-repeat='opt in options' ng-click='answer(opt.id)'>{{opt.text}}</li>
+	 	<li class="wood-1" ng-repeat='opt in options' ng-click='answer(opt.id)'><p class="answer-text">{{opt.text}}</p></li>
 	 	<!-- <li class="wood-2"></li>
 	 	<li class="wood-1"></li> -->
 	 </ul>
