@@ -15,6 +15,11 @@ angular.module('theFarmApp')
     'FarmServices',
    function ($scope, $timeout, Facebook, FarmServices) {
 // Define user empty data :/
+
+      if (!FarmServices.flags.initialized){ 
+        window.location.href = '#/';  
+      }
+          
       $scope.user = {};
 
       $scope.title = FarmServices.data.dictionary.login.title;
@@ -35,11 +40,6 @@ angular.module('theFarmApp')
       }
 
       $scope.show = FarmServices.config.social;
-
-      if (!FarmServices.init){ //flags.initialized??
-        window.location.href = '#/';  
-      }
-          
       // Defining user logged status
       $scope.logged = true;
       

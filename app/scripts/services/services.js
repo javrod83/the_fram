@@ -31,11 +31,12 @@ angular.module('theFarmApp')
             localStorage.vid = vid;
         },
         _allReadyVoted : function (){
-            if (localStorage.vid === undefined){ 
-                return false;
-            }else{
-                return (Collection.status.current.frame.vote.vid  === localStorage.vid );
-            }
+            return (localStorage.vid === undefined)?false:(Collection.status.current.frame.vote.vid  === localStorage.vid );
+            // if (localStorage.vid === undefined){ 
+            //     return false;
+            // }else{
+            //     return (Collection.status.current.frame.vote.vid  === localStorage.vid );
+            // }
         },
         _loadLocalLogin : function(){
             if (localStorage.token !== undefined){
@@ -67,7 +68,7 @@ angular.module('theFarmApp')
         _ready : function (){
             return Collection.flags.logedIn === Collection.flags.initialized ;
         },
-        _updated : function (){
+        _updatedStatus : function (){
             return (Collection.status.current.id > -1  && Collection.status.current.id > Collection.status.last.id);    
         },
         getConfig : function(url) {
@@ -95,7 +96,7 @@ angular.module('theFarmApp')
 
             return $http.get(url+tid+'/'+filename).then(function(response) {
                 if (response.status === 200) {
-                    Collection.data= response.data;
+                    Collection.data = response.data;
                     deferred.resolve(response.data);
                 } else {
                     deferred.reject({
@@ -139,14 +140,17 @@ angular.module('theFarmApp')
                 return deferred.promise;
             });
         },
-        vote : function(payload) {
+        _vote : function(id) {
             var deferred = $q.defer();
             var url = Collection.config.urls.vote;
             var uid = Collection.registration.uid;
             var token = Collection.registration.token;
+            var vid = Collection.status.current.frame.vote.vid;
+
+            Collection._saveVote(vid);
 
             //http://vote.farm.scrnz.com/v?u=<UID>&t=<TOKEN>&vi=<VID>&v=<SELECTION>
-            return $http.post(url+'u='+uid+'&t='+token+'&vi='+payload.vid+'&v='+payload.selection,{}).then(function(response) {
+            return $http.post(url+'u='+uid+'&t='+token+'&vi='+vid+'&v='+id,{}).then(function(response) {
                 if (response.status === 200) {
                     deferred.resolve(response.data);
                 } else {

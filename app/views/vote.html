@@ -2,14 +2,11 @@
 	<!-- <div class="rope-container-left">
 		<div class="rope"></div>
 	</div> -->
-	<div class="title-container">
-		<p ng-bind="title"></p>
-	 </div>
 	 <ul class="wood-container" ng-repeat="option in options">
-	 
-	 	<li data-vote-option></li>
-	 	<li class="wood-2"></li>
-	 	<li class="wood-1"></li>
+	 	<p class="login-text">{{title}}</p>
+	 	<li class="wood-1" ng-repeat='opt in options' ng-click='answer(opt.id)'>{{opt.text}}</li>
+	 	<!-- <li class="wood-2"></li>
+	 	<li class="wood-1"></li> -->
 	 </ul>
 
 
@@ -17,6 +14,11 @@
 	 <!-- <div class="rope-container-right">
 	 	<div class="rope"></div>
 	 </div> -->
+</div>
+
+<div class="footer">
+	<img img-preload ng-repeat="img in footerImages" class="{{img}}" ng-src="images/{{img}}.png" />
+	<div ng-if="showBarn" class="barn-container"><img img-preload class="barn" src="images/barn.png" /></div>
 </div>
 
   

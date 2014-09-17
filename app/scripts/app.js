@@ -37,7 +37,11 @@ angular
       })
       .when('/prompt', {
         templateUrl: 'views/prompt.html',
-        controller: 'promptCtrl'
+        controller: 'PromptCtrl'
+      })
+      .when('/vote', {
+        templateUrl: 'views/vote.html',
+        controller: 'VoteCtrl'
       })
       .when('/text', {
         templateUrl: 'views/text.html',
