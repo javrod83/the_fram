@@ -19,29 +19,37 @@ angular.module('theFarmApp')
   		$scope.initialized = false;
   		$scope.logued = false;
 
+  		FarmServices.getConfig(configUrl).
+  			then(function(res){
+				  return FarmServices.getData(res.urls.base, res.tid, res.jsons['territory-data']);
+        }).
+        then(function(res){
+          console.log('data.json success');
+          
+          FarmServices.flags.initialized = true;
 
-
-
-
-
-  		FarmServices.getConfig(configUrl)
-  			.then(function(res){
-  				//onsole.log('config.json success');
-  				//$scope.config = res; 
-				getData(res);
-  		
-
+          if (FarmServices._loadLocalLogin()){
+            console.log('already logged');
+            if (FarmServices._allReadyVoted()){
+              console.log('already voted');
+              // saltar a #vote
+            }else{
+              console.log('i haveto vote');
+              //leer el estatus y saltar a esa vista 
+            }
+          }else{
+            window.location.href = '#/login';
+          }
+          console.log(res);
+          //window.location.href = '#/login'
   			},function(err){
-  				console.log('config.json error');
   				console.log(err);
-  				
   			});
 
 
 
 
-  		function getData(res)
-  				{
+  		/*function getData(res){
   					console.log('get data');
   					console.log(res);
   	
@@ -83,13 +91,13 @@ angular.module('theFarmApp')
 		  				console.log(err);
 		  				
 		  			});
-  				}
+  				}*/
 
-    function checkLogin()
+    /*function checkLogin()
           {}
 
   function checkVoted()
-      {}
+      {}*/
 
 
 

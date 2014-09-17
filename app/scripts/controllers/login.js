@@ -17,15 +17,29 @@ angular.module('theFarmApp')
 // Define user empty data :/
       $scope.user = {};
 
-      renderView();
+      $scope.title = FarmServices.data.dictionary.login.title;
 
-      if (!FarmServices.model.init)
-          {
-            window.location.href = '#/';  
-          }
+      $scope.facebook = {
+        title : FarmServices.data.dictionary.login.facebook,
+        error : FarmServices.data.dictionary.login.facebook,
+      }
+
+      $scope.twitter = {
+        title : FarmServices.data.dictionary.login.twitter,
+        error : FarmServices.data.dictionary.login.twitter,
+      }
+
+      $scope.google = {
+        title : FarmServices.data.dictionary.login.google,
+        error : FarmServices.data.dictionary.login.google,
+      }
+
+      $scope.show = FarmServices.config.social;
+
+      if (!FarmServices.init){ //flags.initialized??
+        window.location.href = '#/';  
+      }
           
-
-
       // Defining user logged status
       $scope.logged = true;
       
@@ -36,19 +50,16 @@ angular.module('theFarmApp')
       $scope.footerImages = ['rabbit','hen', 'field_login'];
       $scope.showBarn = false;
 
-      $scope.$watch(
-        function() {
+      $scope.$watch(function() {
           return Facebook.isReady();
-        },
-        function(newVal) {
-          if (newVal)
-           { $scope.facebookReady = true;}
+        }, function(newVal) {
+          if (newVal) { $scope.facebookReady = true;}
         }
       );
 
-            /**
+      /**
        * IntentLogin
-       */
+      */
       $scope.IntentLogin = function() {
         Facebook.getLoginStatus(function(response) {
           if (response.status === 'connected') {
@@ -100,43 +111,6 @@ angular.module('theFarmApp')
         });
       };
       
-
-
-
-
-
-
-
-      /*
-      set view 
-
-      */
-
-      function renderView()
-        {
-          
-
-           $scope.title = FarmServices.model.data.dictionary.login.title;
-
-           $scope.facebook = {
-              title : FarmServices.model.data.dictionary.login.facebook,
-              error : FarmServices.model.data.dictionary.login.facebook,
-           }
-
-           $scope.twitter = {
-              title : FarmServices.model.data.dictionary.login.twitter,
-              error : FarmServices.model.data.dictionary.login.twitter,
-            }
-
-            $scope.google = {
-                title : FarmServices.model.data.dictionary.login.google,
-                error : FarmServices.model.data.dictionary.login.google,
-             }
-
-           $scope.show = FarmServices.model.config.social;
-        }
-
-
       /**
        * Taking approach of Events :D
        */
