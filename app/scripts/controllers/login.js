@@ -53,6 +53,52 @@ angular.module('theFarmApp')
         }
       );
 
+
+
+
+      function fbLogued(data)
+        {
+          //activity
+
+          var arguments = {
+            id: 'fb',
+            network: 'facebook',
+            token: 'facebookfacebookfacebookfacebookfacebook'
+          } 
+          FarmServices._saveSocial(arguments);
+          window.location.href = '#/prompt';
+        }
+
+      function gLogued()
+        {
+          //activity
+
+          var arguments = {
+            id: 'g',
+            network: 'google',
+            token: 'googlegooglegooglegooglegooglegooglegoogle'
+          } 
+          FarmServices._saveSocial(arguments);
+          window.location.href = '#/prompt';
+        }
+      function twLogued()
+        {
+          //activity
+
+          var arguments = {
+            id: 'tw',
+            network: 'twitter',
+            token: 'twittertwittertwittertwittertwittertwitter'
+          } 
+
+          FarmServices._saveSocial(arguments);
+          window.location.href = '#/prompt';
+
+        }
+
+
+
+
       /**
        * IntentLogin
       */
@@ -113,23 +159,12 @@ angular.module('theFarmApp')
       $scope.$on('Facebook:statusChange', function(ev, data) {
         console.log('Status: ', data);
         if (data.status === 'connected') {
-          $scope.$apply(function() {
-            $scope.salutation = true;
-            $scope.byebye     = false;    
-          });
+          fbLogued(data);
         } else {
-          $scope.$apply(function() {
-            $scope.salutation = false;
-            $scope.byebye     = true;
-            
-            // Dismiss byebye message after two seconds
-            $timeout(function() {
-              $scope.byebye = false;
-            }, 2000);
-          });
+
         }
-        
       });
+
 
 
   }]);
