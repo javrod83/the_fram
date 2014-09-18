@@ -1,12 +1,13 @@
 <div class="content">
-	<div class="title-container">
-    <p ng-model="title">{{title}}</p>
-   </div>
-   <ul class="wood-container">
-    <li class="wood-1"></li>
-   </ul>
-   <div class="text-container" >
-   	{{txt}}
+	
+   <div class="photo-container" >
+   		<p class="login-text board-text">Bacon ipsum dolor sit amet turkey tongue tenderloin, frankfurter pork kielbasa chicken tri-tip drumstick sirloin landjaeger brisket. Shankle jowl meatball, tongue turkey filet mignon strip steak pork.</p>
+   		<img class="frame" src="images/board.png" />
    </div>
 
+</div>
+
+<div class="footer">
+	<img img-preload ng-repeat="img in footerImages" class="{{img}}" ng-src="images/{{img}}.png" />
+	<div ng-if="showBarn" class="barn-container"><img img-preload class="barn" src="images/barn.png" /></div>
 </div>

@@ -38,7 +38,7 @@ angular.module('theFarmApp')
               //leer el estatus y saltar a esa vista 
             }
           }else{
-            window.location.href = '#/prompt';
+            window.location.href = '#/login';
           }
           console.log(res);
           //window.location.href = '#/login'

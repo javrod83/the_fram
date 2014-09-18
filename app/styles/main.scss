@@ -185,6 +185,13 @@ body {
       margin-top: -10px;
       z-index: 5;
     }
+    .board-text{
+      position: absolute;
+      left: 33%;
+      top: 395px;
+      z-index: 7;
+      width: 335px;
+    }
   }
 
   .rope-container-left, .rope-container-right{

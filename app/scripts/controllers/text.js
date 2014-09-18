@@ -12,6 +12,8 @@ angular.module('theFarmApp')
 	
 	 //atributes
     	$scope.txt = '' ; 
+    	$scope.footerImages = ['cow','cow_big', 'ostrich', 'sheep', 'sheep_big', 'field', 'field_big'];
+    	$scope.showBarn = true;
 
     //methods
     	function check(){
@@ -30,7 +32,7 @@ angular.module('theFarmApp')
 					});
 				}
 			}else{
-				window.location.href = '#/'+FarmServices.status.current.frame.type;
+				//window.location.href = '#/'+FarmServices.status.current.frame.type;
 			}		
 		}
 
