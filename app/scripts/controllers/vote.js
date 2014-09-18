@@ -90,16 +90,6 @@ angular.module('theFarmApp')
 				});
 		}
   			
-  			//case status
-	  			//pregunta nueva
-	  				//pintar
-	  				//transicion in 
 
-	  			//pregunta se vencio
-	  				//mostrar cartel de se paso tiempo de votar
-
-	  			//cambio status
-	  				//redirect status tipe 
-  			
 
   }]);
