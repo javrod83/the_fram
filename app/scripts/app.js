@@ -32,17 +32,31 @@ angular
       })
       .when('/login', {
         templateUrl: 'views/login.html',
-        controller: 'LoginCtrl'
+        controller: 'LoginCtrl',
+        resolve:{
+          check:[ 'FarmServices', function(FarmServices) {
+            if(FarmServices._initilized()){
+              console.log('initialized view #/login');
+              window.location.href = '#/login';
+            }else{
+              console.log('not initialized view #/login');
+              window.location.href = '/';
+            }
+          }]
+        }
+
       })
       .when('/prompt', {
         templateUrl: 'views/prompt.html',
         controller: 'PromptCtrl',
         resolve:{
           check:[ 'FarmServices', function(FarmServices) {
-            if(FarmServices._ready()){
+            if(FarmServices._initilized()){
+              console.log('initialized view #/prompt');
               window.location.href = '#/prompt';
             }else{
-              window.location.href = '#/prompt';
+              console.log('not initialized view #/prompt');
+              window.location.href = '/';
             }
           }]
         }
@@ -53,8 +67,10 @@ angular
         resolve:{
           check:[ 'FarmServices', function(FarmServices) {
             if(FarmServices._ready()){
+              console.log('ready view #/vote');
               window.location.href = '#/vote';
             }else{
+              console.log('not ready view #/vote');
               window.location.href = '/';
             }
           }]
@@ -66,8 +82,10 @@ angular
         resolve:{
           check:[ 'FarmServices', function(FarmServices) {
             if(FarmServices._ready()){
+              console.log('ready view #/text');
               window.location.href = '#/text';
             }else{
+              console.log('not ready view #/text');
               window.location.href = '/';
             }
           }]
@@ -79,8 +97,10 @@ angular
         resolve:{
           check:[ 'FarmServices', function(FarmServices) {
             if(FarmServices._ready()){
+              console.log('ready view #/photo');
               window.location.href = '#/photo';
             }else{
+              console.log('not ready view #/photo');
               window.location.href = '/';
             }
           }]

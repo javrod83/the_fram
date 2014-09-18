@@ -11,6 +11,11 @@ angular.module('theFarmApp')
   .controller('MainCtrl',['FarmServices','$scope',
     function (FarmServices,$scope) {
     
+      $scope.resetMock = function()
+        {
+          FarmServices._forgetState();
+        }
+
       $scope.footerImages = ['cow','cow_big', 'ostrich', 'sheep', 'sheep_big', 'field', 'field_big'];
       $scope.showBarn = true;
 
@@ -32,13 +37,20 @@ angular.module('theFarmApp')
             console.log('already logged');
             if (FarmServices._allReadyVoted()){
               console.log('already voted');
-              // saltar a #vote
+              window.location.href = '#/vote';
             }else{
               console.log('i haveto vote');
-              //leer el estatus y saltar a esa vista 
+                FarmServices.getStatus().then(function(data){
+                  console.log(data);
+                  window.location.href = '#/'+data.frame.type;
+                },function(err){
+                promptError(FarmServices.data.dictionary.error.connection);
+                console.log(err);
+                }); 
+
             }
           }else{
-            window.location.href = '#/prompt';
+            window.location.href = '#/login';
           }
           console.log(res);
           //window.location.href = '#/login'

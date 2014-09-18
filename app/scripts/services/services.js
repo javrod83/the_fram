@@ -50,11 +50,21 @@ angular.module('theFarmApp')
             loged : false,
             initialized : false
         },
+        _forgetState : function(){
+            localStorage.removeItem('vid');
+            localStorage.removeItem('token');
+            localStorage.removeItem('uid');
+        },
+        _setPicAproved: function(desition)
+        {
+            Collection.registration.params.picApproved = desition ; 
+        },
         _saveVote : function(vid){
             localStorage.vid = vid;
         },
-        _allReadyVoted : function (){
-            return (localStorage.vid === undefined)?false:(Collection.status.current.frame.vote.vid  === localStorage.vid );
+        _allreadyVoted : function (){
+            console.log(Collection.status);
+            return (localStorage.vid === 'undefined')?false:(Collection.status.current.frame.vote.vid  === localStorage.vid );
             // if (localStorage.vid === undefined){ 
             //     return false;
             // }else{
@@ -68,7 +78,7 @@ angular.module('theFarmApp')
                 Collection.flags.logedIn       = true ;
                 return true;
             }else{
-                return false
+                return false;
             }
         },
         _saveLocalLogin : function(token,uid){
@@ -93,6 +103,9 @@ angular.module('theFarmApp')
         },
         _ready : function (){
             return ( Collection.flags.loged && Collection.flags.initialized )  ;
+        },
+        _initilized : function(){
+            return Collection.flags.initialized;
         },
         _updatedStatus : function (){
             return (Collection.status.current.id > -1  && Collection.status.current.id > Collection.status.last.id);    
@@ -155,9 +168,9 @@ angular.module('theFarmApp')
         getPhotoMock : function() {
             var deferred = $q.defer();
 
-            var url = 'api/';
-            var tid = '9';
-            var filename = "status_photo.json"; 
+            var url      = 'api/' ;
+            var tid      = '9' ;
+            var filename = 'status_photo.json' ; 
 
             return $http.get(url+tid+'/'+filename).then(function(response) {
                 if (response.status === 200) {
@@ -177,7 +190,7 @@ angular.module('theFarmApp')
 
             var url = 'api/';
             var tid = '9';
-            var filename = "status_text.json"; 
+            var filename = 'status_text.json'; 
 
             return $http.get(url+tid+'/'+filename).then(function(response) {
                 if (response.status === 200) {
@@ -194,11 +207,20 @@ angular.module('theFarmApp')
         },
         _saveSocial: function(args){
             //save argumments to register params 
-        },
-        register : function(url) {
-            var deferred = $q.defer();
 
-            return $http.post(url,Collection.registration.params).then(function(response) {
+                Collection.registration.params.socialId      =  args.id ;
+                Collection.registration.params.socialNetwork = args.network ;
+                Collection.registration.params.socialToken   = args.token ;
+        },
+        register : function() {
+            var deferred = $q.defer();
+            
+            var url    = Collection.config.urls.login;
+            var params = Collection.registration.params;
+            console.log("register url:"+url+" params: ");
+            console.log(params);
+            //return $http.post(url,params).then(function(response) {
+            return $http.get(url).then(function(response) {
                 if (response.status === 200) {
                     deferred.resolve(response.data);
                     // storear el token  y el uid 
@@ -234,9 +256,7 @@ angular.module('theFarmApp')
                 return deferred.promise;
             });
         }
-    }
-
-	
+    };
 
     return Collection;
 

@@ -8,7 +8,7 @@
   },
   "urls": {
     "base": "/api/",
-    "login": "http://register.farm.scrnz.com/register.php",
+    "login": "/api/login_success.json",
     "vote": "http://vote.farm.scrnz.com/v?"
   },
   "social": {

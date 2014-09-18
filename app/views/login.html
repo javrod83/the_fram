@@ -3,13 +3,15 @@
 	<ul class="social-container">
 		<p class="login-text">{{title}}</p>
 		<li>
-			<a data-ng-show="!logged" data-ng-disabled="!facebookReady" data-ng-click="IntentLogin()"><img class="social-buttons" src="images/fb-sign.png" /></a>
+			<!--<a  ng-click="network['fbSocial']()" data-ng-disabled="!facebookReady" data-ng-click="IntentLogin()"><img class="social-buttons" src="images/fb-sign.png" /></a>
+			-->
+			<a  ng-click="network['fbSocial']()"><img class="social-buttons" src="images/fb-sign.png" /></a>
 		</li>
 		<li>
-			<a><img class="social-buttons" src="images/twitter-sign.png" /></a>
+			<a  ng-click="network['twSocial']()"><img class="social-buttons" src="images/twitter-sign.png" /></a>
 		</li>
 		<li>
-			<a><img class="social-buttons" src="images/google-sign.png" /></a>
+			<a ng-click="network['gSocial']()"><img class="social-buttons" src="images/google-sign.png" /></a>
 		</li>
 	</ul>
 </div>

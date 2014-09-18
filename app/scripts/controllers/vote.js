@@ -75,8 +75,10 @@ angular.module('theFarmApp')
   		console.log(FarmServices._updatedStatus())
   		
   		if (FarmServices._updatedStatus()){
+  			console.log(FarmServices);
   			if(FarmServices._allreadyVoted()){
-				$scope.success= true  ; 
+				$scope.success = true  ; 
+				$scope.overlay = true;
 			}else{
 				check();
 			}

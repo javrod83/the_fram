@@ -20,14 +20,16 @@ angular.module('theFarmApp')
 
   		$scope.approve = function(desition)
   			{
-  				FarmServices.setPicAproved(desition);
+          console.log("desition: "+desition);
+  				FarmServices._setPicAproved(desition);
   				FarmServices.register().then(function(data){
   					
   					if (data.result === 'success')
   						{
   							FarmServices._saveLocalLogin(data.authToken,data.uid);
   							FarmServices.getStatus().then(function(data){
-  								window.location.href = '#/'+data.status.current.frame.type;
+  								console.log(data);
+                  window.location.href = '#/'+data.frame.type;
   							},function(err){
 								promptError(FarmServices.data.dictionary.error.connection);
 								console.log(err);

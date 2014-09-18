@@ -22,10 +22,12 @@
 
     <!-- Add your site or application content here -->
 
-    <div class="mobile-container">
+    <div class="mobile-container" ng-controller="MainCtrl">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <a ng-href="#"><img class="closeHeader" src="images/close.png"/></a>
+            <a ng-href="#" ng-click="resetMock()">
+                <img class="closeHeader" src="images/close.png"/>
+            </a>
         </ul>
         <img class="logo" src="images/logo.png" /> 
       </div>

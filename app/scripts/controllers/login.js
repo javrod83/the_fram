@@ -17,7 +17,7 @@ angular.module('theFarmApp')
 // Define user empty data :/
           
       $scope.user = {};
-
+      console.log(FarmServices.data);
       $scope.title = FarmServices.data.dictionary.login.title;
 
       $scope.facebook = {
@@ -37,6 +37,40 @@ angular.module('theFarmApp')
 
       $scope.show = FarmServices.config.social;
 
+
+      $scope.network = {
+            fbSocial :function (data){
+            
+                FarmServices._saveSocial({
+                  id: 'fb',
+                  network: 'facebook',
+                  token: 'facebookfacebookfacebookfacebookfacebook'
+                });
+               window.location.href = '#/prompt';
+              } , 
+            twSocial : function (){
+
+              FarmServices._saveSocial({
+                  id: 'tw',
+                  network: 'twitter',
+                  token: 'twittertwittertwittertwittertwittertwitter'
+                });
+              window.location.href = '#/prompt';
+          }, 
+            gSocial :function () {
+
+              FarmServices._saveSocial({
+                id: 'g',
+                network: 'google',
+                token: 'googlegooglegooglegooglegooglegooglegoogle'
+              });
+              window.location.href = '#/prompt';
+          } 
+        };
+
+
+
+
       // Defining user logged status
       $scope.logged = true;
       
@@ -54,45 +88,19 @@ angular.module('theFarmApp')
         }
       );
 
-      function fbLogued(data)
-        {
 
-          //activity
-          var args  = {
-            id: 'fb',
-            network: 'facebook',
-            token: 'facebookfacebookfacebookfacebookfacebook'
-          };
 
-          FarmServices._saveSocial(args);
-          window.location.href = '#/prompt';
-        }
 
-      function gLogued()
-        {
-          //activity
-          var args = {
-            id: 'g',
-            network: 'google',
-            token: 'googlegooglegooglegooglegooglegooglegoogle'
-          } 
-          FarmServices._saveSocial(args);
-          window.location.href = '#/prompt';
-        }
+      
 
-      function twLogued()
-        {
-          //activity
-          var args  = {
-            id: 'tw',
-            network: 'twitter',
-            token: 'twittertwittertwittertwittertwittertwitter'
-          };
 
-          FarmServices._saveSocial(args);
-          window.location.href = '#/prompt';
-        }
 
+      
+
+
+      
+
+      
       /**
        * IntentLogin
       */
@@ -153,12 +161,10 @@ angular.module('theFarmApp')
       $scope.$on('Facebook:statusChange', function(ev, data) {
         console.log('Status: ', data);
         if (data.status === 'connected') {
-          fbLogued(data);
+         //$scope.networks['fbSocial'](data);
         } else {
 
         }
       });
-
-
 
   }]);
