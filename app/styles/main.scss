@@ -65,18 +65,27 @@ body {
     li {
       list-style: none;
     }
-    .wood-1, .wood-2{
+    .wood-1, .wood-2, .wood-agree, .wood-disagree{
       width: 335px;
       height: 78px;
       background-size: 100%;
       background-repeat: no-repeat;
       text-align: center;
     }
+    .wood-agree, .wood-disagree{
+      height: 100px;
+    }
     .wood-1{
       background-image: url('../images/wood-1.png');
     }
     .wood-2{
       background-image: url('../images/wood-2.png'); 
+    }
+    .wood-agree{
+      background-image: url('../images/wood-agree.png');
+    }
+    .wood-disagree{
+      background-image: url('../images/wood-disagree.png'); 
     }
     .social-buttons{
       @include center-block;
@@ -89,8 +98,14 @@ body {
       font-size: 26px;
       padding-top: 20px;
     }
-    .answer-text:active{
+    .answer-text:active, .success-text:active, .error-text:active{
       color: #fff;
+    }
+    .success-text{
+      color: #8dc63f;
+    }
+    .error-text{
+      color: #e06e4d;
     }
   }
 
@@ -253,7 +268,7 @@ body {
   .content{
     .wood-container, .social-container{
       margin: 20% 0 0 25%;
-      .wood-1, .wood-2{
+      .wood-1, .wood-2, .wood-agree, .wood-disagree{
         width: 435px;
         margin-bottom: 10px;
         background-size: 100%;
@@ -311,7 +326,7 @@ body {
   .content{
     .wood-container, .social-container{
       margin-top: 50%;
-      .wood-1, .wood-2{
+      .wood-1, .wood-2, .wood-agree, .wood-disagree{
         width: 375px;
         margin-bottom: 0px;
       }
@@ -340,7 +355,7 @@ body {
   .content{
     .wood-container, .social-container{
       margin-top: 50%;
-      .wood-1, .wood-2{
+      .wood-1, .wood-2, .wood-agree, .wood-disagree{
         width: 340px;
         margin-bottom: -5px;
       }
@@ -354,7 +369,7 @@ body {
   .content{
     .wood-container, .social-container{
       margin-top: 50%;
-      .wood-1, .wood-2{
+      .wood-1, .wood-2, .wood-agree, .wood-disagree{
         width: 315px;
         margin-bottom: -10px;
       }
@@ -368,7 +383,7 @@ body {
   .content{
     .wood-container, .social-container{
       margin-top: 50%;
-      .wood-1, .wood-2{
+      .wood-1, .wood-2, .wood-agree, .wood-disagree{
         width: 280px;
         margin-bottom: -20px;
       }

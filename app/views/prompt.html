@@ -1,18 +1,21 @@
-	<div class="content">
-		<!-- <div class="rope-container-left">
-			<div class="rope"></div>
-		</div> -->
-		<div class="title-container">
-			<p ng-model="title">{{title}}</p>
-		</div>
+<div class="content">
+	<!-- <div class="rope-container-left">
+		<div class="rope"></div>
+	</div> -->
 
-		 <ul class="wood-container">
-		 	<li class="wood-agree" ng-click="approve(1)">{{yes}}</li>
+	 <ul class="wood-container">
+	 	<p class="login-text">{{title}}</p>
+	 	<li class="wood-agree" ng-click="approve(1)"><p class="answer-text success-text">{{yes}}</p></li>
+	 	<li class="wood-disagree" ng-click="approve(1)"><p class="answer-text error-text">{{no}}</p></li>
+	 </ul>
+	 <!-- <div class="rope-container-right">
+	 	<div class="rope"></div>
+	 </div> -->
+</div>
 
-		 	<li class="wood-disagree" ng-click="approve(1)">{{no}}</li>
-		 </ul>
-		 <!-- <div class="rope-container-right">
-		 	<div class="rope"></div>
-		 </div> -->
-	</div>
+<div class="footer">
+	<img img-preload ng-repeat="img in footerImages" class="{{img}}" ng-src="images/{{img}}.png" />
+	<div ng-if="showBarn" class="barn-container"><img img-preload class="barn" src="images/barn.png" /></div>
+</div>
+
 

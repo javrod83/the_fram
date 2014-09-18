@@ -42,7 +42,7 @@ angular
             if(FarmServices._ready()){
               window.location.href = '#/prompt';
             }else{
-              window.location.href = '/';
+              window.location.href = '#/prompt';
             }
           }]
         }

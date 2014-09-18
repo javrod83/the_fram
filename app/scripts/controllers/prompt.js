@@ -10,11 +10,13 @@
 angular.module('theFarmApp')
   .controller('PromptCtrl',['$scope','FarmServices', function ($scope,FarmServices) {
 
+      $scope.footerImages = ['cow','cow_big', 'ostrich', 'sheep', 'sheep_big', 'field', 'field_big'];
+      $scope.showBarn = true;
   		$scope.overlay = false; 
 
-		$scope.title = FarmServices.data.dictionary['pic-approve'].title;
-		$scope.yes   = FarmServices.data.dictionary['pic-approve'].yes;
-		$scope.no    = FarmServices.data.dictionary['pic-approve'].no;
+  		$scope.title = FarmServices.data.dictionary['pic-approve'].title;
+  		$scope.yes   = FarmServices.data.dictionary['pic-approve'].yes;
+  		$scope.no    = FarmServices.data.dictionary['pic-approve'].no;
 
   		$scope.approve = function(desition)
   			{
