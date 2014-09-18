@@ -62,9 +62,14 @@ angular.module('theFarmApp')
         _saveVote : function(vid){
             localStorage.vid = vid;
         },
-        _allreadyVoted : function (){
+        _allReadyVoted : function (){
             console.log(Collection.status);
-            return (localStorage.vid === 'undefined')?false:(Collection.status.current.frame.vote.vid  === localStorage.vid );
+
+                return (localStorage.vid !== undefined)
+               
+
+
+            //return (localStorage.vid === 'undefined')?false:(Collection.status.current.frame.vote.vid  === localStorage.vid );
             // if (localStorage.vid === undefined){ 
             //     return false;
             // }else{
@@ -75,7 +80,7 @@ angular.module('theFarmApp')
             if (localStorage.token !== undefined){
                 Collection.registration.token = localStorage.token;
                 Collection.registration.uid   = localStorage.uid;
-                Collection.flags.logedIn       = true ;
+                Collection.flags.loged       = true ;
                 return true;
             }else{
                 return false;
@@ -102,6 +107,9 @@ angular.module('theFarmApp')
             return Collection.flags.loged ;
         },
         _ready : function (){
+            console.log(Collection.flags.loged);
+            console.log(Collection.flags.initialized);
+            
             return ( Collection.flags.loged && Collection.flags.initialized )  ;
         },
         _initilized : function(){
@@ -245,7 +253,8 @@ angular.module('theFarmApp')
             Collection._saveVote(vid);
 
             //http://vote.farm.scrnz.com/v?u=<UID>&t=<TOKEN>&vi=<VID>&v=<SELECTION>
-            return $http.post(url+'u='+uid+'&t='+token+'&vi='+vid+'&v='+id,{}).then(function(response) {
+            return $http.get(url+'u='+uid+'&t='+token+'&vi='+vid+'&v='+id).then(function(response) {
+            //return $http.post(url+'u='+uid+'&t='+token+'&vi='+vid+'&v='+id,{}).then(function(response) {
                 if (response.status === 200) {
                     deferred.resolve(response.data);
                 } else {

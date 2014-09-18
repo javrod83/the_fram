@@ -28,8 +28,16 @@ angular.module('theFarmApp')
 			};
 
 			if(FarmServices.status.current.frame.type === 'vote'){
-				voteStatus[FarmServices.status.current.frame.status]();
+
+				if(FarmServices._allReadyVoted()){
+				$scope.success = true  ; 
+				$scope.overlay = true ;
+			} else 
+				{
+					voteStatus[FarmServices.status.current.frame.status]();
 				internalState = FarmServices.status.current.frame.status;
+				}
+				
 			}else{
 				window.location.href = '#/'+FarmServices.status.current.frame.type;
 			}		
@@ -76,9 +84,9 @@ angular.module('theFarmApp')
   		
   		if (FarmServices._updatedStatus()){
   			console.log(FarmServices);
-  			if(FarmServices._allreadyVoted()){
+  			if(FarmServices._allReadyVoted()){
 				$scope.success = true  ; 
-				$scope.overlay = true;
+				$scope.overlay = true ;
 			}else{
 				check();
 			}

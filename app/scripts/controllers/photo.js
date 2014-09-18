@@ -22,14 +22,14 @@ angular.module('theFarmApp')
 				if ($scope.imgSrc === ''){
 					$scope.imgSrc = FarmServices.status.current.frame.media.large;
 					
-				FarmServices._setStatusReloadInterval(function(statusPromise){
-					statusPromise.then(function(){
-						check();
-					},function(err){
-						console.log('status.json error');
-						console.log(err);
-					});
-				});
+				// FarmServices._setStatusReloadInterval(function(statusPromise){
+				// 	statusPromise.then(function(){
+				// 		check();
+				// 	},function(err){
+				// 		console.log('status.json error');
+				// 		console.log(err);
+				// 	});
+				// });
 
 				}
 			}else{
@@ -42,9 +42,11 @@ angular.module('theFarmApp')
 			window.location.href = '#/';	
 		}*/
 
-		if (FarmServices._updatedStatus()){
-  			check();
-  		}else{
+
+
+	//	if (FarmServices._updatedStatus()){
+  	//		check();
+  	//	}else{
 			FarmServices.getPhotoMock()
 				.then(function(){
 					check();
@@ -52,7 +54,7 @@ angular.module('theFarmApp')
 					console.log('status.json error');
 					console.log(err);
 				});
-		}
+	//	}
 
 
 

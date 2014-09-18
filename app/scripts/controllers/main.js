@@ -35,6 +35,7 @@ angular.module('theFarmApp')
 
           if (FarmServices._loadLocalLogin()){
             console.log('already logged');
+            console.log(FarmServices);
             if (FarmServices._allReadyVoted()){
               console.log('already voted');
               window.location.href = '#/vote';
