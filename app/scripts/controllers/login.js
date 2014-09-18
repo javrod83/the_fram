@@ -21,21 +21,22 @@ angular.module('theFarmApp')
       $scope.title = FarmServices.data.dictionary.login.title;
 
       $scope.facebook = {
-        title : FarmServices.data.dictionary.login.facebook,
-        error : FarmServices.data.dictionary.login.facebook,
-      }
+        title : FarmServices.data.dictionary.login.facebook.title,
+        error : FarmServices.data.dictionary.login.facebook.error
+      };
 
       $scope.twitter = {
-        title : FarmServices.data.dictionary.login.twitter,
-        error : FarmServices.data.dictionary.login.twitter,
-      }
+        title : FarmServices.data.dictionary.login.twitter.title,
+        error : FarmServices.data.dictionary.login.twitter.error
+      };
 
       $scope.google = {
-        title : FarmServices.data.dictionary.login.google,
-        error : FarmServices.data.dictionary.login.google,
-      }
+        title : FarmServices.data.dictionary.login.google.title,
+        error : FarmServices.data.dictionary.login.google.error
+      };
 
       $scope.show = FarmServices.config.social;
+
       // Defining user logged status
       $scope.logged = true;
       
@@ -53,51 +54,45 @@ angular.module('theFarmApp')
         }
       );
 
-
-
-
       function fbLogued(data)
         {
-          //activity
 
-          var arguments = {
+          //activity
+          var args  = {
             id: 'fb',
             network: 'facebook',
             token: 'facebookfacebookfacebookfacebookfacebook'
-          } 
-          FarmServices._saveSocial(arguments);
+          };
+
+          FarmServices._saveSocial(args);
           window.location.href = '#/prompt';
         }
 
       function gLogued()
         {
           //activity
-
-          var arguments = {
+          var args  = {
             id: 'g',
             network: 'google',
             token: 'googlegooglegooglegooglegooglegooglegoogle'
-          } 
-          FarmServices._saveSocial(arguments);
+          };
+
+          FarmServices._saveSocial(args);
           window.location.href = '#/prompt';
         }
+
       function twLogued()
         {
           //activity
-
-          var arguments = {
+          var args  = {
             id: 'tw',
             network: 'twitter',
             token: 'twittertwittertwittertwittertwittertwitter'
-          } 
+          };
 
-          FarmServices._saveSocial(arguments);
+          FarmServices._saveSocial(args);
           window.location.href = '#/prompt';
-
         }
-
-
-
 
       /**
        * IntentLogin

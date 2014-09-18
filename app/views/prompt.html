@@ -1,21 +1,18 @@
-<div class="content">
 	<div class="content">
-	<!-- <div class="rope-container-left">
-		<div class="rope"></div>
-	</div> -->
-	<div class="title-container">
-		<p ng-model="title">{title}</p>
-	 </div>
-	 <ul class="wood-container">
-	 	<li class="wood-agree" ng-model="title"></li>
+		<!-- <div class="rope-container-left">
+			<div class="rope"></div>
+		</div> -->
+		<div class="title-container">
+			<p ng-model="title">{{title}}</p>
+		</div>
 
-	 	<li class="wood-disagree"></li>
-	 </ul>
-	 <!-- <div class="rope-container-right">
-	 	<div class="rope"></div>
-	 </div> -->
-</div>
+		 <ul class="wood-container">
+		 	<li class="wood-agree" ng-click="approve(1)">{{yes}}</li>
 
-  
+		 	<li class="wood-disagree" ng-click="approve(1)">{{no}}</li>
+		 </ul>
+		 <!-- <div class="rope-container-right">
+		 	<div class="rope"></div>
+		 </div> -->
+	</div>
 
-</div>
