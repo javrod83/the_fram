@@ -2,14 +2,10 @@
   <!-- <div class="rope-container-left">
     <div class="rope"></div>
   </div> -->
-  <div class="title-container">
-    <p ng-model="title">{{title}}</p>
-   </div>
-   <ul class="wood-container">
-    <li class="wood-1"></li>
-   </ul>
+
    <div class="photo-container" >
-    <img ng-src="{{imgSrc}}">
+    <img class="frame" src="images/frame.png" />
+    <img class="img-frame" ng-src="{{imgSrc}}">
    </div>
 
    
@@ -18,4 +14,7 @@
    </div> -->
 </div>
 
-  
+<div class="footer">
+  <img img-preload ng-repeat="img in footerImages" class="{{img}}" ng-src="images/{{img}}.png" />
+  <div ng-if="showBarn" class="barn-container"><img img-preload class="barn" src="images/barn.png" /></div>
+</div>
