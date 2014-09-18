@@ -11,7 +11,9 @@ angular.module('theFarmApp')
     .controller('PhotoCtrl', ['FarmServices','$scope',function (FarmServices,$scope) {
 
     //atributes
-    	$scope.imgSrc = '' ; 
+    $scope.imgSrc = '';
+    $scope.footerImages = ['cow','cow_big', 'ostrich', 'sheep', 'sheep_big', 'field', 'field_big'];
+    $scope.showBarn = true;
 
     //methods
     	function check(){
