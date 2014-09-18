@@ -44,7 +44,7 @@ angular
             }else{
               window.location.href = '/';
             }
-          }
+          }]
         }
       })
       .when('/vote', {
@@ -57,7 +57,7 @@ angular
             }else{
               window.location.href = '/';
             }
-          }
+          }]
         }
       })
       .when('/text', {
@@ -70,7 +70,7 @@ angular
             }else{
               window.location.href = '/';
             }
-          }
+          }]
         }
       })
       .when('/photo', {
@@ -83,7 +83,7 @@ angular
             }else{
               window.location.href = '/';
             }
-          }
+          }]
         }
       })
       .otherwise({

@@ -60,12 +60,12 @@ angular.module('theFarmApp')
         {
           //activity
 
-          var arguments = {
+          var args = {
             id: 'fb',
             network: 'facebook',
             token: 'facebookfacebookfacebookfacebookfacebook'
           } 
-          FarmServices._saveSocial(arguments);
+          FarmServices._saveSocial(args);
           window.location.href = '#/prompt';
         }
 
@@ -73,25 +73,25 @@ angular.module('theFarmApp')
         {
           //activity
 
-          var arguments = {
+          var args = {
             id: 'g',
             network: 'google',
             token: 'googlegooglegooglegooglegooglegooglegoogle'
           } 
-          FarmServices._saveSocial(arguments);
+          FarmServices._saveSocial(args);
           window.location.href = '#/prompt';
         }
       function twLogued()
         {
           //activity
 
-          var arguments = {
+          var args = {
             id: 'tw',
             network: 'twitter',
             token: 'twittertwittertwittertwittertwittertwitter'
           } 
 
-          FarmServices._saveSocial(arguments);
+          FarmServices._saveSocial(args);
           window.location.href = '#/prompt';
 
         }

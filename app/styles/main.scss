@@ -120,6 +120,39 @@ body {
     }
   }
 
+  .rabbit-container{
+    .rabbit_big, .field_login, .error-message{
+      position: absolute;
+      z-index: 10;
+    }
+    .rabbit_big{
+      left: 38%;
+      height: 57%;
+      bottom: 0;
+      margin-bottom: 4%;
+    }
+    .field_login{
+      width: 100%;
+      bottom: 0;
+      z-index: 6;
+    }
+    .text{
+      position: absolute;
+      z-index: 11;
+      top: 0;
+      margin-top: 14%;
+      position: absolute;
+      margin-left: 36%;
+    }
+    .error-message{
+      
+    }
+    .dammit{
+      font-size: 40px;
+      font-weight: bold;
+    }
+  }
+
   .rope-container-left, .rope-container-right{
     position: absolute;
     z-index: -2;

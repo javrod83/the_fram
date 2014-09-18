@@ -14,7 +14,9 @@ angular.module('theFarmApp')
 
   		$scope.footerImages = ['cow','cow_big', 'ostrich', 'sheep', 'sheep_big', 'field', 'field_big'];
       	$scope.showBarn = true;
-      	$scope.success= false; 
+      	$scope.success = false; 
+      	$scope.overlay = false;
+      	$scope.timeOut = false; 
 
   		var internalState = null;
 
@@ -56,10 +58,12 @@ angular.module('theFarmApp')
   			FarmServices._vote(id).
   				then(function(response){
   					$scope.success = true;
+  					$scope.overlay = true;
   					console.log('successsssss')
   					//persistir voto
   				},function(err){
 					$scope.success = true;
+					$scope.overlay = true;
 					console.log('successsssss')
   				});
 

@@ -192,10 +192,10 @@ angular.module('theFarmApp')
                 return deferred.promise;
             });
         },
-        _saveSocial: function(arguments){
+        _saveSocial: function(args){
             //save argumments to register params 
         },
-        register : function(url,) {
+        register : function(url) {
             var deferred = $q.defer();
 
             return $http.post(url,Collection.registration.params).then(function(response) {

@@ -1,4 +1,4 @@
-<div class="overlay" ng-show="success"></div>
+<div class="overlay" ng-show="overlay"></div>
 
 <div class="content">
 	<!-- <div class="rope-container-left">
@@ -8,6 +8,14 @@
 		<img class="hen_big" img-preload src="images/hen_big.png">
 		<p class="login-text thanks-for-voting">Thank you for Voting</p>
 		<img class="hands" img-preload src="images/hands.png">
+	</div>
+	<div class="rabbit-container" ng-show="timeOut">
+		<div class="text">
+			<p class="login-text dammit">dammit!</p>
+			<p class="login-text">Too Late, Tune in for the next decision</p>
+		</div>
+		<img class="rabbit_big" img-preload src="images/rabbit_big.png">
+		<img class="field_login" img-preload src="images/field_login.png">
 	</div>
 	 <ul class="wood-container" ng-repeat="option in options">
 	 	<p class="login-text">{{title}}</p>
