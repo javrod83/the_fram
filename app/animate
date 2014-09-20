@@ -1,0 +1,252 @@
+//try to animate
+
+
+//css
+
+/*vertical flip*/
+	
+
+
+/*fade*/
+	
+	//angular 1.1.5
+		.at-view-fade-in {
+		    -webkit-transition-property: opacity;
+		    -moz-transition-property: opacity;
+		    -o-transition-property: opacity;
+		    transition-property: opacity;
+		    -webkit-transition-duration: 0.5s;
+		    -moz-transition-duration: 0.5s;
+		    -o-transition-duration: 0.5s;
+		    transition-duration: 0.5s;
+		    position: absolute;
+		    top: 0px;
+		    left: 0px;
+		    opacity: 0;
+		}
+
+		.at-view-fade-in-active {
+		    opacity: 1;
+		}
+
+		.at-view-fade-out {
+		    -webkit-transition-property: opacity;
+		    -moz-transition-property: opacity;
+		    -o-transition-property: opacity;
+		    transition-property: opacity;
+		    -webkit-transition-duration: 0.5s;
+		    -moz-transition-duration: 0.5s;
+		    -o-transition-duration: 0.5s;
+		    transition-duration: 0.5s;
+		    position: absolute;
+		    top: 0px;
+		    left: 0px;
+		    opacity: 1;
+		}
+
+		.at-view-fade-out-active {
+		    opacity: 0;
+		}
+
+
+	//angular 1.2.0
+
+		.at-view-fade-in.ng-enter {
+		    -webkit-transition-property: opacity;
+		    -moz-transition-property: opacity;
+		    -o-transition-property: opacity;
+		    transition-property: opacity;
+		    -webkit-transition-duration: 0.5s;
+		    -moz-transition-duration: 0.5s;
+		    -o-transition-duration: 0.5s;
+		    transition-duration: 0.5s;
+		    position: absolute;
+		    top: 0px;
+		    left: 0px;
+		    opacity: 0;
+		}
+
+		.at-view-fade-in.ng-enter-active {
+		    opacity: 1;
+		}
+
+		.at-view-fade-out.ng-leave {
+		    -webkit-transition-property: opacity;
+		    -moz-transition-property: opacity;
+		    -o-transition-property: opacity;
+		    transition-property: opacity;
+		    -webkit-transition-duration: 0.5s;
+		    -moz-transition-duration: 0.5s;
+		    -o-transition-duration: 0.5s;
+		    transition-duration: 0.5s;
+		    position: absolute;
+		    top: 0px;
+		    left: 0px;
+		    opacity: 1;
+		}
+
+		.at-view-fade-out.ng-leave-active {
+		    opacity: 0;
+		}
+
+/*slide from left*/
+	//angular 1.1.5
+
+		.at-view-slide-out-left {
+		    -webkit-transition-property: -webkit-transform, opacity;
+		    -moz-transition-property: -moz-transform, opacity;
+		    -o-transition-property: -o-transform, opacity;
+		    transition-property: transform, opacity;
+		    -webkit-transition-duration: 0.5s;
+		    -moz-transition-duration: 0.5s;
+		    -o-transition-duration: 0.5s;
+		    transition-duration: 0.5s;
+		    -webkit-transform: translate(0px, 0px);
+		    -moz-transform: translate(0px, 0px);
+		    -ms-transform: translate(0px, 0px);
+		    -o-transform: translate(0px, 0px);
+		    transform: translate(0px, 0px);
+		    opacity: 1;
+		    z-index: 3;
+		    position: absolute;
+		}
+
+		.at-view-slide-out-left-active {
+		    -webkit-transform: translate(-100%, 0px);
+		    -moz-transform: translate(-100%, 0px);
+		    -ms-transform: translate(-100%, 0px);
+		    -o-transform: translate(-100%, 0px);
+		    transform: translate(-100%, 0px);
+		    opacity: 0;
+		    position: absolute;
+		}
+
+		.at-view-slide-in-left {
+		    -webkit-transition-property: -webkit-transform, opacity;
+		    -moz-transition-property: -moz-transform, opacity;
+		    -o-transition-property: -o-transform, opacity;
+		    transition-property: transform, opacity;
+		    -webkit-transition-duration: 0.5s;
+		    -moz-transition-duration: 0.5s;
+		    -o-transition-duration: 0.5s;
+		    transition-duration: 0.5s;
+		    -webkit-transform: translate(-100%, 0px);
+		    -moz-transform: translate(-100%, 0px);
+		    -ms-transform: translate(-100%, 0px);
+		    -o-transform: translate(-100%, 0px);
+		    transform: translate(-100%, 0px);
+		    opacity: 0;
+		    z-index: 1;
+		    position: absolute;
+		}
+
+		.at-view-slide-in-left-active {
+		    -webkit-transform: translate(0px, 0px);
+		    -moz-transform: translate(0px, 0px);
+		    -ms-transform: translate(0px, 0px);
+		    -o-transform: translate(0px, 0px);
+		    transform: translate(0px, 0px);
+		    opacity: 1;
+		    position: absolute;
+		}
+
+	//angular 1.2.0
+
+		.at-view-slide-out-left.ng-leave {
+		    -webkit-transition-property: -webkit-transform, opacity;
+		    -moz-transition-property: -moz-transform, opacity;
+		    -o-transition-property: -o-transform, opacity;
+		    transition-property: transform, opacity;
+		    -webkit-transition-duration: 0.5s;
+		    -moz-transition-duration: 0.5s;
+		    -o-transition-duration: 0.5s;
+		    transition-duration: 0.5s;
+		    -webkit-transform: translate(0px, 0px);
+		    -moz-transform: translate(0px, 0px);
+		    -ms-transform: translate(0px, 0px);
+		    -o-transform: translate(0px, 0px);
+		    transform: translate(0px, 0px);
+		    opacity: 1;
+		    z-index: 3;
+		    position: absolute;
+		}
+
+		.at-view-slide-out-left.ng-leave-active {
+		    -webkit-transform: translate(-100%, 0px);
+		    -moz-transform: translate(-100%, 0px);
+		    -ms-transform: translate(-100%, 0px);
+		    -o-transform: translate(-100%, 0px);
+		    transform: translate(-100%, 0px);
+		    opacity: 0;
+		    position: absolute;
+		}
+
+		.at-view-slide-in-left.ng-enter {
+		    -webkit-transition-property: -webkit-transform, opacity;
+		    -moz-transition-property: -moz-transform, opacity;
+		    -o-transition-property: -o-transform, opacity;
+		    transition-property: transform, opacity;
+		    -webkit-transition-duration: 0.5s;
+		    -moz-transition-duration: 0.5s;
+		    -o-transition-duration: 0.5s;
+		    transition-duration: 0.5s;
+		    -webkit-transform: translate(-100%, 0px);
+		    -moz-transform: translate(-100%, 0px);
+		    -ms-transform: translate(-100%, 0px);
+		    -o-transform: translate(-100%, 0px);
+		    transform: translate(-100%, 0px);
+		    opacity: 0;
+		    z-index: 1;
+		    position: absolute;
+		}
+
+		.at-view-slide-in-left.ng-enter-active {
+		    -webkit-transform: translate(0px, 0px);
+		    -moz-transform: translate(0px, 0px);
+		    -ms-transform: translate(0px, 0px);
+		    -o-transform: translate(0px, 0px);
+		    transform: translate(0px, 0px);
+		    opacity: 1;
+		    position: absolute;
+		}
+
+//html
+
+/*vertical flip*/
+	//angular 1.1.5
+
+		<div
+		  ng-animate="{
+		  enter: 'at-view-flip-in-vertical',
+		  leave: 'at-view-flip-out-vertical'
+		}"></div>
+
+	//angular 1.2.0
+
+		<div class="at-view-flip-in-vertical at-view-flip-out-vertical"></div>
+
+/*fade*/
+
+	//angular 1.1.5
+		<div
+		  ng-animate="{
+		  enter: 'at-view-fade-in',
+		  leave: 'at-view-fade-out'
+		}"></div>
+
+	//angular 1.2.0
+		<div class="at-view-fade-in at-view-fade-out"></div>
+
+/*slide from left*/
+	//angular 1.1.5
+
+		<div
+		  ng-animate="{
+		  enter: 'at-view-slide-in-left',
+		  leave: 'at-view-slide-out-left'
+		}"></div>
+		
+
+	//angular 1.2.0
+
+		<div class="at-view-slide-in-left at-view-slide-out-left"></div>
