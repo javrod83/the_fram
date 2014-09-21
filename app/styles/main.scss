@@ -10,6 +10,11 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
   padding: 0.2em 0;
 }
 
+.nav > li > a:hover, .nav > li > a:focus, a > img:focus{
+  background-color: #384ca5;
+  outline: none;
+}
+
 /* Space out content a bit */
 body {
   background-color: #469ad4;
@@ -30,9 +35,9 @@ body {
   background-color: #384ca5;
   width: 100%;
   a{
-    float: left;
-    position: relative;
-    display: block;
+    position: absolute;
+    z-index: 99;
+    right: 0;
   }
   .closeHeader{
     padding: 19px 25px 0 0;
@@ -55,6 +60,7 @@ body {
   height: 100%;
   position: absolute;
   z-index: 7;
+  bottom: 0px;
 }
 
 .content{
@@ -160,7 +166,7 @@ body {
       position: absolute;
       z-index: 11;
       top: 0;
-      margin-top: 14%;
+      margin-top: 9%;
       position: absolute;
       margin-left: 36%;
     }
@@ -178,7 +184,9 @@ body {
       position: absolute;
       left: 28%;
       top: 75px;
-      z-index: 6;
+      z-index: 7;
+      height: 80%;
+      max-width: 100%;
     }
     .img-frame{
       position: absolute;
@@ -188,7 +196,7 @@ body {
       left: 28%;
       margin-left: 25px;
       margin-top: -10px;
-      z-index: 5;
+      z-index: 6;
     }
     .board-text{
       position: absolute;
@@ -196,6 +204,8 @@ body {
       top: 395px;
       z-index: 7;
       width: 335px;
+      height: 80%;
+      line-height: normal;
     }
   }
 
@@ -406,6 +416,25 @@ body {
     .wood-confirm-container{
       margin: 20% 0 0 31%;
     }
+    .photo-container{
+      .frame{
+        left: 30%;
+        width: 360px;
+        height: 465px;
+      }
+      .board-text{
+        left: 36%;
+        top: 330px;
+        width: 26%;
+        font-size: 20px;
+      }
+      .img-frame{
+        width: 315px;
+        height: 255px;
+        left: 30%;
+        top: 275px;
+      }
+    }
   }
 }
 
@@ -466,6 +495,25 @@ body {
         margin-bottom: 8%;
       }
     }
+    .photo-container{
+      .frame{
+        left: 32%;
+        width: 360px;
+        height: 490px;
+      }
+      .board-text{
+        left: 36%;
+        top: 335px;
+        width: 27%;
+        font-size: 22px;
+      }
+      .img-frame{
+        width: 315px;
+        height: 270px;
+        left: 32%;
+        top: 285px;
+      }
+    }
   }
 }
 
@@ -512,6 +560,25 @@ body {
         font-size: 29px;
         line-height: 29px;
         width: 172px; */
+      }
+    }
+    .photo-container{
+      .frame{
+        left: 33%;
+        width: 460px;
+        height: 600px;
+      }
+      .board-text{
+        left: 38%;
+        top: 405px;
+        width: 25%;
+        font-size: 24px;
+      }
+      .img-frame{
+        width: 400px;
+        height: 325px;
+        left: 33%;
+        top: 325px;
       }
     }
   }
@@ -595,8 +662,51 @@ body {
         width: 300px;
       }
     }
+    .photo-container{
+      .frame{
+        left: 32%;
+        height: 1000px;
+        width: 760px;
+      }
+      .board-text{
+        left: 38%;
+        top: 625px;
+        width: 27%;
+        font-size: 41px;
+      }
+      .img-frame{
+        width: 675px;
+        height: 555px;
+        left: 33%;
+        top: 490px;
+      }
+    }
   }
 
+}
+
+@media screen and (min-width: 2000px){
+  .content{
+    .photo-container{
+      .frame{
+        left: 34%;
+        width: 960px;
+        height: 1200px;
+      }
+      .board-text{
+        left: 39%;
+        top: 746px;
+        width: 28%;
+        font-size: 53px;
+      }
+      .img-frame{
+        width: 810px;
+        height: 640px;
+        left: 36%;
+        top: 570px;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 750px) {
@@ -707,6 +817,44 @@ body {
         width: 270px;
       }
     }
+    .rabbit-container{
+      .rabbit_big{
+        left: 29%;
+        height: 57%;
+        bottom: 0;
+        margin-bottom: 4%;
+      }
+      .text{
+        position: absolute;
+        z-index: 11;
+        top: 0;
+        margin-top: 26%;
+        position: absolute;
+        margin-left: 22%;
+        .dammit{
+          font-size: 70px;
+        }
+      }
+    }
+    .photo-container{
+      .frame{
+        left: 6%;
+        width: 650px;
+        height: 850px;
+      }
+      .board-text{
+        left: 20%;
+        top: 535px;
+        width: 62%;
+        font-size: 34px;
+      }
+      .img-frame{
+        width: 555px;
+        height: 470px;
+        left: 10%;
+        top: 425px;
+      }
+    }
   }
 }
 
@@ -788,6 +936,41 @@ body {
         font-size: 38px;
         line-height: 38px;
         width: 200px;
+      }
+    }
+    .rabbit-container{
+      .rabbit_big{
+        left: 29%;
+        height: 57%;
+        bottom: 0;
+        margin-bottom: 4%;
+      }
+      .text{
+        position: absolute;
+        z-index: 11;
+        top: 0;
+        margin-top: 29%;
+        position: absolute;
+        margin-left: 17%;
+      }
+    }
+    .photo-container{
+      .frame{
+        left: 9%;
+        width: 460px;
+        height: 660px;
+      }
+      .board-text{
+        left: 21%;
+        top: 435px;
+        width: 62%;
+        font-size: 25px;
+      }
+      .img-frame{
+        width: 400px;
+        height: 365px;
+        left: 11%;
+        top: 354px;
       }
     }
   }
@@ -875,6 +1058,44 @@ body {
         width: 172px;
       }
     }
+    .rabbit-container{
+      .rabbit_big{
+        left: 28%;
+        height: 57%;
+        bottom: 0;
+        margin-bottom: 4%;
+      }
+      .text{
+        position: absolute;
+        z-index: 11;
+        top: 0;
+        margin-top: 26%;
+        position: absolute;
+        margin-left: 18%;
+        .dammit{
+          font-size: 50px;
+        }
+      }
+    }
+    .photo-container{
+      .frame{
+        left: 3%;
+        width: 360px;
+        height: 490px;
+      }
+      .board-text{
+        left: 17%;
+        top: 342px;
+        width: 66%;
+        font-size: 20px;
+      }
+      .img-frame{
+        width: 315px;
+        height: 265px;
+        left: 3%;
+        top: 285px;
+      }
+    }
   }
 
 }
@@ -923,6 +1144,26 @@ body {
       .login-text{
         line-height: 19px;
         margin-bottom: 20px;
+      }
+    }
+    .photo-container{
+      .frame{
+        left: 1%;
+        width: 360px;
+        height: 490px;
+        top: 59px;
+      }
+      .board-text{
+        left: 17%;
+        top: 324px;
+        width: 68%;
+        font-size: 20px;
+      }
+      .img-frame{
+        width: 310px;
+        height: 265px;
+        left: 3%;
+        top: 270px;
       }
     }
   }
@@ -1008,11 +1249,47 @@ body {
         width: 150px;
       }
     }
+    .rabbit-container{
+      .rabbit_big{
+        left: 29%;
+        height: 57%;
+        bottom: 0;
+        margin-bottom: 4%;
+      }
+      .text{
+        position: absolute;
+        z-index: 11;
+        top: 0;
+        margin-top: 23%;
+        position: absolute;
+        margin-left: 8%;
+        .dammit{
+          font-size: 50px;
+        }
+      }
+    }
+    .photo-container{
+      .frame{
+        left: 4%;
+        top: 60px;
+        width: 300px;
+        height: 385px;
+      }
+      .board-text{
+        left: 19%;
+        top: 275px;
+        width: 66%;
+        font-size: 16px;
+      }
+      .img-frame{
+        width: 263px;
+        height: 210px;
+        left: 3%;
+        top: 227px;
+      }
+    }
   }
 }
-
-
-
 
 @mixin center-block {
   display: block;
@@ -1020,3 +1297,40 @@ body {
   margin-right: auto;
 }
 
+.at-view-fade-in.ng-enter {
+    -webkit-transition-property: opacity;
+    -moz-transition-property: opacity;
+    -o-transition-property: opacity;
+    transition-property: opacity;
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+}
+
+.at-view-fade-in.ng-enter-active {
+    opacity: 1;
+}
+
+.at-view-fade-out.ng-leave {
+    -webkit-transition-property: opacity;
+    -moz-transition-property: opacity;
+    -o-transition-property: opacity;
+    transition-property: opacity;
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 1;
+}
+
+.at-view-fade-out.ng-leave-active {
+    opacity: 0;
+}
