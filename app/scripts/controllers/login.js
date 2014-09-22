@@ -61,8 +61,10 @@ angular.module('theFarmApp')
               });
               console.log('Registration '+LoginService.diccionary[net]+' success');
               window.location.href = '#/prompt';
-            },function(){
+            },function(res){
               console.log('Registration '+LoginService.diccionary[net]+' failed');
+              console.log(res.error);
+
               //cambiar la clase del error 
 
             });
@@ -72,16 +74,4 @@ angular.module('theFarmApp')
 
 
 
-  }]).animation('.expand', function() {
-  return {
-    enter : function(element, done) {
-      element.css({ 'left': -50, 'opacity': 0});
-      element.animate({
-        'left': 0, 'opacity': 1
-      }, done);
-    },
-    leave : function(element, done) {
-      element.animate({ 'left': -50, 'opacity':0 }, done);
-    }
-  }
-});
+  }]);

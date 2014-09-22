@@ -27,6 +27,22 @@
       <div class="header">
         <ul class="nav nav-pills pull-right">
             <li>
+                <a ui-sref="login">login</a>
+            </li>
+            <li>
+                <a ui-sref="prompt">prompt</a>
+            </li>
+            <li>
+                <a ui-sref="vote">vote</a>
+            </li>
+            <li>
+                <a ui-sref="photo">photo</a>
+            </li>
+            <li>
+                <a ui-sref="text">text</a>
+            </li>
+
+            <li>
                 <a ng-href="#" ng-click="resetMock()">
                     <img class="closeHeader" src="images/close.png"/>
                 </a>
@@ -36,7 +52,9 @@
         <img class="logo" src="images/logo.png" /> 
       </div>
 
-      <div ng-view="" class="animation"></div>
+      <div ng-view ></div>
+     
+
     </div>
 
 
@@ -83,7 +101,7 @@
     <script src="bower_components/hello/dist/hello.all.min.js"></script>
     <script src="bower_components/angular-facebook/lib/angular-facebook.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-ui-router-anim-in-out/anim-in-out.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

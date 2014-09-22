@@ -36,22 +36,21 @@ angular.module('theFarmApp')
           FarmServices.flags.initialized = true;
 
           if (FarmServices._loadLocalLogin()){
-            console.log('already logged');
-            console.log(FarmServices);
-            if (FarmServices._allReadyVoted()){
-              console.log('already voted');
-              window.location.href = '#/vote';
-            }else{
-              console.log('i haveto vote');
-                FarmServices.getStatus().then(function(data){
-                  console.log(data);
-                  window.location.href = '#/'+data.frame.type;
-                },function(err){
-               // promptError(FarmServices.data.dictionary.error.connection);
-                console.log(err);
-                }); 
-
-            }
+                console.log('already logged');
+                console.log(FarmServices);
+                if (FarmServices._allReadyVoted()){
+                    console.log('already voted');
+                    window.location.href = '#/vote';
+                }else{
+                    console.log('i haveto vote');
+                    FarmServices.getStatus().then(function(data){
+                      console.log(data);
+                      window.location.href = '#/'+data.frame.type;
+                    },function(err){
+                   // promptError(FarmServices.data.dictionary.error.connection);
+                    console.log(err);
+                    }); 
+                }
           }else{
             window.location.href = '#/login';
           }
