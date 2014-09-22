@@ -2,29 +2,23 @@
 <div class="row-fluid">
 	<ul class="social-container">
 		<p class="login-text">{{title}}</p>
-		
 		<li>
-
 			<div class="btn-group fb-button" ng-show="social.fb" ng-click="login('fb')">
-				<button type="button" class="btn "></button>
-				<button type="button" class="btn ">{{facebook.title}}</button>
+				<img class="expand social-buttons" src="images/fb-sign.png" />
+				<p type="button" class="social-text">{{facebook.title}}</p>
 			</div>
 		</li>
 		<li>
-			
 			<div class="btn-group tw-button" ng-show="social.tw" ng-click="login('tw')">
-				<button type="button" class="btn "></button>
-				<button type="button" class="btn ">{{twitter.title}}</button>
+				<img class="expand social-buttons" src="images/twitter-sign.png" />
+				<p type="button" class="social-text">{{twitter.title}}</p>
 			</div>
 		</li>
 		<li >
-			
 			<div class="btn-group g-button" ng-show="social.g" ng-click="login('g')">
-				<button type="button" class="btn "></button>
-				<button type="button" class="btn ">{{google.title}}</button>
-
+				<img class="expand social-buttons" src="images/google-sign.png" />
+				<p type="button" class="social-text">{{google.title}}</p>
 			</div>
-
 		</li>
 	</ul>
 </div>
@@ -33,3 +27,16 @@
 	<img img-preload ng-repeat="img in footerImages" class="{{img}}" ng-src="images/{{img}}.png" />
 	<div ng-if="showBarn" class="barn-container"><img img-preload class="barn" src="images/barn.png" /></div>
 </div>
+
+
+
+<!-- <li>
+
+			<a  ng-click="network['fbSocial']()"><img class="expand social-buttons" src="images/fb-sign.png" /></a>
+		</li>
+		<li>
+			<a  ng-click="network['twSocial']()"><img class="expand social-buttons" src="images/twitter-sign.png" /></a>
+		</li>
+		<li>
+			<a ng-click="network['gSocial']()"><img class="expand social-buttons" src="images/google-sign.png" /></a>
+		</li> -->
