@@ -109,7 +109,7 @@ angular.module('theFarmApp')
         _ready : function (){
             console.log(Collection.flags.loged);
             console.log(Collection.flags.initialized);
-            
+
             return ( Collection.flags.loged && Collection.flags.initialized )  ;
         },
         _initilized : function(){
@@ -140,7 +140,7 @@ angular.module('theFarmApp')
             var url      = Collection.config.urls.base;
             var tid      = Collection.config.tid;
             var filename = Collection.config.jsons['territory-data'];
-
+            console.log(url+tid+'/'+filename);
             return $http.get(url+tid+'/'+filename).then(function(response) {
                 if (response.status === 200) {
                     Collection.data = response.data;
@@ -216,7 +216,7 @@ angular.module('theFarmApp')
         _saveSocial: function(args){
             //save argumments to register params 
 
-                Collection.registration.params.socialId      =  args.id ;
+                Collection.registration.params.socialId      = args.id ;
                 Collection.registration.params.socialNetwork = args.network ;
                 Collection.registration.params.socialToken   = args.token ;
         },

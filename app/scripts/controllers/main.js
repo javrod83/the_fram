@@ -16,11 +16,13 @@ angular.module('theFarmApp')
           FarmServices._forgetState();
         }
 
+
+
       $scope.footerImages = ['cow','cow_big', 'ostrich', 'sheep', 'sheep_big', 'field', 'field_big'];
       $scope.showBarn = true;
 
   		//load configFile 
-  		var configUrl = '/api';
+  		var configUrl = 'api';
   		$scope.initialized = false;
   		$scope.logued = false;
 
@@ -45,7 +47,7 @@ angular.module('theFarmApp')
                   console.log(data);
                   window.location.href = '#/'+data.frame.type;
                 },function(err){
-                promptError(FarmServices.data.dictionary.error.connection);
+               // promptError(FarmServices.data.dictionary.error.connection);
                 console.log(err);
                 }); 
 

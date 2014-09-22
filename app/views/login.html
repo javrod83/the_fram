@@ -2,16 +2,27 @@
 <div class="row-fluid">
 	<ul class="social-container">
 		<p class="login-text">{{title}}</p>
+		
 		<li>
-			<!--<a  ng-click="network['fbSocial']()" data-ng-disabled="!facebookReady" data-ng-click="IntentLogin()"><img class="social-buttons" src="images/fb-sign.png" /></a>
-			-->
-			<a  ng-click="network['fbSocial']()"><img class="social-buttons" src="images/fb-sign.png" /></a>
+			<div class="btn-group fb-button" ng-show="social.fb" ng-click="login('fb')">
+				<button type="button" class="btn "></button>
+				<button type="button" class="btn ">{{facebook.title}}</button>
+			</div>
 		</li>
 		<li>
-			<a  ng-click="network['twSocial']()"><img class="social-buttons" src="images/twitter-sign.png" /></a>
+			
+			<div class="btn-group tw-button" ng-show="social.tw" ng-click="login('tw')">
+				<button type="button" class="btn "></button>
+				<button type="button" class="btn ">{{twitter.title}}</button>
+			</div>
 		</li>
-		<li>
-			<a ng-click="network['gSocial']()"><img class="social-buttons" src="images/google-sign.png" /></a>
+		<li >
+			
+			<div class="btn-group g-button" ng-show="social.g" ng-click="login('g')">
+				<button type="button" class="btn "></button>
+				<button type="button" class="btn ">{{google.title}}</button>
+
+			</div>
 		</li>
 	</ul>
 </div>

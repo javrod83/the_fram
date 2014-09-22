@@ -1,0 +1,14 @@
+{
+  "id": 1404293132113,
+  "frame": {
+    "fid": "4499", 
+    "sid": "104", 
+    "type": "text", 
+    "status": "11", 
+    "text": "This is a test text for the text template screen of the farm...bla bla bla bla"
+  },
+  "interval": 10,
+  "timeout": 3,
+  "status-url": "http://cdn.farm.scrnz.com/showData/9/status.json",
+  "secret-key-update-time": 1401281448
+}
