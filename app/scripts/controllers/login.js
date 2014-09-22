@@ -51,6 +51,7 @@ angular.module('theFarmApp')
         }
 
       console.log($scope.social);
+
       $scope.login = function(net){
 
           hello( LoginService.diccionary[net] ).login().then(function(data){     
@@ -70,7 +71,13 @@ angular.module('theFarmApp')
             });
       };
 
-      
+       $scope.$on('animIn', function() {
+                console.log(' Login: animIn');
+            });
+
+      $scope.$on('animOut', function() {
+          console.log(' Login: animOut');
+      });
 
 
 

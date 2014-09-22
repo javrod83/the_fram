@@ -8,8 +8,8 @@
  * Controller of the theFarmApp
  */
 angular.module('theFarmApp')
-  .controller('MainCtrl',['FarmServices','$scope',
-    function (FarmServices,$scope) {
+  .controller('MainCtrl',['FarmServices','$scope','$state',
+    function (FarmServices,$scope,$state) {
     
       $scope.resetMock = function()
         {
@@ -52,7 +52,8 @@ angular.module('theFarmApp')
                     }); 
                 }
           }else{
-            window.location.href = '#/login';
+            //window.location.href = '#/login';
+           $state.go('login');
           }
           console.log(res);
           //window.location.href = '#/login'
@@ -61,6 +62,13 @@ angular.module('theFarmApp')
   			});
 
 
+       $scope.$on('animIn', function() {
+                console.log(' Main: animIn');
+            });
+
+      $scope.$on('animOut', function() {
+          console.log(' Main: animOut');
+      });
 
 
 

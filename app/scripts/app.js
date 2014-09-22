@@ -26,9 +26,9 @@ angular
      $urlRouterProvider.otherwise('/');
 
      $stateProvider.state('Main', {
-      url: '/',
-      templateUrl: 'views/Main.html',
-      controller: 'MainCtrl'
+        url: '/', 
+        templateUrl: 'views/main.html',
+        controller: 'MainCtrl'
     }).state('login', {
       url: '/login',
       templateUrl: 'views/login.html',
@@ -50,6 +50,7 @@ angular
       templateUrl: 'views/text.html',
       controller: 'TextCtrl'
     });
+
 /*
 
       $routeProvider.when('/', {
