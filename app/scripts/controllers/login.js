@@ -13,7 +13,8 @@ angular.module('theFarmApp')
     '$timeout',
     'LoginService',
     'FarmServices',
-  function ($scope, $timeout, LoginService, FarmServices) {
+    '$state',
+  function ($scope, $timeout, LoginService, FarmServices,$state) {
       
       LoginService.init(FarmServices.config.social);
 
@@ -61,7 +62,8 @@ angular.module('theFarmApp')
                 token: data.authResponse.access_token
               });
               console.log('Registration '+LoginService.diccionary[net]+' success');
-              window.location.href = '#/prompt';
+              
+              $state.go('prompt')
             },function(res){
               console.log('Registration '+LoginService.diccionary[net]+' failed');
               console.log(res.error);

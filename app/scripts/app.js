@@ -32,7 +32,18 @@ angular
     }).state('login', {
       url: '/login',
       templateUrl: 'views/login.html',
-      controller: 'LoginCtrl'
+      controller: 'LoginCtrl',
+      resolve:{
+          check:[ 'FarmServices', function(FarmServices) {
+            if(FarmServices._initilized()){
+              console.log('initialized view #/login');
+              window.location.href = '#/login';
+            }else{
+              console.log('not initialized view #/login');
+              window.location.href = '/';
+            }
+          }]
+        }
     }).state('prompt', {
       url: '/prompt',
       templateUrl: 'views/prompt.html',

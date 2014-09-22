@@ -8,6 +8,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angular-ui-router-anim-in-out/css/anim-in-out.css">
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -26,7 +27,8 @@
     <div class="mobile-container at-view-flip-in-vertical at-view-flip-out-vertical" ng-controller="MainCtrl">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-            <li>
+           <!--
+                 <li>
                 <a ui-sref="login">login</a>
             </li>
             <li>
@@ -41,6 +43,7 @@
             <li>
                 <a ui-sref="text">text</a>
             </li>
+            -->
 
             <li>
                 <a ng-href="#" ng-click="resetMock()">
@@ -52,7 +55,7 @@
         <img class="logo" src="images/logo.png" /> 
       </div>
 
-      <div ui-view ></div>
+      <div ui-view class="anim-in-out anim-fade" data-anim-speed="1000" data-anim-sync="true"></div>
      
 
     </div>
