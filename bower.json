@@ -14,11 +14,14 @@
     "hello": "~1.0.1",
     "angular-facebook": "~0.2.3",
     "angular-ui-router": "~0.2.11",
-    "angular-route": "~1.2.24"
+    "angular-route": "~1.2.25"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.0",
     "angular-scenario": "~1.2.0"
   },
-  "appPath": "app"
+  "appPath": "app",
+  "resolutions": {
+    "angular": "1.2.25"
+  }
 }
