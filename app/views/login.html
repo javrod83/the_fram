@@ -1,9 +1,10 @@
-<div class="content">
+<div class="content animation">
 <div class="row-fluid">
 	<ul class="social-container">
 		<p class="login-text">{{title}}</p>
 		
 		<li>
+
 			<div class="btn-group fb-button" ng-show="social.fb" ng-click="login('fb')">
 				<button type="button" class="btn "></button>
 				<button type="button" class="btn ">{{facebook.title}}</button>
@@ -23,12 +24,12 @@
 				<button type="button" class="btn ">{{google.title}}</button>
 
 			</div>
+
 		</li>
 	</ul>
 </div>
 <div class="row-fluid"></div>
-<div class="footer">
+<div class="footer move">
 	<img img-preload ng-repeat="img in footerImages" class="{{img}}" ng-src="images/{{img}}.png" />
 	<div ng-if="showBarn" class="barn-container"><img img-preload class="barn" src="images/barn.png" /></div>
 </div>
-
