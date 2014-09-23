@@ -162,7 +162,8 @@ angular.module('theFarmApp')
             var tid = Collection.config.tid;
             var filename = Collection.config.jsons.status; 
 
-            return $http.get(url+tid+'/'+filename).then(function(response) {
+               console.log((Collection.status.current.id === -1)?"status url not defined yet ":"holly cow I have my new brand satus-url!!!!");
+            return $http.get( (Collection.status.current.id === -1)? url+tid+'/'+filename : Collection.status['status-url']).then(function(response) {
                 if (response.status === 200) {
                     deferred.resolve(response.data);
                     Collection.status.current = response.data; 
