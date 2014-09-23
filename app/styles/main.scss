@@ -335,13 +335,23 @@ body {
         background-size: 100%;
         background-repeat: no-repeat;
       }
-      .wood-1, .wood-2{
+      .wood-1, .wood-2, .btn-group{
         width: 325px;
         height: 60px;
         margin-left: 30px;
         .answer-text{
           font-size: 21px;
           padding-top: 12px;
+        }
+      }
+      .btn-group{
+        margin-left: 0px;
+        height: 60px;
+        width: 345px;
+        .social-text {
+          margin-top: -43px;
+          margin-left: 95px;
+          font-size: 15px;
         }
       }
     }
@@ -471,7 +481,7 @@ body {
         width: 340px;
         margin-bottom: 0;
       }
-      .wood-1, .wood-2{
+      .wood-1, .wood-2, .btn-group{
         width: 325px;
         height: 70px;
         margin-left: 30px;
@@ -486,6 +496,16 @@ body {
         .answer-text{
           font-size: 21px;
           padding-top: 12px;
+        }
+      }
+      .btn-group{
+        margin-left: 0px;
+        height: 45px;
+        width: 350px;
+        .social-text {
+          margin-top: -44px;
+          margin-left: 95px;
+          font-size: 16px;
         }
       }
     }
@@ -649,7 +669,7 @@ body {
         background-size: 100%;
         background-repeat: no-repeat;
       }
-      .wood-1, .wood-2{
+      .wood-1, .wood-2, .btn-group{
         width: 100%;
         height: 130px;
         margin-left: 20%;
@@ -664,6 +684,16 @@ body {
         .answer-text{
           font-size: 40px;
           padding-top: 33px;
+        }
+      }
+      .btn-group{
+        margin-left: 0px;
+        height: 95px;
+        width: 650px;
+        .social-text {
+          margin-top: -70px;
+          margin-left: 180px;
+          font-size: 29px;
         }
       }
     }
@@ -818,7 +848,7 @@ body {
         width: 375px;
         margin-bottom: 0px;
       }
-      .wood-1, .wood-2{
+      .wood-1, .wood-2, .btn-group{
         width: 100%;
         height: 145px;
         .answer-text{
@@ -833,6 +863,16 @@ body {
         .answer-text{
           font-size: 35px;
           padding-top: 30px;
+        }
+      }
+      .btn-group{
+        margin-left: 0px;
+        height: 100px;
+        width: 680px;
+        .social-text {
+          margin-top: -77px;
+          margin-left: 190px;
+          font-size: 29px;
         }
       }
     }
@@ -937,7 +977,7 @@ body {
         width: 400px;
         margin-bottom: -5px;
       }
-      .wood-1, .wood-2{
+      .wood-1, .wood-2, .btn-group{
         width: 100%;
         margin-bottom: -5px;
         height: 110px;
@@ -953,6 +993,16 @@ body {
         .answer-text{
           font-size: 30px;
           padding-top: 26px;
+        }
+      }
+      .btn-group{
+        margin-left: 0px;
+        height: 85px;
+        width: 500px;
+        .social-text {
+          margin-top: -59px;
+          margin-left: 140px;
+          font-size: 22px;
         }
       }
     }
@@ -1058,7 +1108,7 @@ body {
         width: 340px;
         margin-bottom: -5px;
       }
-      .wood-1, .wood-2{
+      .wood-1, .wood-2, .btn-group{
         width: 100%;
         height: 83px;
         .answer-text{
@@ -1073,6 +1123,16 @@ body {
         .answer-text{
           font-size: 24px;
           padding-top: 17px;
+        }
+      }
+      .btn-group{
+        margin-left: 0px;
+        height: 60px;
+        width: 345px;
+        .social-text {
+          margin-top: -43px;
+          margin-left: 95px;
+          font-size: 15px;
         }
       }
     }
@@ -1185,7 +1245,7 @@ body {
         width: 315px;
         margin-bottom: -10px;
       }
-      .wood-1, .wood-2{
+      .wood-1, .wood-2, .btn-group{
         .answer-text{
           padding-top: 16px;
         }
@@ -1256,7 +1316,7 @@ body {
         width: 280px;
         margin-bottom: -20px;
       }
-      .wood-1, .wood-2{
+      .wood-1, .wood-2, .btn-group{
         height: 77px;
         .answer-text{
           font-size: 18px;
@@ -1270,6 +1330,16 @@ body {
         .answer-text{
           font-size: 18px;
           padding-top: 17px;
+        }
+      }
+      .btn-group{
+        margin-left: 0px;
+        height: 50px;
+        width: 280px;
+        .social-text {
+          margin-top: -35px;
+          margin-left: 80px;
+          font-size: 12px;
         }
       }
       .social-text{
