@@ -16,7 +16,10 @@ angular.module('theFarmApp')
       	$scope.showBarn = true;
       	$scope.success = false; 
       	$scope.overlay = false;
-      	$scope.timeOut = false; 
+      	$scope.timeOut = false;
+      	$scope.successText = FarmServices.data.dictionary.vote.after.text;
+      	$scope.missedTitle = FarmServices.data.dictionary.vote.missed.title;
+ 		$scope.missedText = FarmServices.data.dictionary.vote.missed.text;
 
   		var internalState = null;
 
@@ -34,7 +37,7 @@ angular.module('theFarmApp')
 				$scope.overlay = true ;
 			} else 
 				{
-					voteStatus[FarmServices.status.current.frame.status]();
+				voteStatus[FarmServices.status.current.frame.status]();
 				internalState = FarmServices.status.current.frame.status;
 				}
 				
@@ -58,7 +61,9 @@ angular.module('theFarmApp')
   		}
 
   		function closed (argument) {
-  			// body...
+ 			
+  			$scope.timeOut = true;
+  			$scope.overlay = true;
   		}
 
   		$scope.answer = function answer(id) {
@@ -85,6 +90,7 @@ angular.module('theFarmApp')
   		if (FarmServices._updatedStatus()){
   			console.log(FarmServices);
   			if(FarmServices._allReadyVoted()){
+  				console.log(FarmServices)
 				$scope.success = true  ; 
 				$scope.overlay = true ;
 			}else{

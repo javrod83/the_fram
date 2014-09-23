@@ -13,7 +13,8 @@ angular.module('theFarmApp')
     '$timeout',
     'LoginService',
     'FarmServices',
-  function ($scope, $timeout, LoginService, FarmServices) {
+    '$state',
+  function ($scope, $timeout, LoginService, FarmServices,$state) {
       
       LoginService.init(FarmServices.config.social);
 
@@ -51,6 +52,7 @@ angular.module('theFarmApp')
         }
 
       console.log($scope.social);
+
       $scope.login = function(net){
 
           hello( LoginService.diccionary[net] ).login().then(function(data){     
@@ -60,28 +62,25 @@ angular.module('theFarmApp')
                 token: data.authResponse.access_token
               });
               console.log('Registration '+LoginService.diccionary[net]+' success');
-              window.location.href = '#/prompt';
-            },function(){
+              
+              $state.go('prompt')
+            },function(res){
               console.log('Registration '+LoginService.diccionary[net]+' failed');
+              console.log(res.error);
+
               //cambiar la clase del error 
 
             });
       };
 
-      
+       $scope.$on('animIn', function() {
+                console.log(' Login: animIn');
+            });
+
+      $scope.$on('animOut', function() {
+          console.log(' Login: animOut');
+      });
 
 
 
-  }]).animation('.expand', function() {
-  return {
-    enter : function(element, done) {
-      element.css({ 'left': -50, 'opacity': 0});
-      element.animate({
-        'left': 0, 'opacity': 1
-      }, done);
-    },
-    leave : function(element, done) {
-      element.animate({ 'left': -50, 'opacity':0 }, done);
-    }
-  }
-});
+  }]);

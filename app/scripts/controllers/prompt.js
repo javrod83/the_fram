@@ -52,4 +52,14 @@ angular.module('theFarmApp')
   				$scope.overlay = true;
   				$scope.error   = str; 
   			}
+
+
+
+            $scope.$on('animIn', function() {
+                console.log('Prompt: animIn');
+            });
+
+            $scope.$on('animOut', function() {
+                console.log('Prompt: animOut');
+            });
   }]);

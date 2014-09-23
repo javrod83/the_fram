@@ -8,8 +8,8 @@
  * Controller of the theFarmApp
  */
 angular.module('theFarmApp')
-  .controller('MainCtrl',['FarmServices','$scope',
-    function (FarmServices,$scope) {
+  .controller('MainCtrl',['FarmServices','$scope','$state',
+    function (FarmServices,$scope,$state) {
     
       $scope.resetMock = function()
         {
@@ -36,24 +36,24 @@ angular.module('theFarmApp')
           FarmServices.flags.initialized = true;
 
           if (FarmServices._loadLocalLogin()){
-            console.log('already logged');
-            console.log(FarmServices);
-            if (FarmServices._allReadyVoted()){
-              console.log('already voted');
-              window.location.href = '#/vote';
-            }else{
-              console.log('i haveto vote');
-                FarmServices.getStatus().then(function(data){
-                  console.log(data);
-                  window.location.href = '#/'+data.frame.type;
-                },function(err){
-               // promptError(FarmServices.data.dictionary.error.connection);
-                console.log(err);
-                }); 
-
-            }
+                console.log('already logged');
+                console.log(FarmServices);
+                if (FarmServices._allReadyVoted()){
+                    console.log('already voted');
+                    window.location.href = '#/vote';
+                }else{
+                    console.log('i haveto vote');
+                    FarmServices.getStatus().then(function(data){
+                      console.log(data);
+                      window.location.href = '#/'+data.frame.type;
+                    },function(err){
+                   // promptError(FarmServices.data.dictionary.error.connection);
+                    console.log(err);
+                    }); 
+                }
           }else{
-            window.location.href = '#/login';
+            //window.location.href = '#/login';
+           $state.go('login');
           }
           console.log(res);
           //window.location.href = '#/login'
@@ -62,6 +62,13 @@ angular.module('theFarmApp')
   			});
 
 
+       $scope.$on('animIn', function() {
+                console.log(' Main: animIn');
+            });
+
+      $scope.$on('animOut', function() {
+          console.log(' Main: animOut');
+      });
 
 
 

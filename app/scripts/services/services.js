@@ -51,6 +51,8 @@ angular.module('theFarmApp')
             initialized : false
         },
         _forgetState : function(){
+            
+
             localStorage.removeItem('vid');
             localStorage.removeItem('token');
             localStorage.removeItem('uid');
