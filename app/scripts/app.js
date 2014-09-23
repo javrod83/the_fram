@@ -18,31 +18,25 @@ angular
     'ngAnimate',
     'ui.router',
     'anim-in-out'
-  ])
-
-  .config(function ($stateProvider, $urlRouterProvider) {
+  ]).config(function ($stateProvider, $urlRouterProvider) {
   
-     $urlRouterProvider.otherwise('/');
+     $urlRouterProvider.otherwise('/login');
 
-     $stateProvider.state('Main', {
-        url: '/', 
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-    }).state('login', {
+     $stateProvider.state('login', {
       url: '/login',
       templateUrl: 'views/login.html',
       controller: 'LoginCtrl',
-        resolve:{
-          check:[ 'FarmServices', function(FarmServices) {
-            if(FarmServices._initilized()){
-              console.log('initialized view #/login');
-              //window.location.href = '#/login';
-            }else{
-              console.log('not initialized view #/login');
-              window.location.href = '/';
-            }
-          }]
-        }
+            resolve:{
+                FarmServices:'FarmServices',
+                initData:function(FarmServices) {
+                      console.log('momento de prometer config');
+                      return  FarmServices.getConfig().then(function(res){ 
+                          console.log('momento de prometer datos');
+                          return FarmServices.getData(res.urls.base, res.tid, res.jsons['territory-data']);
+                      });
+                }
+              }
+
     }).state('prompt', {
       url: '/prompt',
       templateUrl: 'views/prompt.html',
@@ -64,6 +58,7 @@ angular
       controller: 'TextCtrl'
      
     });
+    
 
 /*
 

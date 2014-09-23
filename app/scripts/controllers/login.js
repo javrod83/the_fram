@@ -14,66 +14,78 @@ angular.module('theFarmApp')
     'LoginService',
     'FarmServices',
     '$state',
-  function ($scope, $timeout, LoginService, FarmServices,$state) {
+    'initData',
+  function ($scope, $timeout, LoginService, FarmServices,$state,initData) {
+
+        $scope.overlay = false;  
+        $scope.timeOut = false;  //rabbit
       
-      LoginService.init(FarmServices.config.social);
+        //User is allready loged ? 
+    if (LoginService.loged){ // Yes user it's allready logedIn 
 
-      $scope.user = {};
-      //console.log(FarmServices.data);
-      $scope.title = FarmServices.data.dictionary.login.title;
+        //Get Current Status
+        FarmServices.getStatus().then(function(data){
+          
+            //redirect to current status view
+            $state.go(data['status-url']);
 
-      $scope.facebook = {
-        title : FarmServices.data.dictionary.login.facebook.title,
-        error : FarmServices.data.dictionary.login.facebook.error
-      };
+        },function(err){
 
-      $scope.twitter = {
-        title : FarmServices.data.dictionary.login.twitter.title,
-        error : FarmServices.data.dictionary.login.twitter.error
-      };
+            //show error connection overlay
+            $scope.overlay = true;  
+            $scope.timeOut = true;  //rabbit
+            $scope.missedTitle = FarmServices.data.diccionary.error.general;
+            $scope.missedText = FarmServices.data.diccionary.error.connection;
+            console.log(err)
+        });
 
-      $scope.google = {
-        title : FarmServices.data.dictionary.login.google.title,
-        error : FarmServices.data.dictionary.login.google.error
-      };
+    }else { //User must login
+        LoginService.init(FarmServices.config.social);
 
-      $scope.tos = FarmServices.data.dictionary.tos
-      
-
-       $scope.social = {
+        $scope.title = FarmServices.data.dictionary.login.title;
+        $scope.tos = FarmServices.data.dictionary.tos;
+        $scope.social = {
           fb : false,
           g  : false,
           tw : false
-       };
+        };
 
-      for (var ind in FarmServices.config.social.networks)
-        {
-          var network = FarmServices.config.social.networks[ind];
-          console.log(network);
-          $scope.social[network]=true;
-        }
+        for (var ind in FarmServices.config.social.networks)
+          {
+            var networkID = FarmServices.config.social.networks[ind];
+            var netWorkFullName =  LoginService.dictionary[networkID];
+          
+            $scope[netWorkFullName] = {
+                title : FarmServices.data.dictionary.login[netWorkFullName].title,
+                error : FarmServices.data.dictionary.login[netWorkFullName].error
+            };
 
-      console.log($scope.social);
+            $scope.social[networkID]=true;
+          }
 
-      $scope.login = function(net){
+        $scope.login = function(net){
 
-          hello( LoginService.diccionary[net] ).login().then(function(data){     
-              FarmServices._saveSocial({
-                id: net,
-                network:data.network,
-                token: data.authResponse.access_token
+            hello( LoginService.dictionary[net] ).login().then(function(data){     
+                FarmServices._saveSocial({
+                  id: net,
+                  network:data.network,
+                  token: data.authResponse.access_token
+                });
+                console.log('Registration '+LoginService.diccionary[net]+' success');
+                
+                $state.go('prompt')
+              },function(res){
+                console.log('Registration '+LoginService.diccionary[net]+' failed');
+                console.log(res.error);
+
+                //cambiar la clase del error 
+
               });
-              console.log('Registration '+LoginService.diccionary[net]+' success');
-              
-              $state.go('prompt')
-            },function(res){
-              console.log('Registration '+LoginService.diccionary[net]+' failed');
-              console.log(res.error);
+        };
+    }
 
-              //cambiar la clase del error 
 
-            });
-      };
+
 
        $scope.$on('animIn', function() {
                 console.log(' Login: animIn');
@@ -82,7 +94,5 @@ angular.module('theFarmApp')
       $scope.$on('animOut', function() {
           console.log(' Login: animOut');
       });
-
-
 
   }]);

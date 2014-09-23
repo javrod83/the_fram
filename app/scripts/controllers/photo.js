@@ -20,11 +20,11 @@ angular.module('theFarmApp')
 
 			if(FarmServices.status.current.frame.type === 'photo' ){
 				$scope.imgSrc = FarmServices.status.current.frame.media.large;
+				
 			}else{
 				$state.go(FarmServices.status.current.frame.type);
 			}		
 		}
-
 
 
 	//controller activity

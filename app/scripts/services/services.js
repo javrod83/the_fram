@@ -3,6 +3,7 @@ angular.module('theFarmApp')
 .factory('FarmServices',['$http','$q',function($http,$q){
 
     var Collection = {
+        configUrl : 'api',
         config : {},
         data : {},
         registration : {
@@ -50,51 +51,17 @@ angular.module('theFarmApp')
             loged : false,
             initialized : false
         },
-        _forgetState : function(){
-            
 
-            localStorage.removeItem('vid');
-            localStorage.removeItem('token');
-            localStorage.removeItem('uid');
-        },
-        _setPicAproved: function(desition)
-        {
-            Collection.registration.params.picApproved = desition ; 
-        },
+
         _saveVote : function(vid){
             localStorage.vid = vid;
         },
         _allReadyVoted : function (){
-            console.log(Collection.status);
+            //console.log(Collection.status);
 
-                return (localStorage.vid !== undefined)
-               
+            return (localStorage.vid !== undefined)
+        },
 
-
-            //return (localStorage.vid === 'undefined')?false:(Collection.status.current.frame.vote.vid  === localStorage.vid );
-            // if (localStorage.vid === undefined){ 
-            //     return false;
-            // }else{
-            //     return (Collection.status.current.frame.vote.vid  === localStorage.vid );
-            // }
-        },
-        _loadLocalLogin : function(){
-            if (localStorage.token !== undefined){
-                Collection.registration.token = localStorage.token;
-                Collection.registration.uid   = localStorage.uid;
-                Collection.flags.loged       = true ;
-                return true;
-            }else{
-                return false;
-            }
-        },
-        _saveLocalLogin : function(token,uid){
-            localStorage.token            = token ;
-            localStorage.uid              = uid; 
-            Collection.flags.loged        = true ; 
-            Collection.registration.token = token;
-            Collection.registration.uid   = uid;
-        },
         _setStatusReloadInterval : function(callBack){
             setTimeout(function() {
                 callBack(Collection.getStatus()) ; 
@@ -104,9 +71,6 @@ angular.module('theFarmApp')
              setTimeout(function() {
                Collection.getData();
             }, interval*1000);
-        },
-        _logued :  function(){
-            return Collection.flags.loged ;
         },
         _ready : function (){
             console.log(Collection.flags.loged);
@@ -120,13 +84,14 @@ angular.module('theFarmApp')
         _updatedStatus : function (){
             return (Collection.status.current.id > -1  && Collection.status.current.id > Collection.status.last.id);    
         },
-        getConfig : function(url) {
+        getConfig : function() {
             var deferred = $q.defer();
-            return $http.get(url+'/config.json').then(function(response) {
+            return $http.get(Collection.configUrl+'/config.json').then(function(response) {
 
             //  console.log(response);
                 if (response.status === 200) {
                     Collection.config = response.data;
+                    console.log("Services getFonfig:success");
                     deferred.resolve(response.data);
                 } else {
                     deferred.reject({
@@ -163,10 +128,16 @@ angular.module('theFarmApp')
             var filename = Collection.config.jsons.status; 
 
                console.log((Collection.status.current.id === -1)?"status url not defined yet ":"holly cow I have my new brand satus-url!!!!");
-            return $http.get( (Collection.status.current.id === -1)? url+tid+'/'+filename : Collection.status['status-url']).then(function(response) {
+              
+
+               var backedUrl =  (Collection.status.current.id === -1)? url+tid+'/'+filename : Collection.status['status-url'];
+                console.log(backedUrl);
+                
+            return $http.get(backedUrl).then(function(response) {
                 if (response.status === 200) {
                     deferred.resolve(response.data);
                     Collection.status.current = response.data; 
+                    console.log(Collection.status);
 
                 } else {
                     deferred.reject({
@@ -223,29 +194,29 @@ angular.module('theFarmApp')
                 Collection.registration.params.socialNetwork = args.network ;
                 Collection.registration.params.socialToken   = args.token ;
         },
-        register : function() {
-            var deferred = $q.defer();
+        // register : function() {
+        //     var deferred = $q.defer();
             
-            var url    = Collection.config.urls.login;
-            var params = Collection.registration.params;
-            console.log("register url:"+url+" params: ");
-            console.log(params);
-            //return $http.post(url,params).then(function(response) {
-            return $http.get(url).then(function(response) {
-                if (response.status === 200) {
-                    deferred.resolve(response.data);
-                    // storear el token  y el uid 
+        //     var url    = Collection.config.urls.login;
+        //     var params = Collection.registration.params;
+        //     console.log("register url:"+url+" params: ");
+        //     console.log(params);
+        //     //return $http.post(url,params).then(function(response) {
+        //     return $http.get(url).then(function(response) {
+        //         if (response.status === 200) {
+        //             deferred.resolve(response.data);
+        //             // storear el token  y el uid 
                    
-                    Collection._saveLocalLogin(response.data.authToken,response.data.uid);
+        //             Collection._saveLocalLogin(response.data.authToken,response.data.uid);
 
-                } else {
-                    deferred.reject({
-                        'errorMsg': 'registration unsuccessfull ! '
-                    });
-                }
-                return deferred.promise;
-            });
-        },
+        //         } else {
+        //             deferred.reject({
+        //                 'errorMsg': 'registration unsuccessfull ! '
+        //             });
+        //         }
+        //         return deferred.promise;
+        //     });
+        // },
         _vote : function(id) {
             var deferred = $q.defer();
             var url = Collection.config.urls.vote;
