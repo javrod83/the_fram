@@ -37,6 +37,8 @@ angular.module('theFarmApp')
         error : FarmServices.data.dictionary.login.google.error
       };
 
+      $scope.tos = FarmServices.data.dictionary.tos
+      
 
        $scope.social = {
           fb : false,

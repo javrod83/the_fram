@@ -8,7 +8,7 @@
  * Controller of the theFarmApp
  */
 angular.module('theFarmApp')
-    .controller('PhotoCtrl', ['FarmServices','$scope',function (FarmServices,$scope) {
+    .controller('PhotoCtrl', ['FarmServices','$scope','$state',function (FarmServices,$scope,$state) {
 
     //atributes
     $scope.imgSrc = '';
@@ -19,43 +19,26 @@ angular.module('theFarmApp')
     	function check(){
 
 			if(FarmServices.status.current.frame.type === 'photo' ){
-				if ($scope.imgSrc === ''){
-					$scope.imgSrc = FarmServices.status.current.frame.media.large;
-					
-				// FarmServices._setStatusReloadInterval(function(statusPromise){
-				// 	statusPromise.then(function(){
-				// 		check();
-				// 	},function(err){
-				// 		console.log('status.json error');
-				// 		console.log(err);
-				// 	});
-				// });
-
-				}
+				$scope.imgSrc = FarmServices.status.current.frame.media.large;
 			}else{
-				window.location.href = '#/'+FarmServices.status.current.frame.type;
+				$state.go(FarmServices.status.current.frame.type);
 			}		
 		}
 
-    //activity
-  	  	/*if (!FarmServices._ready()){
-			window.location.href = '#/';	
-		}*/
 
 
+	//controller activity
 
-	//	if (FarmServices._updatedStatus()){
-  	//		check();
-  	//	}else{
-			FarmServices.getPhotoMock()
-				.then(function(){
-					check();
-				},function(err){
-					console.log('status.json error');
-					console.log(err);
-				});
-	//	}
+	//FarmServices.getStatus()
+	FarmServices.getPhotoMock()
+		.then(function(){
+			check();
+		},function(err){
+			console.log('status.json error');
+			console.log(err);
+		});
+	
 
-
+	//Far
 
   }]);
