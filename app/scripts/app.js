@@ -20,7 +20,6 @@ angular
     'anim-in-out'
   ])
 
-
   .config(function ($stateProvider, $urlRouterProvider) {
   
      $urlRouterProvider.otherwise('/');

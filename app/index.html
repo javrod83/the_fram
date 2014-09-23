@@ -13,7 +13,7 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/animate.css">
-
+    <link rel="stylesheet" href="bower_components/angular-ui-router-anim-in-out/css/anim-in-out.css">
     <!-- endbuild -->
   </head>
   <body ng-app="theFarmApp">
@@ -23,26 +23,26 @@
 
     <!-- Add your site or application content here -->
 
-    <div class="mobile-container at-view-flip-in-vertical at-view-flip-out-vertical" ng-controller="MainCtrl">
+    <div class="mobile-container " ng-controller="MainCtrl">
       <div class="header">
         <ul class="nav nav-pills pull-right">
            <!--
-                 <li>
-                <a ui-sref="login">login</a>
-            </li>
-            <li>
-                <a ui-sref="prompt">prompt</a>
-            </li>
-            <li>
-                <a ui-sref="vote">vote</a>
-            </li>
-            <li>
-                <a ui-sref="photo">photo</a>
-            </li>
-            <li>
-                <a ui-sref="text">text</a>
-            </li>
-            -->
+                         <li>
+                        <a ui-sref="login">login</a>
+                    </li>
+                    <li>
+                        <a ui-sref="prompt">prompt</a>
+                    </li>
+                    <li>
+                        <a ui-sref="vote">vote</a>
+                    </li>
+                    <li>
+                        <a ui-sref="photo">photo</a>
+                    </li>
+                    <li>
+                        <a ui-sref="text">text</a>
+                    </li>
+                    -->
 
             <li>
                 <a ng-href="#" ng-click="resetMock()">
@@ -54,7 +54,7 @@
         <img class="logo" src="images/logo.png" /> 
       </div>
 
-      <div ui-view class="anim-in-out anim-fade" data-anim-speed="1000" data-anim-sync="true"></div>
+      <div ui-view class="anim-in-out anim-fade" data-anim-speed="500" data-anim-sync="true"></div>
      
 
     </div>

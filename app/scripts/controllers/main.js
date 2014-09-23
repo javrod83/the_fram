@@ -56,7 +56,7 @@ angular.module('theFarmApp')
            $state.go('login');
           }
           console.log(res);
-          //window.location.href = '#/login'
+           $state.go('login');
   			},function(err){
   				console.log(err);
   			});
