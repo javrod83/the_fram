@@ -32,34 +32,27 @@ angular
     }).state('login', {
       url: '/login',
       templateUrl: 'views/login.html',
-      controller: 'LoginCtrl',
-      resolve:{
-          check:[ 'FarmServices', function(FarmServices) {
-            if(FarmServices._initilized()){
-              console.log('initialized view #/login');
-              window.location.href = '#/login';
-            }else{
-              console.log('not initialized view #/login');
-              window.location.href = '/';
-            }
-          }]
-        }
+      controller: 'LoginCtrl'
     }).state('prompt', {
       url: '/prompt',
       templateUrl: 'views/prompt.html',
       controller: 'PromptCtrl'
+     
     }).state('vote', {
       url: '/vote',
       templateUrl: 'views/vote.html',
       controller: 'VoteCtrl'
+     
     }).state('photo', {
       url: '/photo',
       templateUrl: 'views/photo.html',
       controller: 'PhotoCtrl'
+   
     }).state('text', {
       url: '/text',
       templateUrl: 'views/text.html',
       controller: 'TextCtrl'
+     
     });
 
 /*
