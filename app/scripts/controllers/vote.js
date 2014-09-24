@@ -10,14 +10,14 @@
 angular.module('theFarmApp')
   .controller('VoteCtrl',['FarmServices', '$scope','initData', function (FarmServices,$scope,initData) {
     //log
-      var modName = 'VoteCtrl';
-      var updateCount = 0 ;
-      function log(method,msg)
-        {
-          console.log('['+modName+']: '+method+' : '+msg);
-        }
-  	//Methods 
+    	var modName = 'VoteCtrl';
+    	var updateCount = 0 ;
 
+    	function log(method,msg){
+        	console.log('['+modName+']: '+method+' : '+msg);
+    	}
+
+  	//Methods 
   		$scope.footerImages = ['cow','cow_big', 'ostrich', 'sheep', 'sheep_big', 'field', 'field_big'];
       	$scope.showBarn     = true;
       	$scope.success      = false; //hen
@@ -35,6 +35,32 @@ angular.module('theFarmApp')
 			25 : closed
 		};
 
+		function open(){
+			log('open','<--');
+			if( internalState !== 23 || FarmServices.updatedStatus() ){
+				log('open','update vote');
+				$scope.state = 'open';
+	  			$scope.title = FarmServices.status.current.frame.vote.title;
+	  			$scope.options = FarmServices.status.current.frame.vote.options;
+	  			$scope.vid = FarmServices.status.current.frame.vote.vid;
+	  			$scope.selected = -1 ; 
+			}else{
+				log('open','nothing to do here');
+			}
+  		}
+
+  		function warning (argument) {
+  			log('warning',' <--');
+  			// body...
+  		}
+
+  		function closed (argument) {
+  			log('closed',' <--');
+  			if( internalState !== 25 || FarmServices.updatedStatus() ){
+  				$scope.timeOut = true;
+  				$scope.overlay = true;  				
+  			}
+  		}
 		function check(){
 			log('check','<--');
 
@@ -67,32 +93,6 @@ angular.module('theFarmApp')
 			}		
 		}
 
-		function open(){
-			log('open','<--');
-			if( internalState !== 23 || FarmServices.updatedStatus() ){
-				log('open','update vote');
-				$scope.state = 'open';
-	  			$scope.title = FarmServices.status.current.frame.vote.title;
-	  			$scope.options = FarmServices.status.current.frame.vote.options;
-	  			$scope.vid = FarmServices.status.current.frame.vote.vid;
-	  			$scope.selected = -1 ; 
-			}else{
-				log('open','nothing to do here');
-			}
-  		}
-
-  		function warning (argument) {
-  			log('warning',' <--');
-  			// body...
-  		}
-
-  		function closed (argument) {
-  			log('closed',' <--');
-  			if( internalState !== 25 || FarmServices.updatedStatus() ){
-  				$scope.timeOut = true;
-  				$scope.overlay = true;  				
-  			}
-  		}
 
   		$scope.answer = function (id) {
   			log('answer',' <--');
@@ -112,8 +112,7 @@ angular.module('theFarmApp')
   				});
   		}
 
-  	//activity
-  		
+  	//Activity
   		
   		//first check if status it's updated
   		if (FarmServices.updatedStatus()){
