@@ -39,10 +39,10 @@ angular.module('theFarmApp')
 			log('open','<--');
 			if( internalState !== 23 || FarmServices.updatedStatus() ){
 				log('open','update vote');
-				$scope.state = 'open';
-	  			$scope.title = FarmServices.status.current.frame.vote.title;
-	  			$scope.options = FarmServices.status.current.frame.vote.options;
-	  			$scope.vid = FarmServices.status.current.frame.vote.vid;
+				$scope.state    = 'open';
+	  			$scope.title    = FarmServices.status.current.frame.vote.title;
+	  			$scope.options  = FarmServices.status.current.frame.vote.options;
+	  			$scope.vid      = FarmServices.status.current.frame.vote.vid;
 	  			$scope.selected = -1 ; 
 			}else{
 				log('open','nothing to do here');
