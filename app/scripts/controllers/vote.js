@@ -77,8 +77,8 @@ angular.module('theFarmApp')
 					voteStatus[FarmServices.status.current.frame.status]();
 					internalState = FarmServices.status.current.frame.status;
 				}
-				log('check:setStatusReloadInterval','<-- '+updateCount++);
-				FarmServices.setStatusReloadInterval(function(promise){
+				log('check:delayedGetStatus','<-- '+updateCount++);
+				FarmServices.delayedGetStatus(function(promise){
 					promise.then(function(data){
 						log('check:getStatus','success');
 						console.log(data);

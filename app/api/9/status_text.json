@@ -1,5 +1,5 @@
 {
-  "id": 1404293132113,
+  "id": 1404293132111,
   "frame": {
     "fid": "4499", 
     "sid": "104", 
@@ -9,6 +9,6 @@
   },
   "interval": 10,
   "timeout": 3,
-  "status-url": "http://theFram.com.ar:9000/api/9/status_vote.json",
+  "status-url": "http://theFram.com.ar:9000/api/9/status_photo.json",
   "secret-key-update-time": 1401281448
 }
