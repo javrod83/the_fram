@@ -8,7 +8,7 @@
  * Controller of the theFarmApp
  */
 angular.module('theFarmApp')
-  .controller('TextCtrl', ['FarmServices','$scope',function (FarmServices,$scope) {
+  .controller('TextCtrl', ['FarmServices','$scope','$state',function (FarmServices,$scope,$state) {
 	//log
 		var modName     = 'TextCtrl';
 		var updateCount = 0 ;
@@ -27,19 +27,20 @@ angular.module('theFarmApp')
 			if(FarmServices.status.current.frame.type === 'text' ){
 				log('check','status text');
 				if ($scope.txt === ''){
+					log('check:set text',FarmServices.status.current.frame.text);
 					$scope.txt = FarmServices.status.current.frame.text;
 					
 					log('check','getDelayedStatus '+updateCount);
 					updateCount++;
-					FarmServices.delayedGetStatus(function(statusPromise){
-						statusPromise.then(function(){
-							log('getDelayedStatus','success');
-							check();
-						},function(err){
-							log('getDelayedStatus','fail');
-							console.log(err);
-						});
-					});
+					// FarmServices.delayedGetStatus(function(statusPromise){
+					// 	statusPromise.then(function(){
+					// 		log('getDelayedStatus','success');
+					// 		check();
+					// 	},function(err){
+					// 		log('getDelayedStatus','fail');
+					// 		console.log(err);
+					// 	});
+					// });
 				}
 			}else{
 				log('check','status '+FarmServices.status.current.frame.type);
