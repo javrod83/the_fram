@@ -18,10 +18,9 @@ angular.module('theFarmApp')
     function($scope, $timeout, LoginService, FarmServices, $state, initData) {
 
       //Properties
-
       $scope.overlay = false;
       $scope.timeOut = false; //rabbit
-      $scope.obj = false;
+      $scope.triggerAnimation = false;
 
       //log
       var modName = 'LoginCtrl';
@@ -56,27 +55,25 @@ angular.module('theFarmApp')
           });
       };
 
-      //User is allready loged ? 
-      if (LoginService.loged) { // Yes user it's allready logedIn 
+        //User is allready loged ? 
+      if (LoginService.loged || LoginService.loadLocalLogin()){ // Yes user it's allready logedIn 
 
-        //Get Current Status
-        FarmServices.getStatus().then(function(data) {
+          //Get Current Status
+          FarmServices.getStatus().then(function(data){
+              log('getStatus','success');
+              console.log(data);
+              //redirect to current status view
+              $state.go(data.frame.type);
 
-          //redirect to current status view
-          $state.go(data['status-url']);
-
-        }, function(err) {
-
-          //show error connection overlay
-          $scope.overlay = true;
-          $scope.timeOut = true; //rabbit
-          $scope.missedTitle = FarmServices.data.diccionary.error.general;
-          $scope.missedText = FarmServices.data.diccionary.error.connection;
-          console.log(err)
-        });
-
-      } else { //User must login
-        LoginService.init(FarmServices.config.social);
+          },function(err){
+              log('getStatus','fail');
+              //show error connection overlay
+              $scope.overlay = true;  
+              $scope.timeOut = true;  //rabbit
+              $scope.missedTitle = FarmServices.data.diccionary.error.general;
+              $scope.missedText = FarmServices.data.diccionary.error.connection;
+              console.log(err)
+          });
 
         $scope.title = FarmServices.data.dictionary.login.title;
         $scope.tos = FarmServices.data.dictionary.tos;
@@ -95,34 +92,21 @@ angular.module('theFarmApp')
             error: FarmServices.data.dictionary.login[netWorkFullName].error
           };
 
-          $scope.social[networkID] = true;
-        }
-
-
+              $scope.social[networkID]=true;
+            }
       }
 
-
-
-      $scope.$on('animIn', function() {
-        console.log(' Login: animIn');
-      });
+       $scope.$on('animIn', function() {
+           log('animIn','<--');
+        });
 
       $scope.$on('animOut', function() {
-        console.log(' Login: animOut');
+          log('animOut','<--');
       });
 
-      /*$scope.$on('$viewContentLoaded', function() {
-          console.log('obj true?')
-          setTimeout(function () {
-            $scope.obj = true;
-            $scope.facebook.title = 'puto'
-          }, 3000)
-      });*/
-
-      // at the bottom of your controller
       var init = function() {
         setTimeout(function() {
-          $scope.obj = true;
+          $scope.triggerAnimation = true;
           $scope.$apply() 
         }, 1000)
       };

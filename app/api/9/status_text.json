@@ -9,6 +9,6 @@
   },
   "interval": 10,
   "timeout": 3,
-  "status-url": "http://cdn.farm.scrnz.com/showData/9/status.json",
+  "status-url": "http://theFram.com.ar:9000/api/9/status_vote.json",
   "secret-key-update-time": 1401281448
 }

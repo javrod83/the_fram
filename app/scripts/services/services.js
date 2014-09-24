@@ -32,25 +32,23 @@ angular.module('theFarmApp')
             loged : false,
             initialized : false
         },
-
         _saveVote : function(vid){
             log('_saveVote','<--');
             localStorage.vid = vid;
         },
-        _allReadyVoted : function (){
-             log('_allReadyVoted',''+(localStorage.vid !== undefined));
+        allreadyVoted : function (){
+            log('_allReadyVoted',''+(localStorage.vid !== undefined));
             return (localStorage.vid !== undefined);
         },
-
-        _setStatusReloadInterval : function(callBack){
+        setStatusReloadInterval : function(callBack){
             log('_setStatusReloadInterval','<--');
             setTimeout(function() {
                 log('_setStatusReloadInterval','callBack');
                 callBack(Collection.getStatus()) ; 
             }, Collection.status.current.interval*1000);
         },
-        _updatedStatus : function (){
-            log('_updatedStatus',(Collection.status.current.id > -1  && Collection.status.current.id > Collection.status.last.id));
+        updatedStatus : function (){
+            log('updatedStatus',(Collection.status.current.id > -1  && Collection.status.current.id > Collection.status.last.id));
             return (Collection.status.current.id > -1  && Collection.status.current.id > Collection.status.last.id);    
         },
         getConfig : function() {
@@ -101,21 +99,22 @@ angular.module('theFarmApp')
             });
         },
         getStatus : function() {
-            log('getData','<--');
+            log('getStatus','<--');
             var deferred = $q.defer();
 
             var url = Collection.config.urls.base;
             var tid = Collection.config.tid;
             var filename = Collection.config.jsons.status; 
  
-            log('getData',"status is "((Collection.status.current.id === -1)? 'original ':'new: '+ Collection.status['status-url']));
+            log('getData',"status is "+((Collection.status.current.id === -1)? 'original ':'new: '+ Collection.status.current['status-url']));
 
-               var backedUrl =  (Collection.status.current.id === -1)? url+tid+'/'+filename : Collection.status['status-url'];            
+               var backedUrl =  (Collection.status.current.id === -1)? url+tid+'/'+filename : Collection.status.current['status-url'];            
                 
             return $http.get(backedUrl).then(function(response) {
                 log('getData','success');
                 if (response.status === 200) {
                     deferred.resolve(response.data);
+                    Collection.status.last = Collection.status.current; 
                     Collection.status.current = response.data; 
                     console.log(Collection.status);
 
@@ -172,7 +171,7 @@ angular.module('theFarmApp')
                 return deferred.promise;
             });
         },
-        _vote : function(id) {
+        vote : function(id) {
             var deferred = $q.defer();
             var url = Collection.config.urls.vote;
             var uid = Collection.registration.uid;
