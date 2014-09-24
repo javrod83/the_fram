@@ -61,100 +61,28 @@ angular
     }).state('photo', {
       url: '/photo',
       templateUrl: 'views/photo.html',
-      controller: 'PhotoCtrl'
-   
+      controller: 'PhotoCtrl',
+      resolve:{
+              FarmServices:'FarmServices',
+              initData:function(FarmServices) {
+                    return  FarmServices.getConfig().then(function(res){ 
+                        return FarmServices.getData(res.urls.base, res.tid, res.jsons['territory-data']);
+                    });
+              }
+          }
     }).state('text', {
       url: '/text',
       templateUrl: 'views/text.html',
-      controller: 'TextCtrl'
-     
+      controller: 'TextCtrl',
+      resolve:{
+              FarmServices:'FarmServices',
+              initData:function(FarmServices) {
+                    return  FarmServices.getConfig().then(function(res){ 
+                        return FarmServices.getData(res.urls.base, res.tid, res.jsons['territory-data']);
+                    });
+              }
+          }
     });
     
 
-/*
-
-      $routeProvider.when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .when('/login', {
-        templateUrl: 'views/login.html',
-        controller: 'LoginCtrl',
-        resolve:{
-          check:[ 'FarmServices', function(FarmServices) {
-            if(FarmServices._initilized()){
-              console.log('initialized view #/login');
-              window.location.href = '#/login';
-            }else{
-              console.log('not initialized view #/login');
-              window.location.href = '/';
-            }
-          }]
-        }
-
-      })
-      .when('/prompt', {
-        templateUrl: 'views/prompt.html',
-        controller: 'PromptCtrl',
-        resolve:{
-          check:[ 'FarmServices', function(FarmServices) {
-            if(FarmServices._initilized()){
-              console.log('initialized view #/prompt');
-              window.location.href = '#/prompt';
-            }else{
-              console.log('not initialized view #/prompt');
-              window.location.href = '/';
-            }
-          }]
-        }
-      })
-      .when('/vote', {
-        templateUrl: 'views/vote.html',
-        controller: 'VoteCtrl',
-        resolve:{
-          check:[ 'FarmServices', function(FarmServices) {
-            if(FarmServices._ready()){
-              console.log('ready view #/vote');
-              window.location.href = '#/vote';
-            }else{
-              console.log('not ready view #/vote');
-              window.location.href = '/';
-            }
-          }]
-        }
-      })
-      .when('/text', {
-        templateUrl: 'views/text.html',
-        controller: 'TextCtrl',
-        resolve:{
-          check:[ 'FarmServices', function(FarmServices) {
-            if(FarmServices._ready()){
-              console.log('ready view #/text');
-              window.location.href = '#/text';
-            }else{
-              console.log('not ready view #/text');
-              window.location.href = '/';
-            }
-          }]
-        }
-      })
-      .when('/photo', {
-        templateUrl: 'views/photo.html',
-        controller: 'PhotoCtrl',
-        resolve:{
-          check:[ 'FarmServices', function(FarmServices) {
-            if(FarmServices._ready()){
-              console.log('ready view #/photo');
-              window.location.href = '#/photo';
-            }else{
-              console.log('not ready view #/photo');
-              window.location.href = '/';
-            }
-          }]
-        }
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-*/
   });

@@ -40,10 +40,10 @@ angular.module('theFarmApp')
             log('_allReadyVoted',''+(localStorage.vid !== undefined));
             return (localStorage.vid !== undefined);
         },
-        setStatusReloadInterval : function(callBack){
-            log('_setStatusReloadInterval','<--');
+        delayedGetStatus : function(callBack){
+            log('delayedGetStatus','<--');
             setTimeout(function() {
-                log('_setStatusReloadInterval','callBack');
+                log('delayedGetStatus','callBack');
                 callBack(Collection.getStatus()) ; 
             }, Collection.status.current.interval*1000);
         },
