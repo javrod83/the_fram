@@ -12,6 +12,7 @@ angular.module('theFarmApp')
       $scope.closeAction = function()
         {
           LoginService.forgetState();
+          FarmServices.clean();
         }
 
 

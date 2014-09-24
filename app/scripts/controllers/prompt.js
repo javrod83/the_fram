@@ -23,6 +23,8 @@ angular.module('theFarmApp')
       $scope.showBarn     = true;
       $scope.overlay      = false; 
       $scope.timeOut      = false;  //rabbit
+      $scope.missedTitle  = '' ;
+      $scope.missedText   = '' ;
 
 
 
@@ -49,7 +51,7 @@ angular.module('theFarmApp')
                         $scope.overlay     = true; 
                         $scope.timeOut     = true;  //rabbit
                         $scope.missedTitle = '';
-                        $scope.missedText  = FarmServices.data.diccionary.error.connection;
+                        $scope.missedText  = FarmServices.data.dictionary.error.connection;
                     });
 
                   }
@@ -58,7 +60,7 @@ angular.module('theFarmApp')
                     $scope.overlay     = true; 
                     $scope.timeOut     = true;  //rabbit
                     $scope.missedTitle = '';
-                    $scope.missedText  = FarmServices.data.diccionary.error.general;
+                    $scope.missedText  = FarmServices.data.dictionary.error.general;
                   }
 
             },function(err){
@@ -66,7 +68,7 @@ angular.module('theFarmApp')
                 $scope.overlay     = true; 
                 $scope.timeOut     = true;  //rabbit
                 $scope.missedTitle = '';
-                $scope.missedText  = FarmServices.data.diccionary.error.connection;
+                $scope.missedText  = FarmServices.data.dictionary.error.connection;
               
             });
         };

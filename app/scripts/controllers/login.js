@@ -18,8 +18,10 @@ angular.module('theFarmApp')
   function ($scope, $timeout, LoginService, FarmServices,$state,initData) {
 
       //Properties
-      $scope.overlay = false;  
-      $scope.timeOut = false;  //rabbit
+      $scope.overlay     = false ;  
+      $scope.timeOut     = false ;  //rabbit
+      $scope.missedTitle = '' ;
+      $scope.missedText  = '' ;
 
       //log
       var modName = 'LoginCtrl';
@@ -53,8 +55,8 @@ angular.module('theFarmApp')
               console.log(res.error);
               $scope.overlay = true;  
               $scope.timeOut = true;
-              $scope.missedTitle = FarmServices.data.diccionary.error.general;
-              $scope.missedText = FarmServices.data.diccionary.error.connection;
+              $scope.missedTitle = FarmServices.data.dictionary.error.general;
+              $scope.missedText = FarmServices.data.dictionary.error.connection;
 
             });
       };
@@ -74,8 +76,8 @@ angular.module('theFarmApp')
               //show error connection overlay
               $scope.overlay = true;  
               $scope.timeOut = true;  //rabbit
-              $scope.missedTitle = FarmServices.data.diccionary.error.general;
-              $scope.missedText = FarmServices.data.diccionary.error.connection;
+              $scope.missedTitle = FarmServices.data.dictionary.error.general;
+              $scope.missedText = FarmServices.data.dictionary.error.connection;
               console.log(err)
           });
 

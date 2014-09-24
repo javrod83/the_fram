@@ -32,15 +32,15 @@ angular.module('theFarmApp')
 					
 					log('check','getDelayedStatus '+updateCount);
 					updateCount++;
-					// FarmServices.delayedGetStatus(function(statusPromise){
-					// 	statusPromise.then(function(){
-					// 		log('getDelayedStatus','success');
-					// 		check();
-					// 	},function(err){
-					// 		log('getDelayedStatus','fail');
-					// 		console.log(err);
-					// 	});
-					// });
+					FarmServices.delayedGetStatus(function(statusPromise){
+						statusPromise.then(function(){
+							log('getDelayedStatus','success');
+							check();
+						},function(err){
+							log('getDelayedStatus','fail');
+							console.log(err);
+						});
+					});
 				}
 			}else{
 				log('check','status '+FarmServices.status.current.frame.type);

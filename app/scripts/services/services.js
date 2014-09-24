@@ -10,6 +10,7 @@ angular.module('theFarmApp')
           console.log('['+modName+']: '+method+' : '+msg);
         }
 
+
     var Collection = {
         configUrl : 'api',
         config : {},
@@ -31,14 +32,6 @@ angular.module('theFarmApp')
         flags : {
             loged : false,
             initialized : false
-        },
-        _saveVote : function(vid){
-            log('_saveVote','<--');
-            localStorage.vid = vid;
-        },
-        allreadyVoted : function (){
-            log('_allReadyVoted',''+(localStorage.vid !== undefined));
-            return (localStorage.vid !== undefined);
         },
         delayedGetStatus : function(callBack){
             log('delayedGetStatus','<--');
@@ -106,7 +99,7 @@ angular.module('theFarmApp')
             var tid = Collection.config.tid;
             var filename = Collection.config.jsons.status; 
  
-            log('getData',"status is "+((Collection.status.current.id === -1)? 'original ':'new: '+ Collection.status.current['status-url']));
+            log('getData','status is '+((Collection.status.current.id === -1)? 'original ':'new: '+ Collection.status.current['status-url']));
 
                var backedUrl =  (Collection.status.current.id === -1)? url+tid+'/'+filename : Collection.status.current['status-url'];            
                 
@@ -171,28 +164,32 @@ angular.module('theFarmApp')
                 return deferred.promise;
             });
         },
-        vote : function(id) {
-            var deferred = $q.defer();
-            var url = Collection.config.urls.vote;
-            var uid = Collection.registration.uid;
-            var token = Collection.registration.token;
-            var vid = Collection.status.current.frame.vote.vid;
-
-            Collection._saveVote(vid);
-
-            //http://vote.farm.scrnz.com/v?u=<UID>&t=<TOKEN>&vi=<VID>&v=<SELECTION>
-            return $http.get(url+'u='+uid+'&t='+token+'&vi='+vid+'&v='+id).then(function(response) {
-            //return $http.post(url+'u='+uid+'&t='+token+'&vi='+vid+'&v='+id,{}).then(function(response) {
-                if (response.status === 200) {
-                    deferred.resolve(response.data);
-                } else {
-                    deferred.reject({
-                        'errorMsg': 'vote unsuccessfull ! '
-                    });
-                }
-                return deferred.promise;
-            });
-        }
+        clean: function ()
+        {
+            
+                Collection.configUrl     = 'api';
+                Collection.config        = {};
+                Collection.data          = {};
+                Collection.lastStatusId  = -1;
+                Collection.lastVoteId    = -1;
+                Collection.status        = {
+                    current  : {
+                        id   : -1
+                    },
+                    last     : {
+                        id   : -1
+                    }
+                };
+                Collection.timeStatus = {
+                    lastStatus : -1,
+                    lastTerritory : -1 
+                };
+                Collection.flags = {
+                    loged : false,
+                    initialized : false
+                };
+            }
+        
     };
 
     return Collection;

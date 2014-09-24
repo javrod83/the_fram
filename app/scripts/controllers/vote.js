@@ -8,7 +8,7 @@
  * Controller of the theFarmApp
  */
 angular.module('theFarmApp')
-  .controller('VoteCtrl',['FarmServices', '$scope','initData', '$state',function (FarmServices,$scope,initData,$state) {
+  .controller('VoteCtrl',['FarmServices','LoginService' ,'$scope','initData', '$state',function (FarmServices,LoginService,$scope,initData,$state) {
     //log
     	var modName = 'VoteCtrl';
     	var updateCount = 0 ;
@@ -67,7 +67,7 @@ angular.module('theFarmApp')
 			if(FarmServices.status.current.frame.type === 'vote'){
 
 				log('check','frame type vote');
-				if(FarmServices.allreadyVoted()){
+				if(LoginService.allreadyVoted()){
 
 					log('check','allready voted');
 					$scope.success = true  ; 
@@ -97,7 +97,7 @@ angular.module('theFarmApp')
   		$scope.answer = function (id) {
   			log('answer',' <--');
 
-  			FarmServices.vote(id).
+  			LoginService.vote(id).
   				then(function(response){
   					log('answer','vote('+id+') success');
   					$scope.success = true;
@@ -119,7 +119,7 @@ angular.module('theFarmApp')
   			//a fresh stattus it's ready to be shown
   			log('Status updated !','<--');
 
-  			if(FarmServices.allreadyVoted()){
+  			if(LoginService.allreadyVoted()){
   				log('_llreadyVoted','<--');
 				$scope.success = true ; 
 				$scope.overlay = true ;

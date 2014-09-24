@@ -56,10 +56,11 @@ angular.module('theFarmApp')
             var deferred = $q.defer();
             var url    = FarmServices.config.urls.login;
             var params = Collection.params;
+             log('register','url: '+url);
             log('register','params: ');
             console.log(params);
-            //return $http.post(url,params).then(function(response) {
-            return $http.get(url).then(function(response) {
+            return $http.post(url,params).then(function(response) {
+            //return $http.get(url).then(function(response) {
                 if (response.status === 200) {
                     deferred.resolve(response.data);
                     // storear el token  y el uid 
@@ -113,6 +114,36 @@ angular.module('theFarmApp')
             Collection.params.socialNetwork = args.network ;
             Collection.params.socialToken   = args.token ;
             log('saveSocial','-->');
+        },
+        vote : function(id) {
+            var deferred = $q.defer();
+            var url      = FarmServices.config.urls.vote;
+            var uid      = Collection.uid;
+            var token    = Collection.token;
+            var vid      = FarmServices.status.current.frame.vote.vid;
+
+            Collection._saveVote(vid);
+
+            //http://vote.farm.scrnz.com/v?u=<UID>&t=<TOKEN>&vi=<VID>&v=<SELECTION>
+            return $http.get(url+'u='+uid+'&t='+token+'&vi='+vid+'&v='+id).then(function(response) {
+            //return $http.post(url+'u='+uid+'&t='+token+'&vi='+vid+'&v='+id,{}).then(function(response) {
+                if (response.status === 200) {
+                    deferred.resolve(response.data);
+                } else {
+                    deferred.reject({
+                        'errorMsg': 'vote unsuccessfull ! '
+                    });
+                }
+                return deferred.promise;
+            });
+        },
+        _saveVote : function(vid){
+            log('_saveVote','<--');
+            localStorage.vid = vid;
+        },
+        allreadyVoted : function (){
+            log('_allReadyVoted',''+(localStorage.vid !== undefined));
+            return (localStorage.vid !== undefined);
         },
 	};
 
