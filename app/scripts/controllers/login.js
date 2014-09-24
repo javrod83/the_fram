@@ -18,10 +18,8 @@ angular.module('theFarmApp')
   function ($scope, $timeout, LoginService, FarmServices,$state,initData) {
 
       //Properties
-
       $scope.overlay = false;  
       $scope.timeOut = false;  //rabbit
-
 
       //log
       var modName = 'LoginCtrl';
@@ -57,11 +55,8 @@ angular.module('theFarmApp')
             });
       };
 
-
-
-      
         //User is allready loged ? 
-      if (LoginService.loged){ // Yes user it's allready logedIn 
+      if (LoginService.loged || LoginService.loadLocalLogin()){ // Yes user it's allready logedIn 
 
           //Get Current Status
           FarmServices.getStatus().then(function(data){
@@ -103,19 +98,14 @@ angular.module('theFarmApp')
 
               $scope.social[networkID]=true;
             }
-
-
       }
 
-
-
-
        $scope.$on('animIn', function() {
-                console.log(' Login: animIn');
-            });
+           log('animIn','<--');
+        });
 
       $scope.$on('animOut', function() {
-          console.log(' Login: animOut');
+          log('animOut','<--');
       });
 
   }]);

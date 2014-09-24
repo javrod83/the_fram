@@ -32,7 +32,6 @@ angular.module('theFarmApp')
             loged : false,
             initialized : false
         },
-
         _saveVote : function(vid){
             log('_saveVote','<--');
             localStorage.vid = vid;
@@ -48,7 +47,7 @@ angular.module('theFarmApp')
                 callBack(Collection.getStatus()) ; 
             }, Collection.status.current.interval*1000);
         },
-        _updatedStatus : function (){
+        updatedStatus : function (){
             log('_updatedStatus',(Collection.status.current.id > -1  && Collection.status.current.id > Collection.status.last.id));
             return (Collection.status.current.id > -1  && Collection.status.current.id > Collection.status.last.id);    
         },
@@ -171,7 +170,7 @@ angular.module('theFarmApp')
                 return deferred.promise;
             });
         },
-        _vote : function(id) {
+        vote : function(id) {
             var deferred = $q.defer();
             var url = Collection.config.urls.vote;
             var uid = Collection.registration.uid;
