@@ -65,12 +65,13 @@ angular.module('theFarmApp')
 
           //Get Current Status
           FarmServices.getStatus().then(function(data){
-            
+              log('getStatus','success');
+              console.log(data);
               //redirect to current status view
-              $state.go(data['status-url']);
+              $state.go(data.frame.type);
 
           },function(err){
-
+              log('getStatus','fail');
               //show error connection overlay
               $scope.overlay = true;  
               $scope.timeOut = true;  //rabbit

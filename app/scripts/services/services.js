@@ -38,10 +38,9 @@ angular.module('theFarmApp')
             localStorage.vid = vid;
         },
         _allReadyVoted : function (){
-             log('_allReadyVoted',''+(localStorage.vid !== undefined));
+            log('_allReadyVoted',''+(localStorage.vid !== undefined));
             return (localStorage.vid !== undefined);
         },
-
         _setStatusReloadInterval : function(callBack){
             log('_setStatusReloadInterval','<--');
             setTimeout(function() {
@@ -108,9 +107,9 @@ angular.module('theFarmApp')
             var tid = Collection.config.tid;
             var filename = Collection.config.jsons.status; 
  
-            log('getData',"status is "((Collection.status.current.id === -1)? 'original ':'new: '+ Collection.status['status-url']));
+            log('getData',"status is "+((Collection.status.current.id === -1)? 'original ':'new: '+ Collection.status.current['status-url']));
 
-               var backedUrl =  (Collection.status.current.id === -1)? url+tid+'/'+filename : Collection.status['status-url'];            
+               var backedUrl =  (Collection.status.current.id === -1)? url+tid+'/'+filename : Collection.status.current['status-url'];            
                 
             return $http.get(backedUrl).then(function(response) {
                 log('getData','success');
