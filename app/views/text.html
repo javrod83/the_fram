@@ -1,12 +1,10 @@
 <div class="content">
-	
-   <div class="photo-container" >
-   		<p class="login-text board-text">{{txt}}</p>
-   		<img class="frame" src="images/board.png" />
-   </div>
-
+	<div  ng-include src='"partials/rabbit.html"'></div>
+	<div class="photo-container" >
+		<p class="login-text board-text">{{txt}}</p>
+		<img class="frame" src="images/board.png" />
+	</div>
 </div>
-
 <div class="footer">
 	<img img-preload ng-repeat="img in footerImages" class="{{img}}" ng-src="images/{{img}}.png" />
 	<div ng-if="showBarn" class="barn-container"><img img-preload class="barn" src="images/barn.png" /></div>

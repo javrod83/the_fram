@@ -1,19 +1,10 @@
 <div class="content">
-  <!-- <div class="rope-container-left">
-    <div class="rope"></div>
-  </div> -->
-
-   <div class="photo-container" >
+  <div  ng-include src='"partials/rabbit.html"'></div>
+  <div class="photo-container" >
     <img class="frame" src="images/frame.png" />
     <img class="img-frame" ng-src="{{imgSrc}}">
-   </div>
-
-   
-   <!-- <div class="rope-container-right">
-    <div class="rope"></div>
-   </div> -->
+  </div>
 </div>
-
 <div class="footer">
   <img img-preload ng-repeat="img in footerImages" class="{{img}}" ng-src="images/{{img}}.png" />
   <div ng-if="showBarn" class="barn-container"><img img-preload class="barn" src="images/barn.png" /></div>

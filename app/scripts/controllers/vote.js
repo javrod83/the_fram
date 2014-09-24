@@ -8,7 +8,7 @@
  * Controller of the theFarmApp
  */
 angular.module('theFarmApp')
-  .controller('VoteCtrl',['FarmServices', '$scope','initData', function (FarmServices,$scope,initData) {
+  .controller('VoteCtrl',['FarmServices', '$scope','initData', '$state',function (FarmServices,$scope,initData,$state) {
     //log
     	var modName = 'VoteCtrl';
     	var updateCount = 0 ;

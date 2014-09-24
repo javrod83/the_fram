@@ -10,17 +10,27 @@
 angular.module('theFarmApp')
     .controller('PhotoCtrl', ['FarmServices','$scope','$state',function (FarmServices,$scope,$state) {
 
-    //atributes
-    $scope.imgSrc = '';
-    $scope.footerImages = ['cow','cow_big', 'ostrich', 'sheep', 'sheep_big', 'field', 'field_big'];
-    $scope.showBarn = true;
+    //Atributes
+		$scope.imgSrc       = '';
+		$scope.footerImages = ['cow','cow_big', 'ostrich', 'sheep', 'sheep_big', 'field', 'field_big'];
+		$scope.showBarn     = true;
+		$scope.overlay      = false;  
+		$scope.timeOut      = false;  //rabbit
 
-    //methods
+    ///Methods
     	function check(){
 
 			if(FarmServices.status.current.frame.type === 'photo' ){
+
 				$scope.imgSrc = FarmServices.status.current.frame.media.large;
-				
+				FarmServices.setStatusReloadInterval(function(promise){
+					promise.then(function(data){
+						console.log(data);
+						check();
+					},function(err){
+						console.log(err);
+					});
+				});
 			}else{
 				$state.go(FarmServices.status.current.frame.type);
 			}		
@@ -29,16 +39,21 @@ angular.module('theFarmApp')
 
 	//controller activity
 
-	//FarmServices.getStatus()
-	FarmServices.getPhotoMock()
+	if (FarmServices.updatedStatus()){
+		check();
+	}
+	else{
+		FarmServices.getStatus()
+		//FarmServices.getPhotoMock()
 		.then(function(){
 			check();
 		},function(err){
 			console.log('status.json error');
 			console.log(err);
 		});
+	}	
+	
 	
 
-	//Far
 
   }]);
