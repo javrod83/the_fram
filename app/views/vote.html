@@ -1,13 +1,13 @@
 <div class="overlay" ng-show="overlay"></div>
 
 <div class="content">
-	<div class="rope-container-left">
+	<div class="rope-container-left animated fadeInDownBig">
 		<div class="rope"></div>
 	</div>
 
 	<div  ng-include src='"partials/rabbit.html"'></div>
 	<div  ng-include src='"partials/hen.html"'></div>
-	 <ul class="wood-container" ng-repeat="option in options">
+	 <ul class="wood-container animated fadeInDownBig" ng-repeat="option in options">
 	 	<p class="login-text">{{title}}</p>
 	 	<li class="wood-1" ng-repeat='opt in options' ng-click='answer(opt.id)'><p class="answer-text">{{opt.text}}</p></li>
 	 	<!-- <li class="wood-2"></li>
@@ -16,7 +16,7 @@
 
 
 	 
-	 <div class="rope-container-right">
+	 <div class="rope-container-right animated fadeInDownBig">
 	 	<div class="rope"></div>
 	 </div>
 </div>
