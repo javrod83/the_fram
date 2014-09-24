@@ -49,8 +49,12 @@ angular.module('theFarmApp')
             },function(res){
 
               log('login',LoginService.dictionary[net]+' fail');
+
               console.log(res.error);
-              //cambiar la clase del error 
+              $scope.overlay = true;  
+              $scope.timeOut = true;
+              $scope.missedTitle = FarmServices.data.diccionary.error.general;
+              $scope.missedText = FarmServices.data.diccionary.error.connection;
 
             });
       };
