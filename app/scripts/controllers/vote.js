@@ -11,7 +11,7 @@ angular.module('theFarmApp')
   .controller('VoteCtrl',['FarmServices', '$scope','initData', function (FarmServices,$scope,initData) {
     //log
       var modName = 'VoteCtrl';
-
+      var updateCount = 0 ;
       function log(method,msg)
         {
           console.log('['+modName+']: '+method+' : '+msg);
@@ -29,19 +29,20 @@ angular.module('theFarmApp')
 
   		var internalState = null;
 
+		var voteStatus = {
+			23 : open,
+			24 : warning,
+			25 : closed
+		};
+
 		function check(){
 			log('check','<--');
-
-			var voteStatus = {
-				23 : open,
-				24 : warning,
-				25 : closed
-			};
 
 			if(FarmServices.status.current.frame.type === 'vote'){
 
 				log('check','frame type vote');
-				if(FarmServices._allReadyVoted()){
+				if(FarmServices.allreadyVoted()){
+
 					log('check','allready voted');
 					$scope.success = true  ; 
 					$scope.overlay = true ;
@@ -50,6 +51,16 @@ angular.module('theFarmApp')
 					voteStatus[FarmServices.status.current.frame.status]();
 					internalState = FarmServices.status.current.frame.status;
 				}
+				log('check:setStatusReloadInterval','<-- '+updateCount++);
+				FarmServices.setStatusReloadInterval(function(promise){
+					promise.then(function(data){
+						log('check:getStatus','success');
+						console.log(data);
+						check();
+					},function(err){
+						log('check:getStatus','fail');
+					});
+				});
 				
 			}else{
 				$state.go(FarmServices.status.current.frame.type);
@@ -107,21 +118,23 @@ angular.module('theFarmApp')
   		//first check if status it's updated
   		if (FarmServices.updatedStatus()){
   			//a fresh stattus it's ready to be shown
-  			log('check','<--');
+  			log('Status updated !','<--');
 
-  			if(FarmServices._allReadyVoted()){
-  				console.log(FarmServices)
-				$scope.success = true  ; 
+  			if(FarmServices.allreadyVoted()){
+  				log('_llreadyVoted','<--');
+				$scope.success = true ; 
 				$scope.overlay = true ;
 			}else{
 				check();
 			}
   		}else{
+  			log('Must update status ','<--');
 			FarmServices.getStatus()
 				.then(function(res){
+					log('getStatus','sucess');
 					check();
 				},function(err){
-					console.log('status.json error');
+					log('getStatus','fail');
 					console.log(err);
 				});
 		}

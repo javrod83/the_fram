@@ -36,11 +36,11 @@ angular.module('theFarmApp')
             log('_saveVote','<--');
             localStorage.vid = vid;
         },
-        _allReadyVoted : function (){
+        allreadyVoted : function (){
             log('_allReadyVoted',''+(localStorage.vid !== undefined));
             return (localStorage.vid !== undefined);
         },
-        _setStatusReloadInterval : function(callBack){
+        setStatusReloadInterval : function(callBack){
             log('_setStatusReloadInterval','<--');
             setTimeout(function() {
                 log('_setStatusReloadInterval','callBack');
@@ -48,7 +48,7 @@ angular.module('theFarmApp')
             }, Collection.status.current.interval*1000);
         },
         updatedStatus : function (){
-            log('_updatedStatus',(Collection.status.current.id > -1  && Collection.status.current.id > Collection.status.last.id));
+            log('updatedStatus',(Collection.status.current.id > -1  && Collection.status.current.id > Collection.status.last.id));
             return (Collection.status.current.id > -1  && Collection.status.current.id > Collection.status.last.id);    
         },
         getConfig : function() {
@@ -99,7 +99,7 @@ angular.module('theFarmApp')
             });
         },
         getStatus : function() {
-            log('getData','<--');
+            log('getStatus','<--');
             var deferred = $q.defer();
 
             var url = Collection.config.urls.base;
@@ -114,6 +114,7 @@ angular.module('theFarmApp')
                 log('getData','success');
                 if (response.status === 200) {
                     deferred.resolve(response.data);
+                    Collection.status.last = Collection.status.current; 
                     Collection.status.current = response.data; 
                     console.log(Collection.status);
 
