@@ -2,6 +2,13 @@
 angular.module('theFarmApp')
 .factory('LoginService',['$http','$q','FarmServices',function($http,$q,FarmServices){
  
+ 	var modName = 'LoginService';
+
+ 	function log(method,msg)
+ 		{
+ 			console.log('['+modName+']: '+method+' : '+msg);
+ 		}
+
 	var Collection =   {
 
 		//full name description of available social networks
@@ -11,30 +18,45 @@ angular.module('theFarmApp')
           g  : 'google',
           tw : 'twitter'
        	},
+       	params : {
+                ageRange : '',
+                birthday: '',
+                devicePlatform: '', // iOS, Android or WP (case sensitive)
+                deviceType: '',  //  device codename
+                location: '',
+                name: '',
+                picApproved: 0 , //  1 or 0 according to user selection
+                relationshipStatus: '',
+                sex: '',
+                socialId: '',  // the social network id
+                socialNetwork: '', // Facebook, Twitter or Google (case sensitive)
+                socialToken: '', // token from social network connect
+                tid: '', // territory id
+                udid: '', // device unique identifier
+                old_auth_token: '',
+                picURL: ''
+        },
        	token: -1,
 		uid: -1,
 		loged:false,
+		socialLoged:false,
 		init:function(social){
-			
-			console.log('social network handling inititalizing');
+			log('init','starting');
 
 			var networks = {};
-
 			for (var net in social.networks){	
 				networks[Collection.dictionary[social.networks[net]]] = social[social.networks[net]].id ;
 			}
-			
 			hello.init(networks);
 		
-			console.log('social network handling inititalized');
-
+			log('init','done');
 		},
         register : function() {
+        	log('register','<--');
             var deferred = $q.defer();
-            
             var url    = FarmServices.config.urls.login;
             var params = Collection.params;
-            console.log("register url:"+url+" params: ");
+            log('register','params: ');
             console.log(params);
             //return $http.post(url,params).then(function(response) {
             return $http.get(url).then(function(response) {
@@ -42,7 +64,7 @@ angular.module('theFarmApp')
                     deferred.resolve(response.data);
                     // storear el token  y el uid 
                    
-                    Collection._saveLocalLogin(response.data.authToken,response.data.uid);
+                    Collection.saveLocalLogin(response.data.authToken,response.data.uid);
 
                 } else {
                     deferred.reject({
@@ -53,15 +75,19 @@ angular.module('theFarmApp')
             });
         },
         setPicAproved: function(desition){
+        	log('setPicAproved','<--');
             Collection.params.picApproved = desition ; 
         },
         forgetState : function(){
+        	log('forgetState','<--');
             localStorage.removeItem('vid');
             localStorage.removeItem('token');
             localStorage.removeItem('uid');
-            Collection.loged = true ;
+            Collection.loged = false ;
+            Collection.socialLoged = false ; 
         },
         loadLocalLogin : function(){
+        	log('loadLocalLogin','<--');
             if (localStorage.token !== undefined){
                 Collection.token = localStorage.token;
                 Collection.uid   = localStorage.uid;
@@ -72,14 +98,21 @@ angular.module('theFarmApp')
             }
         },
         saveLocalLogin : function(token,uid){
+        	log('saveLocalLogin','<--');
             localStorage.token  = token ;
             localStorage.uid    = uid; 
             Collection.loged    = true ; 
             Collection.token    = token;
             Collection.uid      = uid;
         },
-        logued :  function(){
-            return Collection.loged ;
+        saveSocial: function(args){
+        	log('saveSocial','<--');
+            //save argumments to register params 
+            Collection.socialLoged = true ; 
+            Collection.params.socialId      = args.id ;
+            Collection.params.socialNetwork = args.network ;
+            Collection.params.socialToken   = args.token ;
+            log('saveSocial','-->');
         },
 	};
 

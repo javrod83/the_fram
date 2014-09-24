@@ -8,7 +8,7 @@
  * Controller of the theFarmApp
  */
 angular.module('theFarmApp')
-  .controller('VoteCtrl',['FarmServices', '$scope', function (FarmServices,$scope) {
+  .controller('VoteCtrl',['FarmServices', '$scope','initData', function (FarmServices,$scope,initData) {
 
   	//Methods 
 

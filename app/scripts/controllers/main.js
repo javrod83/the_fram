@@ -9,9 +9,9 @@ angular.module('theFarmApp')
   .controller('MainCtrl',['FarmServices','LoginService','$scope','$state',
     function (FarmServices,LoginService,$scope,$state) {
     
-      $scope.resetMock = function()
+      $scope.closeAction = function()
         {
-          LoginService._forgetState();
+          LoginService.forgetState();
         }
 
 

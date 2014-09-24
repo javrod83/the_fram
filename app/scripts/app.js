@@ -23,30 +23,41 @@ angular
      $urlRouterProvider.otherwise('/login');
 
      $stateProvider.state('login', {
-      url: '/login',
-      templateUrl: 'views/login.html',
-      controller: 'LoginCtrl',
-            resolve:{
-                FarmServices:'FarmServices',
-                initData:function(FarmServices) {
-                      console.log('momento de prometer config');
-                      return  FarmServices.getConfig().then(function(res){ 
-                          console.log('momento de prometer datos');
-                          return FarmServices.getData(res.urls.base, res.tid, res.jsons['territory-data']);
-                      });
-                }
+          url: '/login',
+          templateUrl: 'views/login.html',
+          controller: 'LoginCtrl',
+          resolve:{
+              FarmServices:'FarmServices',
+              initData:function(FarmServices) {
+                    return  FarmServices.getConfig().then(function(res){ 
+                        return FarmServices.getData(res.urls.base, res.tid, res.jsons['territory-data']);
+                    });
               }
-
+          }
     }).state('prompt', {
       url: '/prompt',
       templateUrl: 'views/prompt.html',
-      controller: 'PromptCtrl'
-     
+      controller: 'PromptCtrl',
+      resolve:{
+              FarmServices:'FarmServices',
+              initData:function(FarmServices) {
+                    return  FarmServices.getConfig().then(function(res){ 
+                        return FarmServices.getData(res.urls.base, res.tid, res.jsons['territory-data']);
+                    });
+              }
+          }
     }).state('vote', {
       url: '/vote',
       templateUrl: 'views/vote.html',
-      controller: 'VoteCtrl'
-     
+      controller: 'VoteCtrl',
+      resolve:{
+              FarmServices:'FarmServices',
+              initData:function(FarmServices) {
+                    return  FarmServices.getConfig().then(function(res){ 
+                        return FarmServices.getData(res.urls.base, res.tid, res.jsons['territory-data']);
+                    });
+              }
+          }
     }).state('photo', {
       url: '/photo',
       templateUrl: 'views/photo.html',

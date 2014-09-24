@@ -1,38 +1,19 @@
 'use strict';
 angular.module('theFarmApp')
 .factory('FarmServices',['$http','$q',function($http,$q){
+      
+      //log
+      var modName = 'FarmServices';
+
+      function log(method,msg)
+        {
+          console.log('['+modName+']: '+method+' : '+msg);
+        }
 
     var Collection = {
         configUrl : 'api',
         config : {},
         data : {},
-        registration : {
-            token : -1,
-            uid : -1,
-            social : {
-                id: '',
-                network : '',
-                token : ''
-            },
-            params : {
-                ageRange : '',
-                birthday: '',
-                devicePlatform: '', // iOS, Android or WP (case sensitive)
-                deviceType: '',  //  device codename
-                location: '',
-                name: '',
-                picApproved: 0 , //  1 or 0 according to user selection
-                relationshipStatus: '',
-                sex: '',
-                socialId: '',  // the social network id
-                socialNetwork: '', // Facebook, Twitter or Google (case sensitive)
-                socialToken: '', // token from social network connect
-                tid: '', // territory id
-                udid: '', // device unique identifier
-                old_auth_token: '',
-                picURL: ''
-            }
-       },
         lastStatusId : -1,
         lastVoteId : -1,
         status : {
@@ -52,46 +33,36 @@ angular.module('theFarmApp')
             initialized : false
         },
 
-
         _saveVote : function(vid){
+            log('_saveVote','<--');
             localStorage.vid = vid;
         },
         _allReadyVoted : function (){
-            //console.log(Collection.status);
-
-            return (localStorage.vid !== undefined)
+             log('_allReadyVoted',''+(localStorage.vid !== undefined));
+            return (localStorage.vid !== undefined);
         },
 
         _setStatusReloadInterval : function(callBack){
+            log('_setStatusReloadInterval','<--');
             setTimeout(function() {
+                log('_setStatusReloadInterval','callBack');
                 callBack(Collection.getStatus()) ; 
             }, Collection.status.current.interval*1000);
         },
-        _setRegionReloadInterval : function (interval){
-             setTimeout(function() {
-               Collection.getData();
-            }, interval*1000);
-        },
-        _ready : function (){
-            console.log(Collection.flags.loged);
-            console.log(Collection.flags.initialized);
-
-            return ( Collection.flags.loged && Collection.flags.initialized )  ;
-        },
-        _initilized : function(){
-            return Collection.flags.initialized;
-        },
         _updatedStatus : function (){
+            log('_updatedStatus',(Collection.status.current.id > -1  && Collection.status.current.id > Collection.status.last.id));
             return (Collection.status.current.id > -1  && Collection.status.current.id > Collection.status.last.id);    
         },
         getConfig : function() {
+            log('getConfig','<--');
             var deferred = $q.defer();
             return $http.get(Collection.configUrl+'/config.json').then(function(response) {
 
             //  console.log(response);
                 if (response.status === 200) {
                     Collection.config = response.data;
-                    console.log("Services getFonfig:success");
+                   
+                    log('getConfig','success');
                     deferred.resolve(response.data);
                 } else {
                     deferred.reject({
@@ -99,16 +70,22 @@ angular.module('theFarmApp')
                     });
                 }
                 return deferred.promise;
+            },function(err){
+                log('getConfig','fail');
             });
         },
         getData : function() {
+            log('getData','<--');
             var deferred = $q.defer();
 
             var url      = Collection.config.urls.base;
             var tid      = Collection.config.tid;
             var filename = Collection.config.jsons['territory-data'];
-            console.log(url+tid+'/'+filename);
+            
+            log('getData','url: '+url+tid+'/'+filename);
+
             return $http.get(url+tid+'/'+filename).then(function(response) {
+                log('getData','success');
                 if (response.status === 200) {
                     Collection.data = response.data;
                     deferred.resolve(response.data);
@@ -118,22 +95,25 @@ angular.module('theFarmApp')
                     });
                 }
                 return deferred.promise;
+            },function(err){
+                log('getData','fail');
+                console.log(err);
             });
         },
         getStatus : function() {
+            log('getData','<--');
             var deferred = $q.defer();
 
             var url = Collection.config.urls.base;
             var tid = Collection.config.tid;
             var filename = Collection.config.jsons.status; 
+ 
+            log('getData',"status is "((Collection.status.current.id === -1)? 'original ':'new: '+ Collection.status['status-url']));
 
-               console.log((Collection.status.current.id === -1)?"status url not defined yet ":"holly cow I have my new brand satus-url!!!!");
-              
-
-               var backedUrl =  (Collection.status.current.id === -1)? url+tid+'/'+filename : Collection.status['status-url'];
-                console.log(backedUrl);
+               var backedUrl =  (Collection.status.current.id === -1)? url+tid+'/'+filename : Collection.status['status-url'];            
                 
             return $http.get(backedUrl).then(function(response) {
+                log('getData','success');
                 if (response.status === 200) {
                     deferred.resolve(response.data);
                     Collection.status.current = response.data; 
@@ -145,9 +125,13 @@ angular.module('theFarmApp')
                     });
                 }
                 return deferred.promise;
+            },function(err){
+                log('getData','success');
+                console.log(err);
             });
         },
         getPhotoMock : function() {
+            log('getPhotoMock','<--');
             var deferred = $q.defer();
 
             var url      = 'api/' ;
@@ -168,6 +152,7 @@ angular.module('theFarmApp')
             });
         },
         getTextMock : function() {
+            log('getTextMock','<--');
             var deferred = $q.defer();
 
             var url = 'api/';
@@ -187,36 +172,6 @@ angular.module('theFarmApp')
                 return deferred.promise;
             });
         },
-        _saveSocial: function(args){
-            //save argumments to register params 
-
-                Collection.registration.params.socialId      = args.id ;
-                Collection.registration.params.socialNetwork = args.network ;
-                Collection.registration.params.socialToken   = args.token ;
-        },
-        // register : function() {
-        //     var deferred = $q.defer();
-            
-        //     var url    = Collection.config.urls.login;
-        //     var params = Collection.registration.params;
-        //     console.log("register url:"+url+" params: ");
-        //     console.log(params);
-        //     //return $http.post(url,params).then(function(response) {
-        //     return $http.get(url).then(function(response) {
-        //         if (response.status === 200) {
-        //             deferred.resolve(response.data);
-        //             // storear el token  y el uid 
-                   
-        //             Collection._saveLocalLogin(response.data.authToken,response.data.uid);
-
-        //         } else {
-        //             deferred.reject({
-        //                 'errorMsg': 'registration unsuccessfull ! '
-        //             });
-        //         }
-        //         return deferred.promise;
-        //     });
-        // },
         _vote : function(id) {
             var deferred = $q.defer();
             var url = Collection.config.urls.vote;
