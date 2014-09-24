@@ -123,6 +123,16 @@ angular.module('theFarmApp')
   				log('_llreadyVoted','<--');
 				$scope.success = true ; 
 				$scope.overlay = true ;
+				log('check:delayedGetStatus','<-- '+updateCount++);
+				FarmServices.delayedGetStatus(function(promise){
+					promise.then(function(data){
+						log('check:getStatus','success');
+						console.log(data);
+						check();
+					},function(err){
+						log('check:getStatus','fail');
+					});
+				});
 			}else{
 				check();
 			}

@@ -9,7 +9,7 @@
   "urls": {
     "base": "api/",
     "login": "http://thefram.com.ar:8080/api/login",
-    "vote": "http://thefram.com.ar:8080/api/v?"
+    "vote": "http://thefram.com.ar:8080/api/vote"
   },
   "social": {
     "networks": [
