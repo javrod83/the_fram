@@ -9,6 +9,13 @@
  */
 angular.module('theFarmApp')
     .controller('PhotoCtrl', ['FarmServices','$scope','$state',function (FarmServices,$scope,$state) {
+	//log
+		var modName = 'PhotoCtrl';
+		var updateCount = 0 ;
+
+		function log(method,msg){
+			console.log('['+modName+']: '+method+' : '+msg);
+		}
 
     //Atributes
 		$scope.imgSrc       = '';
@@ -19,11 +26,11 @@ angular.module('theFarmApp')
 
     ///Methods
     	function check(){
-
+    		log('check','<--');
 			if(FarmServices.status.current.frame.type === 'photo' ){
-
+				log('status: ','photo');
 				$scope.imgSrc = FarmServices.status.current.frame.media.large;
-				FarmServices.setStatusReloadInterval(function(promise){
+				FarmServices.delayedGetStatus(function(promise){
 					promise.then(function(data){
 						console.log(data);
 						check();
@@ -32,6 +39,7 @@ angular.module('theFarmApp')
 					});
 				});
 			}else{
+				log('status: ',FarmServices.status.current.frame.type);
 				$state.go(FarmServices.status.current.frame.type);
 			}		
 		}
