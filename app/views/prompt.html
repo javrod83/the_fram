@@ -1,13 +1,22 @@
-<div class="content " >
-
-	 <ul class="wood-confirm-container animated zoomIn">
-	 	<p class="login-text anim-zoom-in  anim-slide-left">{{title}}</p>
-	 	<li class="wood-agree" ng-click="approve(1)"><p class="answer-text success-text">{{yes}}</p></li>
-	 	<li class="wood-disagree" ng-click="approve(0)"><p class="answer-text error-text">{{no}}</p></li>
-	 </ul>
-
-	<div  ng-include src='"partials/rabbit.html"'></div>
+<div class="col-xs-1 col-sm-4 col-md-4 col-lg-4"></div>
+<div class="content col-xs-10 col-sm-4 col-md-4 col-lg-4" >
+<img class="logo" src="images/logo.png" />
+	<div class="row-fluid">
+		 <ul class="wood-confirm-container animated zoomIn">
+		 	<p class="login-text anim-zoom-in  anim-slide-left">{{title}}</p>
+		 	<li class="btn-group" ng-click="approve(1)">
+		 		<p class="answer-text success-text">{{yes}}</p>
+		 		<img class="expand social-buttons" src="images/wood-agree.png" />
+		 	</li>
+		 	<li class="btn-group" ng-click="approve(0)">
+		 		<img class="expand social-buttons" src="images/wood-disagree.png" />
+		 		<p class="answer-text error-text">{{no}}</p>
+		 	</li>
+		 </ul>
+	</div>
+	<div ng-include src='"partials/rabbit.html"'></div>
 </div>
+<div class="col-xs-1 col-sm-4 col-md-4 col-lg-4"></div>
 
 <div class="footer">
 	<img img-preload ng-repeat="img in footerImages" class="{{img}}" ng-src="images/{{img}}.png" />

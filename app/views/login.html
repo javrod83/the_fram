@@ -1,4 +1,6 @@
-<div class="content " >
+<div class="col-xs-1 col-sm-4 col-md-4 col-lg-4"></div>
+<div class="content col-xs-10 col-sm-4 col-md-4 col-lg-4" >
+	<img class="logo" src="images/logo.png" />
 	<div class="row-fluid">
 		<ul  class="social-container animated zoomIn">
 			<p class="login-text" >{{title}}</p>
@@ -23,12 +25,10 @@
 			<a class="tos-link" href="{{tor.url}}">{{tos.text}}</a>
 		</ul>
 	</div>
-	<div class="row-fluid">
-		
-	</div>
-	<div class="footer move">
-		<img img-preload ng-repeat="img in footerImages" class="{{img}}" ng-src="images/{{img}}.png" />
-		<div ng-if="showBarn" class="barn-container"><img img-preload class="barn" src="images/barn.png" /></div>
-	</div>
 	<div  ng-include src='"partials/rabbit.html"'></div>
+</div>
+<div class="col-xs-1 col-sm-4 col-md-4 col-lg-4"></div>
+<div class="footer move">
+	<img img-preload ng-repeat="img in footerImages" class="{{img}}" ng-src="images/{{img}}.png" />
+	<div ng-if="showBarn" class="barn-container"><img img-preload class="barn" src="images/barn.png" /></div>
 </div>
