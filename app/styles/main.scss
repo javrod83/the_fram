@@ -34,10 +34,10 @@ body {
   background-color: #384ca5;
   width: 100%;
   position: absolute;
-  z-index: 98;
+  z-index: 50;
   a{
     position: absolute;
-    z-index: 99;
+    z-index: 50;
     right: 0;
   }
   .closeHeader{
@@ -54,7 +54,7 @@ body {
   width: 100%;
   height: 100%;
   position: absolute;
-  z-index: 1;
+  z-index: 51;
   bottom: 0px;
 }
 
@@ -67,7 +67,7 @@ body {
 }
 
 .content{
-  .social-container{
+  .social-container, .wood-confirm-container{
     li{
       margin-bottom: 7%;
     }
@@ -82,6 +82,9 @@ body {
       margin-bottom: 15px;
       @include center-block;
     }
+    .answer-text:active, .success-text:active, .error-text:active, .social-text:active{
+      color: #fff;
+    }
     .social-buttons, .btn-group{
       width: 100%;
     }
@@ -93,27 +96,86 @@ body {
     }
   }
   .wood-confirm-container{
-    .login-text{
+    .answer-text{
+      position: relative;
+      margin-top: -16%;
+      font-size: 3.3vh;
+      text-align: center;
+    }
+    .success-text{
+      color: #8dc63f;
+    }
+    .error-text{
+      color: #e06e4d;
+    }
+  }
+}
+
+.rabbit-container, .hen-container{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  z-index: 5;
+}
+
+.rabbit-container{
+  z-index: 51;
+  .rabbit_big, .text, .dammit{
+    @include center-block;
+  }
+  .field_login{
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+    z-index: -1;
+  }
+  .rabbit_big{
+    max-width: 45%;
+  }
+  .text{
+    z-index: 53;
+    width: 50%;
+    .login-text, .dammit{
       color: #fff;
       font-family: sans-serif;
       font-size: 4vh;
       line-height: 1;
       text-align: center;
       margin-bottom: 15px;
-      @include center-block;
     }
-    .wood-agree, .wood-disagree{
-      width: 100px;
-    }
-    .wood-agree{
-      background-image: url('../images/wood-agree.png');
-    }
-    .wood-disagree{
-      background-image: url('../images/wood-disagree.png'); 
-    }
+  }
+  .dammit{
+    font-size: 5vh;
+    font-weight: bold;
   }
 }
 
+.hen-container{
+  @include center-block;
+  z-index: 52;
+  .hen_big, .hands, .thanks-for-voting{
+    position: absolute;
+    bottom: 0;
+  }
+
+  .hen_big{
+    left: 35%;
+  }
+
+  .hands{
+    left: 32%;
+    margin-bottom: 30px;
+    min-width: 275px;
+  }
+
+  .thanks-for-voting{
+    font-size: 5vh;
+    line-height: 1;
+    text-align: center;
+    color: #fff;
+    z-index: 53;
+  }
+}
 
 /* .content{
   @include center-block;
@@ -453,6 +515,24 @@ body {
 //Google Nexus 7 / 7.2
 @media screen and (min-width: 900px) {
 
+  .hen-container{
+    z-index: 51;
+    .hen_big{
+      width: 29%;
+      left: 35%;
+    }
+    .hands{
+      width: 36%;
+      margin-bottom: 2%;
+      left: 32%;
+    }
+    .thanks-for-voting{
+      left: 43%;
+      margin-bottom: 8%;
+      width: 15%;
+    }
+  }
+
   /* .content{
     .wood-container, .wood-confirm-container, .social-container{
       margin: 20% 0 0 28%;
@@ -526,6 +606,24 @@ body {
   .header{
     .logo{
       width: 30%;
+    }
+  }
+
+  .hen-container{
+    z-index: 51;
+    .hen_big{
+      width: 29%;
+      left: 35%;
+    }
+    .hands{
+      width: 36%;
+      margin-bottom: 2%;
+      left: 32%;
+    }
+    .thanks-for-voting{
+      left: 43%;
+      margin-bottom: 6%;
+      width: 15%;
     }
   }
 
@@ -621,6 +719,22 @@ body {
 //Generic netbook
 //Notebook with touch
 @media screen and (min-width: 1223px) {
+  .hen-container{
+    .hen_big{
+      width: 32%;
+      left: 35%;
+    }
+    .hands{
+      width: 36%;
+      margin-bottom: 2%;
+      left: 32%;
+    }
+    .thanks-for-voting{
+      left: 43%;
+      margin-bottom: 6%;
+      width: 15%;
+    }
+  }
 
   /* .content{
     .wood-container, .wood-confirm-container, .social-container{
@@ -704,6 +818,22 @@ body {
   .header{
     .logo{
       width: 30%;
+    }
+  }
+  .hen-container{
+    .hen_big{
+      width: 25%;
+      left: 39%;
+    }
+    .hands{
+      width: 30%;
+      margin-bottom: 1%;
+      left: 35%;  
+    }
+    .thanks-for-voting{
+      left: 43%;
+      margin-bottom: 6%;
+      width: 15%;
     }
   }
   /* .content{
@@ -887,6 +1017,25 @@ body {
     display: none;
   }
 
+  .hen-container{
+    .hen_big{
+      width: 72%;
+      left: 14%;
+    }
+    .hands{
+      width: 72%;
+      margin-bottom: 7%;
+      left: 12%;
+    }
+    .thanks-for-voting{
+      left: 30%;
+      margin-bottom: 18%;
+      width: 37%;
+      font-size: 4vh;
+      line-height: 1;
+    }
+  }
+
   /* .content{
     .wood-container, .wood-confirm-container, .social-container{
       margin-top: 50%;
@@ -1015,6 +1164,24 @@ body {
   .field_big, .cow_big, .sheep_big{
     display: none;
   }
+
+  .hen-container{
+      .hen_big{
+        left: 13%
+      }
+      .hands{
+        width: 400px;
+        margin-bottom: 6%;
+        left: 11%
+      }
+      .login-text{
+        left: 29%;
+        margin-bottom: 18%;
+        font-size: 38px;
+        line-height: 38px;
+        width: 200px;
+      }
+    }
 
   /* .content{
     .wood-container, .wood-confirm-container, .social-container{
@@ -1146,6 +1313,25 @@ body {
 
   .field_big, .cow_big, .sheep_big{
     display: none;
+  }
+
+  .hen-container{
+    .hen_big{
+      width: 72%;
+      left: 14%;
+    }
+    .hands{
+      width: 36%;
+      margin-bottom: 7%;
+      left: 12%;
+    }
+    .thanks-for-voting{
+      left: 30%;
+      margin-bottom: 18%;
+      width: 37%;
+      font-size: 4vh;
+      line-height: 1;
+    }
   }
 
   /* .content{
@@ -1353,6 +1539,24 @@ body {
       padding: 5px 0px 0 0;
       width: 30px;
     }
+  }
+
+  .hen-container{
+    .hen_big{
+      width: 73%;
+      left: 15%;
+    }
+    .hands{
+      width: 30%;
+      left: 7%;
+      margin-bottom: 3%;
+    }
+    .thanks-for-voting{
+      left: 27%;
+      margin-bottom: 16%;
+      width: 150px;
+    }
+
   }
 
   /* .content{
