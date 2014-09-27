@@ -10,6 +10,9 @@
 angular.module('theFarmApp')
   .controller('PromptCtrl',['$scope','FarmServices','LoginService','$state' ,'initData',function ($scope,FarmServices,LoginService,$state,initData) {
      
+      //mobile mock
+      var doTheMocking = true ; 
+
       //log
       var modName = 'PromptCtrl';
 
@@ -32,6 +35,28 @@ angular.module('theFarmApp')
       $scope.approve = function(desition){
           log('approve','desition: '+desition);
           LoginService.setPicAproved(desition);
+
+          if(doTheMocking)
+            {
+                  LoginService.saveLocalLogin('MockToken','MockUID');
+                    FarmServices.getStatus().then(function(data){
+                      log('getStatus','success');
+                      log('getStatus','redirecting to :'+data.frame.type);
+                      $state.go(data.frame.type);
+
+                    },function(err){
+                        promptError(FarmServices.data.dictionary.error.connection);
+                        log('getStatus','fail');
+
+                        console.log(err);
+                        $scope.overlay     = true; 
+                        $scope.timeOut     = true;  //rabbit
+                        $scope.missedTitle = '';
+                        $scope.missedText  = FarmServices.data.dictionary.error.connection;
+                    });
+            }
+          else 
+
           LoginService.register()
             .then(function(data){
             

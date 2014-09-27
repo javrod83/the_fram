@@ -141,8 +141,11 @@ angular.module('theFarmApp')
             log('_saveVote','<--');
             localStorage.vid = vid;
         },
+
         allreadyVoted : function (){
             log('_allReadyVoted',''+(localStorage.vid !== undefined));
+            if(FarmServices.voteIdUpdated())
+                localStorage.removeItem('vid');
             return (localStorage.vid !== undefined);
         },
 	};

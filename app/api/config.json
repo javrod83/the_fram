@@ -3,7 +3,7 @@
   "tid": "9",
   "jsons": {
     "territory-data": "data.json",
-    "status": "status_text.json",
+    "status": "status.json",
     "status-qa": "statusqa.json"
   },
   "urls": {

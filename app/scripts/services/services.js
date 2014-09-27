@@ -19,10 +19,20 @@ angular.module('theFarmApp')
         lastVoteId : -1,
         status : {
             current : {
-                id : -1
+                id : -1,
+                frame:{
+                    vote:{
+                        vid:-1
+                    }
+                }
             },
             last : {
-                id: -1
+                id: -3,
+                frame:{
+                    vote:{
+                        vid:-3
+                    }
+                }
             }
         },
         timeStatus : {
@@ -42,6 +52,7 @@ angular.module('theFarmApp')
         },
         updatedStatus : function (){
             log('updatedStatus',(Collection.status.current.id > -1  && Collection.status.current.id > Collection.status.last.id));
+
             return (Collection.status.current.id > -1  && Collection.status.current.id > Collection.status.last.id);    
         },
         getConfig : function() {
@@ -109,6 +120,8 @@ angular.module('theFarmApp')
                     deferred.resolve(response.data);
                     Collection.status.last = Collection.status.current; 
                     Collection.status.current = response.data; 
+
+
                     console.log(Collection.status);
 
                 } else {
@@ -163,6 +176,9 @@ angular.module('theFarmApp')
                 }
                 return deferred.promise;
             });
+        },
+        voteIdUpdated: function(){
+            return Collection.status.current.frame.vote.vid !== localStorage.vid;
         },
         clean: function ()
         {

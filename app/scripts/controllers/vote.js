@@ -37,14 +37,22 @@ angular.module('theFarmApp')
 
 		function open(){
 			log('open','<--');
-			if( internalState !== 23 || FarmServices.updatedStatus() ){
+			//if( internalState !== 23  )
+			{
 				log('open','update vote');
 				$scope.state    = 'open';
 	  			$scope.title    = FarmServices.status.current.frame.vote.title;
 	  			$scope.options  = FarmServices.status.current.frame.vote.options;
 	  			$scope.vid      = FarmServices.status.current.frame.vote.vid;
 	  			$scope.selected = -1 ; 
-			}else{
+
+	  			//hide overla
+	  			$scope.timeOut = false;
+  				$scope.overlay = false;  
+  				$scope.success = false;		
+			}
+			//else
+			{
 				log('open','nothing to do here');
 			}
   		}
@@ -74,19 +82,25 @@ angular.module('theFarmApp')
 					$scope.overlay = true ;
 				} else {
 					log('check','update vote frame');
-					voteStatus[FarmServices.status.current.frame.status]();
+
+					 if( FarmServices.status.current.id !== FarmServices.status.last.id)
+					 	{
+					 		var currentStatus = FarmServices.status.current.frame.status; 
+					 		if( parseInt(currentStatus) >= 23 && parseInt(currentStatus) <= 25)
+					 			{
+					 				voteStatus[currentStatus]();		
+					 			}
+					 		else
+					 			{
+					 				log('check','status '+voteStatus+'not implemented');
+					 			}	
+					 			
+					 	}
+					    
 					internalState = FarmServices.status.current.frame.status;
 				}
 				log('check:delayedGetStatus','<-- '+updateCount++);
-				FarmServices.delayedGetStatus(function(promise){
-					promise.then(function(data){
-						log('check:getStatus','success');
-						console.log(data);
-						check();
-					},function(err){
-						log('check:getStatus','fail');
-					});
-				});
+				callDelayedStatusAndCheck();
 				
 			}else{
 				$state.go(FarmServices.status.current.frame.type);
@@ -116,19 +130,27 @@ angular.module('theFarmApp')
   		
   		//first check if status it's updated
   		if (FarmServices.updatedStatus()){
-  			//a fresh stattus it's ready to be shown
+  			//a fresh status it's ready 
   			log('Status updated !','<--');
-
+ 			
   			if(LoginService.allreadyVoted()){
   				log('_llreadyVoted','<--');
 				$scope.success = true ; 
 				$scope.overlay = true ;
+
+				callDelayedStatusAndCheck()
+
 			}else{
 				check();
 			}
   		}else{
   			log('Must update status ','<--');
-			FarmServices.getStatus()
+			callStatusAndCheck();
+		}
+  			
+		function callStatusAndCheck()
+			{
+				FarmServices.getStatus()
 				.then(function(res){
 					log('getStatus','sucess');
 					check();
@@ -136,8 +158,19 @@ angular.module('theFarmApp')
 					log('getStatus','fail');
 					console.log(err);
 				});
-		}
-  			
+			}
 
+		function callDelayedStatusAndCheck()
+			{
+				FarmServices.delayedGetStatus(function(promise){
+					promise.then(function(data){
+						log('check:getStatus','success');
+						console.log(data);
+						check();
+					},function(err){
+						log('check:getStatus','fail');
+					});
+				});
+			}
 
   }]);

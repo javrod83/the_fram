@@ -9,7 +9,7 @@
  */
 angular.module('theFarmApp')
   .controller('LoginCtrl',[
-  	'$scope',
+    '$scope',
     '$timeout',
     'LoginService',
     'FarmServices',
@@ -22,6 +22,10 @@ angular.module('theFarmApp')
       $scope.timeOut     = false ;  //rabbit
       $scope.missedTitle = '' ;
       $scope.missedText  = '' ;
+
+
+      //mobile mock
+      var doTheMocking = true ; 
 
       //log
       var modName = 'LoginCtrl';
@@ -36,29 +40,39 @@ angular.module('theFarmApp')
           log('login','<--');
           log('login','Social Service: '+LoginService.dictionary[net]);
 
-          hello( LoginService.dictionary[net] ).login()
-            .then(function(data){
+          if (doTheMocking = true  )
+            {
+                LoginService.saveSocial({
+                  id: 'mc',
+                  network:'mockNetwork',
+                  token: 'MOCKMOCKMOCKMOCKMOCKMOCKMOCKMOCK'
+                });
+                $state.go('prompt');
+            }
+          else 
+            hello( LoginService.dictionary[net] ).login()
+              .then(function(data){
 
-              log('login',LoginService.dictionary[net]+' success');
-              LoginService.saveSocial({
-                id: net,
-                network:data.network,
-                token: data.authResponse.access_token
+                log('login',LoginService.dictionary[net]+' success');
+                LoginService.saveSocial({
+                  id: net,
+                  network:data.network,
+                  token: data.authResponse.access_token
+                });
+                log('login',' redirect to: prompt');
+                $state.go('prompt');
+
+              },function(res){
+
+                log('login',LoginService.dictionary[net]+' fail');
+
+                console.log(res.error);
+                $scope.overlay = true;  
+                $scope.timeOut = true;
+                $scope.missedTitle = FarmServices.data.dictionary.error.general;
+                $scope.missedText = FarmServices.data.dictionary.error.connection;
+
               });
-              log('login',' redirect to: prompt');
-              $state.go('prompt');
-
-            },function(res){
-
-              log('login',LoginService.dictionary[net]+' fail');
-
-              console.log(res.error);
-              $scope.overlay = true;  
-              $scope.timeOut = true;
-              $scope.missedTitle = FarmServices.data.dictionary.error.general;
-              $scope.missedText = FarmServices.data.dictionary.error.connection;
-
-            });
       };
 
         //User is allready loged ? 

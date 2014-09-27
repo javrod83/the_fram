@@ -1,12 +1,12 @@
 {
-  "id": 1404293132114,
+  "id": 2013,
   "frame": {
     "fid": "4499",
     "sid": "104",
     "type": "vote",
     "status": "23",
     "vote": {
-      "vid": "1405",
+      "vid": "2010",
       "title": "Choose Next Week's Task for our contestants",
       "vote-type": "4",
       "options": [
@@ -24,13 +24,13 @@
         },
         {
           "id": "4",
-          "text": "The 4th option to choose"
+          "text": "The 4th option to choose "
         }
       ]
     }
   },
-  "interval": 5,
+  "interval": 10,
   "timeout": 3,
-  "status-url": "http://theFram.com.ar:9000/api/9/status_vote_3.json",
+  "status-url": "http://theFram.com.ar:9000/api/9/status.json",
   "secret-key-update-time": 1401281448
 }
