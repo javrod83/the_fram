@@ -1,10 +1,14 @@
-<div class="content">
-	<div  ng-include src='"partials/rabbit.html"'></div>
-	<div class="photo-container animated fadeInDownBig">
-		<p class="login-text board-text">{{txt}}</p>
-		<img class="frame" src="images/board.png" />
+<div  ng-include src='"partials/rabbit.html"'></div>
+<div class="col-xs-1 col-sm-4 col-md-4 col-lg-4"></div>
+<div class="content col-xs-10 col-sm-4 col-md-4 col-lg-4" >
+	<div class="row-fluid animated zoomIn">
+		<div class="photo-container animated fadeInDownBig">
+			<img class="frame" src="images/board.png" />
+			<p class="login-text board-text">{{txt}}</p>
+		</div>
 	</div>
 </div>
+<div class="col-xs-1 col-sm-4 col-md-4 col-lg-4"></div>
 <div class="footer">
 	<img img-preload ng-repeat="img in footerImages" class="{{img}}" ng-src="images/{{img}}.png" />
 	<div ng-if="showBarn" class="barn-container"><img img-preload class="barn" src="images/barn.png" /></div>

@@ -30,7 +30,7 @@ body {
 /* Custom page header */
 .header {
   top: 0;
-  height: 75px;
+  height: 60px;
   background-color: #384ca5;
   width: 100%;
   position: absolute;
@@ -41,7 +41,7 @@ body {
     right: 0;
   }
   .closeHeader{
-    padding: 9px 15px 0 0;
+    padding: 0 15px 0 0;
   }
   .a:active, .a:focus, .a:visited, .a:hover{
     background: none;
@@ -54,7 +54,7 @@ body {
   width: 100%;
   height: 100%;
   position: absolute;
-  z-index: 51;
+  z-index: 49;
   bottom: 0px;
 }
 
@@ -67,7 +67,7 @@ body {
 }
 
 .content{
-  .social-container, .wood-confirm-container{
+  .social-container, .wood-confirm-container, .wood-container{
     li{
       margin-bottom: 7%;
     }
@@ -95,6 +95,11 @@ body {
       font-size: 2.3vh;
     }
   }
+  
+  .answer-text:active, .success-text:active, .error-text:active{
+    color: #fff;
+  }
+
   .wood-confirm-container{
     .answer-text{
       position: relative;
@@ -109,6 +114,27 @@ body {
       color: #e06e4d;
     }
   }
+
+  .wood-container{
+    @include center-block;
+    width: 100%;
+    display: inline;
+    .wood-1, .wood-2{
+      @include center-block;
+      width: 100%;
+    }
+    .answer-text{
+      position: relative;
+      margin-top: -14%;
+      font-size: 2.1vh;
+      text-align: center;
+      color: #eb965f;
+    }
+  }
+}
+
+.rope-left, .rope-right{
+  background-image: url('../images/rope.png');
 }
 
 .rabbit-container, .hen-container{
@@ -174,6 +200,33 @@ body {
     text-align: center;
     color: #fff;
     z-index: 53;
+  }
+}
+
+.photo-container{
+  @include center-block;
+  margin-top: 60px;
+  width: 100%;
+  .frame{
+    width: 100%;
+  }
+  .img-frame{
+    @include center-block;
+    width: 87%;
+    position: relative;
+    margin-top: -73%;
+    z-index: -1;
+  }
+  .login-text{
+    @include center-block;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 2vh;
+    line-height: 1;
+    text-align: center;
+    width: 72%;
+    position: relative;
+    margin-top: -60%;
   }
 }
 
@@ -627,6 +680,12 @@ body {
     }
   }
 
+  /* .photo-container{
+    .login-text{
+      margin-top: -185px;
+    }
+  } */
+
   /* .content{
     .wood-container, .wood-confirm-container, .social-container{
       margin: 18% 0 0 29%;
@@ -836,6 +895,12 @@ body {
       width: 15%;
     }
   }
+
+  /* .photo-container{
+    .login-text{
+      margin-top: -355px;
+    }
+  } */
   /* .content{
     .wood-container, .wood-confirm-container, .social-container{
       width: 35%;
@@ -1147,16 +1212,6 @@ body {
 //Sony Xperia Sola / U
 @media screen and (max-width: 550px) {
 
-  .header{
-    .logo {
-      width: 63%;
-      margin-left: 17%;
-    }
-    .closeHeader{
-      padding: 7px 15px 0 0;
-    }
-  }
-
   .footer {
     background-position-x: 0px;
   }
@@ -1301,9 +1356,6 @@ body {
     .logo {
       width: 65%;
       margin-left: 10%;
-    }
-    .closeHeader{
-      padding: 7px 15px 0 0;
     }
   }
 
@@ -1459,15 +1511,10 @@ body {
 //Sony Xperia S / Ion / Z / Z1
 @media screen and (max-width: 380px) {
   .header{
-    height: 60px;
     .logo {
       width: 65%;
       margin-left: 10%;
       padding-top: 60px;
-    }
-    .closeHeader{
-      padding: 5px 0px 0 0;
-      width: 30px;
     }
   }
 
@@ -1535,10 +1582,6 @@ body {
   }
   .header{
     height: 60px;
-    .closeHeader{
-      padding: 5px 0px 0 0;
-      width: 30px;
-    }
   }
 
   .hen-container{
@@ -1743,6 +1786,7 @@ body {
   opacity: 1;
 }
 
-.fadeInDownBig{
+/* .fadeInDownBig{
   margin-top: -75px;
 }
+ */
