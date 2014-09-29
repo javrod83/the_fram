@@ -26,7 +26,7 @@ angular.module('theFarmApp')
     		log('check','<--');
 			if(FarmServices.status.current.frame.type === 'text' ){
 				log('check','status text');
-				if ($scope.txt === ''){
+				if ($scope.txt !== FarmServices.status.current.frame.text){
 					log('check:set text',FarmServices.status.current.frame.text);
 					$scope.txt = FarmServices.status.current.frame.text;
 					
@@ -34,33 +34,47 @@ angular.module('theFarmApp')
 					updateCount++;
 					
 				}
-				FarmServices.delayedGetStatus(function(statusPromise){
-						statusPromise.then(function(){
-							log('getDelayedStatus','success');
-							check();
-						},function(err){
-							log('getDelayedStatus','fail');
-							console.log(err);
-						});
-					});
+				callDelayedStatusAndCheck();
+
 			}else{
 				log('check','status '+FarmServices.status.current.frame.type);
 				$state.go(FarmServices.status.current.frame.type);		
 			}		
 		}
 
+
+			function callStatusAndCheck()
+				{
+					FarmServices.getStatus()
+					.then(function(res){
+						log('getStatus','sucess');
+						check();
+					},function(err){
+						log('getStatus','fail');
+						console.log(err);
+					});
+				}
+
+			function callDelayedStatusAndCheck()
+				{
+					FarmServices.delayedGetStatus(function(promise){
+						promise.then(function(data){
+							log('check:getStatus','success');
+							console.log(data);
+							check();
+						},function(err){
+							log('check:getStatus','fail');
+							callDelayedStatusAndCheck();
+						});
+					});
+				}
+
     //Activity
   
 		if (FarmServices.updatedStatus()){
   			check();
   		}else{
-			FarmServices.getStatus()
-				.then(function(){
-					check();
-				},function(err){
-					console.log('status.json error');
-					console.log(err);
-				});
+			callStatusAndCheck();
 		}   
 
   }]);

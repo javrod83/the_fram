@@ -58,6 +58,7 @@ angular.module('theFarmApp')
 		},function(err){
 			console.log('status.json error');
 			console.log(err);
+			
 		});
 	}	
 	
