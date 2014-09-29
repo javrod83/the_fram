@@ -17,8 +17,8 @@ angular.module('theFarmApp')
 
 
         //footer config
-        $scope.footerImages = ['cow','cow_big', 'ostrich', 'sheep', 'sheep_big', 'field', 'field_big'];
-        $scope.showBarn = true;
+        $scope.footerImages = ['rabbit','hen', 'field_login'];
+        $scope.showBarn = false;
 
 
        $scope.$on('animIn', function() {
