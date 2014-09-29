@@ -8,6 +8,9 @@
  *
  * Main module of the application.
  */
+if (localStorage === null)
+  localStorage = {} ;
+
 angular
   .module('theFarmApp', [
     'ngAnimate',
