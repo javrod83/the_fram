@@ -135,6 +135,23 @@ body {
       color: #eb965f;
     }
   }
+
+  .rope-container-left, .rope-container-right{
+    position: absolute;
+    height: 91%;
+    width: 9px;
+    top: 0;
+    background-image: url('../images/rope.png');
+  }
+
+  .rope-container-left{
+    margin-left: 10%;
+  }
+
+  .rope-container-right{
+    margin-left: 75%; 
+  }
+
 }
 
 .rope-left, .rope-right{

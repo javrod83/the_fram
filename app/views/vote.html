@@ -4,12 +4,10 @@
 
 <div class="rope-left col-xs-1 col-sm-4 col-md-4 col-lg-4"></div>
 <div class="content col-xs-10 col-sm-4 col-md-4 col-lg-4" >
+	<div class="rope-container-left animated fadeInDownBig"></div>
+	<div class="rope-container-right animated fadeInDownBig"></div>
 	<img class="logo" src="images/logo.png" />
-	<div class="row-fluid animated zoomIn">
-		<!-- <div class="rope-container-left animated fadeInDownBig">
-			<div class="rope"></div>
-		</div> -->
-
+	<div class="row-fluid animated fadeInDownBig">
 		<ul class="wood-container animated fadeInDownBig">
 		 	<p class="login-text">{{title}}</p>
 		 	<li ng-repeat='opt in options' ng-click='answer(opt.id)'>
@@ -17,12 +15,6 @@
 		 		<p class="answer-text">{{opt.text}}</p>
 		 	</li>
 		 </ul>
-
-
-		 
-		 <!-- <div class="rope-container-right animated fadeInDownBig">
-		 	<div class="rope"></div>
-		 </div> -->
 	</div>
 </div>
 <div class="rope-left col-xs-1 col-sm-4 col-md-4 col-lg-4"></div>
