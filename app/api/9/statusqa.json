@@ -6,13 +6,13 @@
     "type": "text",
     "data": {
       "title": "This is the title",
-      "text": "This is a test text for the text template screen of the farm...bla bla bla bla"
+      "text": "This is a test text for the text template screen of the farm...QA-STATUS"
     },
     "status": "11",
     "order": "2"
   },
   "interval": 2,
   "timeout": 3,
-  "status-url": "api/9/status.json",
+  "status-url": "api/9/statusqa.json",
   "secret-key-update-time": 1401281448
 }

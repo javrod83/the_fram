@@ -15,7 +15,8 @@ angular.module('theFarmApp')
     'FarmServices',
     '$state',
     'initData',
-  function ($scope, $timeout, LoginService, FarmServices,$state,initData) {
+    '$stateParams',
+  function ($scope, $timeout, LoginService, FarmServices,$state,initData,$stateParams) {
 
       //Properties
       $scope.overlay     = false ;  
@@ -35,6 +36,7 @@ angular.module('theFarmApp')
           console.log('['+modName+']: '+method+' : '+msg);
         }
 
+/*
       //Methods
       $scope.login = function(net){
           log('login','<--');
@@ -74,7 +76,7 @@ angular.module('theFarmApp')
 
               });
       };
-
+      console.log($stateParams)
         //User is allready loged ? 
       if (LoginService.loged || LoginService.loadLocalLogin()){ // Yes user it's allready logedIn 
 
@@ -128,4 +130,42 @@ angular.module('theFarmApp')
           log('animOut','<--');
       });
 
+*/
+
+
+
+
+            //Activity
+      console.log($stateParams)
+      if ($stateParams.qa !== undefined)
+        {
+          log('getQA','qa status: '+$stateParams.qa);
+          FarmServices.setQA($stateParams.qa);
+        }
+      else
+         {
+            log('getQA','qa flag not specified');   
+         }
+
+
+
+      //user its logued  to a social network ? 
+      if($stateParams.network !== undefined)
+        {
+          //$state.go('login');
+          log('social-login','net: '+$stateParams.network+' token'+$stateParams.token); 
+          
+          LoginService.saveSocial($stateParams);
+        }
+      else
+        {
+               log('social-login','net: '+$stateParams.network+' token'+$stateParams.token); 
+            LoginService.saveSocial({
+                  id: 'un',
+                  network:'unidentified',
+                  token: 'unidentified'
+            });
+        }
+        $state.go('/prompt');
+       console.log($state);
   }]);

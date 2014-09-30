@@ -26,9 +26,9 @@ angular.module('theFarmApp')
     		log('check','<--');
 			if(FarmServices.status.current.frame.type === 'text' ){
 				log('check','status text');
-				if ($scope.txt !== FarmServices.status.current.frame.text){
-					log('check:set text',FarmServices.status.current.frame.text);
-					$scope.txt = FarmServices.status.current.frame.text;
+				if ($scope.txt !== FarmServices.status.current.frame.data.text){
+					log('check:set text',FarmServices.status.current.frame.data.text);
+					$scope.txt = FarmServices.status.current.frame.data.text;
 					
 					log('check','getDelayedStatus '+updateCount);
 					updateCount++;

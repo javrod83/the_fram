@@ -7,11 +7,14 @@
  * # UserPromptController
  * Controller of the theFarmApp
  */
-angular.module('theFarmApp')
-  .controller('PromptCtrl',['$scope','FarmServices','LoginService','$state' ,'initData',function ($scope,FarmServices,LoginService,$state,initData) {
-     
-      //mobile mock
-      var doTheMocking = true ; 
+angular.module('theFarmApp').controller('PromptCtrl',[
+    '$scope',
+    'FarmServices',
+    'LoginService',
+    '$state',
+    'initData',
+    '$stateParams',
+  function ($scope,FarmServices,LoginService,$state,initData,$stateParams) {
 
       //log
       var modName = 'PromptCtrl';
@@ -19,6 +22,15 @@ angular.module('theFarmApp')
       function log(method,msg)
         {
           console.log('['+modName+']: '+method+' : '+msg);
+        }
+
+      function showError(txt)
+        {
+           
+            $scope.overlay     = true; 
+            $scope.timeOut     = true;  //rabbit
+            $scope.missedTitle = '';
+            $scope.missedText  = txt;
         }
 
       //footer setup  
@@ -29,14 +41,17 @@ angular.module('theFarmApp')
       $scope.missedTitle  = '' ;
       $scope.missedText   = '' ;
 
-
+      //load content 
+      $scope.title = FarmServices.data.dictionary['pic-approve'].title;
+      $scope.yes   = FarmServices.data.dictionary['pic-approve'].yes;
+      $scope.no    = FarmServices.data.dictionary['pic-approve'].no;
 
       //Methods
       $scope.approve = function(desition){
           log('approve','desition: '+desition);
           LoginService.setPicAproved(desition);
 
-          if(doTheMocking)
+          if(!FarmServices.config.productionMode)
             {
                   LoginService.saveLocalLogin('MockToken','MockUID');
                     FarmServices.getStatus().then(function(data){
@@ -45,7 +60,7 @@ angular.module('theFarmApp')
                       $state.go(data.frame.type);
 
                     },function(err){
-                        promptError(FarmServices.data.dictionary.error.connection);
+                        showError(FarmServices.data.dictionary.error.connection);
                         log('getStatus','fail');
 
                         console.log(err);
@@ -56,88 +71,77 @@ angular.module('theFarmApp')
                     });
             }
           else 
+            {
+              LoginService.register()
+                .then(function(data){
+                
+                    if (data.result === 'success')
+                      {
+                        LoginService.saveLocalLogin(data.authToken,data.uid);
+                        FarmServices.getStatus().then(function(data){
+                          
+                          $state.go(data.frame.type); log('getStatus','success');log('getStatus','redirecting to :'+data.frame.type);
 
-          LoginService.register()
-            .then(function(data){
-            
-                if (data.result === 'success')
-                  {
-                    LoginService.saveLocalLogin(data.authToken,data.uid);
-                    FarmServices.getStatus().then(function(data){
-                      log('getStatus','success');
-                      log('getStatus','redirecting to :'+data.frame.type);
-                      $state.go(data.frame.type);
+                        },function(err){
+                            log('getStatus','fail');
+                            showError( FarmServices.data.dictionary.error.connection);
+                            console.log(err);
+                            
+                        });
 
-                    },function(err){
-                        promptError(FarmServices.data.dictionary.error.connection);
-                        log('getStatus','fail');
+                      }
+                    else
+                      {
+                       showError(FarmServices.data.dictionary.error.general);
+                      }
 
-                        console.log(err);
-                        $scope.overlay     = true; 
-                        $scope.timeOut     = true;  //rabbit
-                        $scope.missedTitle = '';
-                        $scope.missedText  = FarmServices.data.dictionary.error.connection;
-                    });
+                },function(err){
+                    console.log(err);
+                   
+                   showError(FarmServices.data.dictionary.error.connection);
+                  
+                });
+            }
 
-                  }
-                else
-                  {
-                    $scope.overlay     = true; 
-                    $scope.timeOut     = true;  //rabbit
-                    $scope.missedTitle = '';
-                    $scope.missedText  = FarmServices.data.dictionary.error.general;
-                  }
-
-            },function(err){
-                console.log(err);
-                $scope.overlay     = true; 
-                $scope.timeOut     = true;  //rabbit
-                $scope.missedTitle = '';
-                $scope.missedText  = FarmServices.data.dictionary.error.connection;
-              
-            });
         };
 
-
+  
       //Activity
-
-
-      //user its logued  to a social network ? 
-      if(!LoginService.socialLoged)
-        {
-          $state.go('login');
-        }
-      else
-        {
-            //load content 
-            $scope.title = FarmServices.data.dictionary['pic-approve'].title;
-            $scope.yes   = FarmServices.data.dictionary['pic-approve'].yes;
-            $scope.no    = FarmServices.data.dictionary['pic-approve'].no;
-        }
-      
+          console.log($stateParams)
+          if ($stateParams.qa !== undefined)
+            {
+              log('getQA','qa status: '+$stateParams.qa);
+              FarmServices.setQA($stateParams.qa);
+            }
+          else
+             {
+                log('getQA','qa flag not specified');   
+             }
 
 
 
+          //user its logued  to a social network ? 
+          if($stateParams.id !== undefined)
+            {
+              //$state.go('login');
+              log('social-login','net: '+$stateParams.id+' token: '+$stateParams.token); 
+              
 
 
- 
+              LoginService.saveSocial({
+                      id :      $stateParams.id,
+                      network : LoginService.dictionary[$stateParams.id],
+                      token :   $stateParams.token
+                });
+            }
+          else
+            {
+                   log('social-login','net: '+$stateParams.network+' token'+$stateParams.token); 
+                LoginService.saveSocial({
+                      id: 'un',
+                      network:'unidentified',
+                      token: 'unidentified'
+                });
+            }
 
-
-
-
-     function promptError(str)
-        {
-          $scope.overlay = true;
-          $scope.error   = str; 
-        }
-
-
-
-            $scope.$on('animIn', function() {
-                console.log('Prompt: animIn');
-            });
-
-            $scope.$on('animOut', function() {
-                console.log('Prompt: animOut');
-            });
   }]);

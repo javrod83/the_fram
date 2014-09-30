@@ -17,7 +17,7 @@ angular.module('theFarmApp')
         	console.log('['+modName+']: '+method+' : '+msg);
     	}
 
-  	//Methods 
+  	
   		$scope.footerImages = ['cow','cow_big', 'ostrich', 'sheep', 'sheep_big', 'field', 'field_big'];
       	$scope.showBarn     = true;
       	$scope.success      = false; //hen
@@ -30,10 +30,35 @@ angular.module('theFarmApp')
   		var internalState = null;
 
 		var voteStatus = {
-			23 : open,
-			24 : warning,
-			25 : closed
+			1 : open,
+			2 : closed
 		};
+
+	//Methods 
+		function callStatusAndCheck()
+			{
+				FarmServices.getStatus()
+				.then(function(res){
+					log('getStatus','sucess');
+					check();
+				},function(err){
+					log('getStatus','fail');
+					console.log(err);
+				});
+			}
+
+		function callDelayedStatusAndCheck()
+			{
+				FarmServices.delayedGetStatus(function(promise){
+					promise.then(function(data){
+						log('check:getStatus','success');
+						console.log(data);
+						check();
+					},function(err){
+						log('check:getStatus','fail');
+					});
+				});
+			}
 
 		function open(){
 			log('open','<--');
@@ -41,9 +66,9 @@ angular.module('theFarmApp')
 			{
 				log('open','update vote');
 				$scope.state    = 'open';
-	  			$scope.title    = FarmServices.status.current.frame.vote.title;
-	  			$scope.options  = FarmServices.status.current.frame.vote.options;
-	  			$scope.vid      = FarmServices.status.current.frame.vote.vid;
+	  			$scope.title    = FarmServices.status.current.frame.data.title;
+	  			$scope.options  = FarmServices.status.current.frame.data.options;
+	  			$scope.vid      = FarmServices.status.current.frame.data.vid;
 	  			$scope.selected = -1 ; 
 
 	  			//hide overla
@@ -64,7 +89,7 @@ angular.module('theFarmApp')
 
   		function closed (argument) {
   			log('closed',' <--');
-  			if( internalState !== 25 || FarmServices.updatedStatus() ){
+  			if( internalState !== 2 || FarmServices.updatedStatus() ){
   				$scope.timeOut = true;
   				$scope.overlay = true;  				
   			}
@@ -86,13 +111,15 @@ angular.module('theFarmApp')
 					 if( FarmServices.status.current.id !== FarmServices.status.last.id)
 					 	{
 					 		var currentStatus = FarmServices.status.current.frame.status; 
-					 		if( parseInt(currentStatus) >= 23 && parseInt(currentStatus) <= 25)
+					 		if( parseInt(currentStatus) >= 1 && parseInt(currentStatus) <= 2)
 					 			{
 					 				voteStatus[currentStatus]();		
 					 			}
 					 		else
 					 			{
 					 				log('check','status '+voteStatus+'not implemented');
+					 				 callDelayedStatusAndCheck();
+
 					 			}	
 					 			
 					 	}
@@ -104,6 +131,7 @@ angular.module('theFarmApp')
 				
 			}else{
 				$state.go(FarmServices.status.current.frame.type);
+
 			}		
 		}
 
@@ -148,29 +176,5 @@ angular.module('theFarmApp')
 			callStatusAndCheck();
 		}
   			
-		function callStatusAndCheck()
-			{
-				FarmServices.getStatus()
-				.then(function(res){
-					log('getStatus','sucess');
-					check();
-				},function(err){
-					log('getStatus','fail');
-					console.log(err);
-				});
-			}
-
-		function callDelayedStatusAndCheck()
-			{
-				FarmServices.delayedGetStatus(function(promise){
-					promise.then(function(data){
-						log('check:getStatus','success');
-						console.log(data);
-						check();
-					},function(err){
-						log('check:getStatus','fail');
-					});
-				});
-			}
 
   }]);

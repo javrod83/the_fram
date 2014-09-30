@@ -31,7 +31,7 @@ body {
 .header {
   top: 0;
   height: 60px;
-  background-color: #384ca5;
+  
   width: 100%;
   position: absolute;
   z-index: 50;
@@ -61,12 +61,12 @@ body {
 .fluid-container{
   .logo{
     @include center-block;
-    padding-top: 70px;
+    padding-top: 10px;
     margin-bottom: -25px;
   }
   .logo-absolute {
     position: absolute;
-    margin: 17% 0 0 29%;
+    margin: 4% 0 0 29%;
   }
 }
 
@@ -145,11 +145,11 @@ body {
   }
 
   .rope-container-left{
-    margin-left: 10%;
+    margin-left: 5%;
   }
 
   .rope-container-right{
-    margin-left: 75%; 
+    margin-left: 90%; 
   }
 
 }
@@ -226,7 +226,7 @@ body {
 
 .photo-container{
   @include center-block;
-  margin-top: 60px;
+ /* margin-top: 60px; */
   width: 100%;
   .frame{
     width: 100%;
@@ -813,9 +813,12 @@ body {
 
 @mixin center-block {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 5%;
+  margin-right: 5%;
 }
+
+
+
 
 /*Animations*/
 

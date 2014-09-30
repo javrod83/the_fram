@@ -13,25 +13,24 @@ angular.module('theFarmApp')
         {
           LoginService.forgetState();
           FarmServices.clean();
+          $state.go('prompt');
         }
 
+        // $scope.productionFlag =  (FarmServices.config.productionMode)? {display:'none'}: {position:'',background:'red', color:'white', 'font-weight':'bold',padding:'10px 5px 0px 5px','margin-top':'9px'} ; 
 
+          // FarmServices.getConfig().then(function(res){ 
+          //               return FarmServices.getData(res.urls.base, res.tid, res.jsons['territory-data']);
+          //           }).then(function(){ 
+          //             // $scope.productionFlag =  FarmServices.cofig.productionMode ; 
+          //              console.log('DATA CARGADA');
+          //              console.log(FarmServices.config);
+          //            });
+
+
+       
         //footer config
         $scope.footerImages = ['rabbit','hen', 'field_login'];
         $scope.showBarn = false;
-
-
-       $scope.$on('animIn', function() {
-                console.log(' Main: animIn');
-            });
-
-      $scope.$on('animOut', function() {
-          console.log(' Main: animOut');
-      });
-
-
-
-
 
   }]);
 

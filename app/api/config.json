@@ -6,6 +6,9 @@
     "status": "status.json",
     "status-qa": "statusqa.json"
   },
+  "productionMode":true,
+  "consumeQAStatus":false,
+
   "urls": {
     "base": "api/",
     "login": "http://127.0.0.1:8080/api/login",

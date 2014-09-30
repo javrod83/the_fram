@@ -8,8 +8,7 @@
  *
  * Main module of the application.
  */
-if (localStorage === null)
-  localStorage = {} ;
+
 
 angular
   .module('theFarmApp', [
@@ -23,22 +22,10 @@ angular
     'anim-in-out'
   ]).config(function ($stateProvider, $urlRouterProvider) {
   
-     $urlRouterProvider.otherwise('/login');
+     $urlRouterProvider.otherwise('/prompt');
 
-     $stateProvider.state('login', {
-          url: '/login',
-          templateUrl: 'views/login.html',
-          controller: 'LoginCtrl',
-          resolve:{
-              FarmServices:'FarmServices',
-              initData:function(FarmServices) {
-                    return  FarmServices.getConfig().then(function(res){ 
-                        return FarmServices.getData(res.urls.base, res.tid, res.jsons['territory-data']);
-                    });
-              }
-          }
-    }).state('prompt', {
-      url: '/prompt',
+     $stateProvider.state('prompt', {
+      url: '/prompt/:id/:token?qa',
       templateUrl: 'views/prompt.html',
       controller: 'PromptCtrl',
       resolve:{
@@ -61,10 +48,10 @@ angular
                     });
               }
           }
-    }).state('photo', {
-      url: '/photo',
-      templateUrl: 'views/photo.html',
-      controller: 'PhotoCtrl',
+    }).state('image', {
+      url: '/image',
+      templateUrl: 'views/image.html',
+      controller: 'ImageCtrl',
       resolve:{
               FarmServices:'FarmServices',
               initData:function(FarmServices) {

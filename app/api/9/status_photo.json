@@ -1,17 +1,18 @@
 {
-  "id": 1404293132112,
-  "frame": {
+  "id": 200, 
     "fid": "4499", 
-    "sid": "104", 
-    "type": "photo",
-    "status": "11", 
-    "media": {
-      "large": "/media/joker.jpg",
-      "medium": "/media/joker.jpg"
-    }
+    "sid": "104",  
+    "type": "image", 
+    "data": {
+      "title": "This is the image title",
+      "large": "media/joker.jpg",
+      "medium": "media/joker.jpg"
+    },
+    "status": "11",  
+    "order": "1"
   },
-  "interval": 10,
-  "timeout": 3,
-  "status-url": "http://theFram.com.ar:9000/api/9/status.json",
-  "secret-key-update-time": 1401281448
+  "interval": 2, 
+  "timeout": 3, 
+  "status-url": "api/9/status.json", 
+  "secret-key-update-time": 1401281448 
 }

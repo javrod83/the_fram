@@ -8,9 +8,9 @@
  * Controller of the theFarmApp
  */
 angular.module('theFarmApp')
-    .controller('PhotoCtrl', ['FarmServices','$scope','$state',function (FarmServices,$scope,$state) {
+    .controller('ImageCtrl', ['FarmServices','$scope','$state',function (FarmServices,$scope,$state) {
 	//log
-		var modName = 'PhotoCtrl';
+		var modName = 'ImageCtrl';
 		var updateCount = 0 ;
 
 		function log(method,msg){
@@ -27,9 +27,9 @@ angular.module('theFarmApp')
     ///Methods
     	function check(){
     		log('check','<--');
-			if(FarmServices.status.current.frame.type === 'photo' ){
-				log('status: ','photo');
-				$scope.imgSrc = FarmServices.status.current.frame.media.large;
+			if(FarmServices.status.current.frame.type === 'image' ){
+				log('status: ','image');
+				$scope.imgSrc = FarmServices.status.current.frame.data.large;
 				FarmServices.delayedGetStatus(function(promise){
 					promise.then(function(data){
 						console.log(data);

@@ -1,36 +1,18 @@
 {
-  "id": 2020,
+  "id": 2003,
   "frame": {
     "fid": "4499",
     "sid": "104",
-    "type": "vote",
-    "status": "23",
-    "vote": {
-      "vid": "2020",
-      "title": "Choose Next Week's Task for our contestants",
-      "vote-type": "4",
-      "options": [
-        {
-          "id": "1",
-          "text": "The 1st option to choose"
-        },
-        {
-          "id": "2",
-          "text": "The 2nd option to choose"
-        },
-        {
-          "id": "3",
-          "text": "The 3rd option to choose"
-        },
-        {
-          "id": "4",
-          "text": "The 4th option to choose "
-        }
-      ]
-    }
+    "type": "text",
+    "data": {
+      "title": "This is the title",
+      "text": "This is a test text for the text template screen of the farm...bla bla bla bla"
+    },
+    "status": "11",
+    "order": "2"
   },
-  "interval": 10,
+  "interval": 2,
   "timeout": 3,
-  "status-url": "http://theFram.com.ar:9000/api/9/status.json",
+  "status-url": "api/9/status.json",
   "secret-key-update-time": 1401281448
 }

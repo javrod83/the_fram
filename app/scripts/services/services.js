@@ -55,6 +55,14 @@ angular.module('theFarmApp')
 
             return (Collection.status.current.id > -1  && Collection.status.current.id > Collection.status.last.id);    
         },
+        setQA : function (qa){
+            
+            Collection.config.consumeQAStatus = (qa == 1 ) ; 
+        },
+        setProduction : function (prod){
+            
+            Collection.config.productionMode = (prod == 1 ) ; 
+        },
         getConfig : function() {
             log('getConfig','<--');
             var deferred = $q.defer();
@@ -108,9 +116,10 @@ angular.module('theFarmApp')
 
             var url = Collection.config.urls.base;
             var tid = Collection.config.tid;
-            var filename = Collection.config.jsons.status; 
- 
-            log('getData','status is '+((Collection.status.current.id === -1)? 'original ':'new: '+ Collection.status.current['status-url']));
+            var filename = (Collection.config.consumeQAStatus)?Collection.config.jsons['status-qa']:Collection.config.jsons.status; 
+            
+            log('getStatus','qa-status: '+(Collection.config.consumeQAStatus));
+            log('getStatus','status is '+((Collection.status.current.id === -1)? 'original :'+ url+tid+'/'+filename :'new: '+ Collection.status.current['status-url']));
 
                var backedUrl =  (Collection.status.current.id === -1)? url+tid+'/'+filename : Collection.status.current['status-url'];            
                 
@@ -131,7 +140,7 @@ angular.module('theFarmApp')
                 }
                 return deferred.promise;
             },function(err){
-                log('getData','success');
+                log('getData','fail');
                 console.log(err);
             });
         },
@@ -178,11 +187,10 @@ angular.module('theFarmApp')
             });
         },
         voteIdUpdated: function(){
+
             return Collection.status.current.frame.vote.vid !== localStorage.vid;
         },
-        clean: function ()
-        {
-            
+        clean: function (){
                 Collection.configUrl     = 'api';
                 Collection.config        = {};
                 Collection.data          = {};
@@ -204,8 +212,7 @@ angular.module('theFarmApp')
                     loged : false,
                     initialized : false
                 };
-            }
-        
+        }
     };
 
     return Collection;

@@ -113,6 +113,7 @@ angular.module('theFarmApp')
             Collection.params.socialId      = args.id ;
             Collection.params.socialNetwork = args.network ;
             Collection.params.socialToken   = args.token ;
+            console.log(Collection.params);
             log('saveSocial','-->');
         },
         vote : function(id) {
