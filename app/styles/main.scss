@@ -66,7 +66,8 @@ body {
   }
   .logo-absolute {
     position: absolute;
-    margin: 4% 0 0 29%;
+    margin: 2% 0 0 21%;
+    width: 50%;
   }
 }
 
@@ -84,6 +85,7 @@ body {
       line-height: 1;
       text-align: center;
       margin-bottom: 15px;
+      padding: 3% 10%;
       @include center-block;
     }
     .answer-text:active, .success-text:active, .error-text:active, .social-text:active{
@@ -149,7 +151,7 @@ body {
   }
 
   .rope-container-right{
-    margin-left: 90%; 
+    margin-left: 81%; 
   }
 
 }
@@ -245,7 +247,7 @@ body {
     @include center-block;
     color: #fff;
     font-family: "Myriad Pro", "Gill Sans", "Gill Sans MT", "Calibri", sans-serif;
-    font-size: 2vh;
+    font-size: 3vh;
     line-height: 1;
     text-align: center;
     width: 72%;
@@ -253,202 +255,6 @@ body {
     margin-top: -60%;
   }
 }
-
-/* .content{
-  @include center-block;
-  .wood-container, .wood-confirm-container, .social-container{
-    z-index: 50;
-    left: 0;
-    position: absolute;
-    margin-left: -20px;
-    z-index: 7;
-    margin-top: 57%;
-    li {
-      list-style: none;
-    }
-    .wood-1, .wood-2, .wood-agree, .wood-disagree{
-      width: 335px;
-      height: 78px;
-      background-size: 100%;
-      background-repeat: no-repeat;
-      text-align: center;
-    }
-    .wood-agree, .wood-disagree{
-      height: 100px;
-    }
-    .wood-1{
-      background-image: url('../images/wood-1.png');
-    }
-    .wood-2{
-      background-image: url('../images/wood-2.png'); 
-    }
-    .wood-agree{
-      background-image: url('../images/wood-agree.png');
-    }
-    .wood-disagree{
-      background-image: url('../images/wood-disagree.png'); 
-    }
-    .social-buttons{
-      @include center-block;
-      width: 80%;
-      margin-bottom: 10px;
-    }
-    .tos-link{
-      margin: 0 auto ; 
-      color:white;
-    }
-    .answer-text{
-      color: #eb965f;
-      font-family: "Myriad Pro", "Gill Sans", "Gill Sans MT", "Calibri", sans-serif;
-      font-size: 26px;
-      padding-top: 20px;
-    }
-    .answer-text:active, .success-text:active, .error-text:active{
-      color: #fff;
-    }
-    .success-text{
-      color: #8dc63f;
-    }
-    .error-text{
-      color: #e06e4d;
-    }
-    .btn-group{
-      margin-bottom: 10px;
-    }
-    .social-text{
-      position: relative;
-      margin-top: -42px;
-      margin-left: 90px;
-      color: #fff;
-      font-family: "Myriad Pro", "Gill Sans", "Gill Sans MT", "Calibri", sans-serif;
-      font-size: 16px;
-    }
-  }
-
-  .hen-container{
-    .hen_big, .hands, .thanks-for-voting{
-      position: absolute;
-      z-index: 12;
-      bottom: 0;
-    }
-
-    .hen_big{
-      left: 35%;
-      height: 89%;
-    }
-
-    .hands{
-      left: 32%;
-      margin-bottom: 30px;
-      min-width: 275px;
-    }
-
-    .thanks-for-voting{
-      z-index: 13;
-      left: 41%;
-      margin-bottom: 95px;
-      width: 200px;
-    }
-  }
-
-  .rabbit-container{
-    .rabbit_big, .field_login, .error-message{
-      position: absolute;
-    }
-    .rabbit_big{
-      left: 38%;
-      height: 57%;
-      bottom: 0;
-      margin-bottom: 4%;
-      z-index: 11;
-    }
-    .field_login{
-      width: 100%;
-      bottom: 0;
-      z-index: 10;
-    }
-    .text{
-      position: absolute;
-      z-index: 11;
-      top: 0;
-      margin-top: 9%;
-      position: absolute;
-      margin-left: 36%;
-    }
-    .error-message{
-      
-    }
-    .dammit{
-      z-index: 11;
-      font-size: 40px;
-      font-weight: bold;
-    }
-  }
-
-  .photo-container{
-    .frame{
-      position: absolute;
-      left: 28%;
-      top: 75px;
-      z-index: 7;
-      height: 80%;
-      max-width: 100%;
-    }
-    .img-frame{
-      position: absolute;
-      width: 383px;
-      height: 307px;
-      top: 311px;
-      left: 28%;
-      margin-left: 25px;
-      margin-top: -10px;
-      z-index: 6;
-    }
-    .board-text{
-      position: absolute;
-      left: 33%;
-      top: 395px;
-      z-index: 10;
-      width: 335px;
-      height: 80%;
-      line-height: normal;
-    }
-  }
-
-  .rope-container-left, .rope-container-right{
-    position: absolute;
-    z-index: 6;
-    overflow: hidden;
-    height: 100%;
-  }
-
-  .rope-container-left{
-    margin-left: 12%;
-  }
-
-  .rope-container-right{
-    right:0;
-    margin-right: 12%;
-  }
-
-  .rope{
-    width: 9px;
-    height: 100%;
-    background-image: url('../images/rope.png');
-  }
-
-  .login-text{
-    color: #fff;
-    font-family: "Myriad Pro", "Gill Sans", "Gill Sans MT", "Calibri", sans-serif;
-    font-size: 26px;
-    width: 270px;
-    text-align: center;
-    line-height: 31px;
-    margin-bottom: 15px;
-    @include center-block;
-  }
-} */
-
 
 .footer {
   background-position-x: -430px;
@@ -514,12 +320,12 @@ body {
 @media screen and (min-width: 750px) {
 
   .fluid-container .logo-absolute {
-    position: absolute;
-    margin: 7% 0 0 39%;
+    margin: 3% 0 0 24%;
+    width: 50%;
   }
 
   .photo-container{
-    width: 50%;
+    /*width: 50%;*/
   }
 
   .footer {
