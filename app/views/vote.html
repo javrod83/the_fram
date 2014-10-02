@@ -3,7 +3,7 @@
 <div  ng-include src='"partials/hen.html"'></div>
 
 <div class="rope-left col-xs-1 col-sm-4 col-md-4 col-lg-4"></div>
-<div class="content col-xs-10 col-sm-4 col-md-4 col-lg-4" >
+<div class="content col-xs-10 col-sm-4 col-md-4 col-lg-4 animated fadeIn" >
 	<div class="rope-container-left animated fadeInDownBig"></div>
 	<div class="rope-container-right animated fadeInDownBig"></div>
 	<img class="logo" src="images/logo.png" />
@@ -19,9 +19,12 @@
 </div>
 <div class="rope-left col-xs-1 col-sm-4 col-md-4 col-lg-4"></div>
 
-<div class="footer">
-	<img img-preload ng-repeat="img in footerImages" class="{{img}}" ng-src="images/{{img}}.png" />
-	<div ng-if="showBarn" class="barn-container"><img img-preload class="barn" src="images/barn.png" /></div>
+<div ng-switch="isLoading">
+    <div class="footer animated fadeIn" ng-switch-when="false" ng-switch="isSuccessful">
+        <div ng-switch-when="true">
+            <img ng-repeat="img in footerImages" ng-src="images/{{img}}.png" class="{{img}}"/>
+            <div ng-if="showBarn" class="barn-container"><img img-preload class="barn" src="images/barn.png" /></div>
+        </div>
+    </div>
 </div>
-
   
