@@ -66,7 +66,7 @@ angular.module('theFarmApp')
         getConfig : function() {
             log('getConfig','<--');
             var deferred = $q.defer();
-            return $http.get(Collection.configUrl+'/config.json').then(function(response) {
+            return $http.get(Collection.configUrl+'/config.json',{headers: {'Content-type': 'application/json'}}).then(function(response) {
 
             //  console.log(response);
                 if (response.status === 200) {
@@ -94,7 +94,7 @@ angular.module('theFarmApp')
             
             log('getData','url: '+url+tid+'/'+filename);
 
-            return $http.get(url+tid+'/'+filename).then(function(response) {
+            return $http.get(url+tid+'/'+filename,{headers: {'Content-type': 'application/json'}}).then(function(response) {
                 log('getData','success');
                 if (response.status === 200) {
                     Collection.data = response.data;
@@ -121,9 +121,9 @@ angular.module('theFarmApp')
             log('getStatus','qa-status: '+(Collection.config.consumeQAStatus));
             log('getStatus','status is '+((Collection.status.current.id === -1)? 'original :'+ url+tid+'/'+filename :'new: '+ Collection.status.current['status-url']));
 
-               var backedUrl =  (Collection.status.current.id === -1)? url+tid+'/'+filename : Collection.status.current['status-url'];            
+            var backedUrl =  (Collection.status.current.id === -1)? url+tid+'/'+filename : Collection.status.current['status-url'];            
                 
-            return $http.get(backedUrl).then(function(response) {
+            return $http.get(backedUrl,{headers: {'Content-type': 'application/json'}}).then(function(response) {
                 log('getData','success');
                 if (response.status === 200) {
                     deferred.resolve(response.data);
@@ -188,7 +188,7 @@ angular.module('theFarmApp')
         },
         voteIdUpdated: function(){
 
-            return Collection.status.current.frame.vote.vid !== localStorage.vid;
+            return Collection.status.current.frame.data.vid !== localStorage.vid;
         },
         clean: function (){
                 Collection.configUrl     = 'api';

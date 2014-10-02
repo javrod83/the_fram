@@ -18,16 +18,15 @@ angular
     'ngSanitize',
     'ngTouch',
     'ngAnimate',
-    'ui.router',
-    'anim-in-out'
+    'ui.router'
   ]).config(function ($stateProvider, $urlRouterProvider) {
   
-     $urlRouterProvider.otherwise('/prompt');
+     $urlRouterProvider.otherwise('/landing');
 
-     $stateProvider.state('prompt', {
-      url: '/prompt/:id/:token?qa',
-      templateUrl: 'views/prompt.html',
-      controller: 'PromptCtrl',
+     $stateProvider.state('landing', {
+      url: '/landing/:id/:token?qa',
+      templateUrl: 'views/landing.html',
+      controller: 'LandingCtrl',
       resolve:{
               FarmServices:'FarmServices',
               initData:function(FarmServices) {

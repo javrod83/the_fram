@@ -8,8 +8,7 @@
  * Controller of the theFarmApp
  */
 angular.module('theFarmApp')
-  .controller('VoteCtrl',
-  	['FarmServices','LoginService' ,'$scope','initData', '$state', 'preloader',
+  .controller('VoteCtrl',['FarmServices','LoginService' ,'$scope','initData', '$state', 'preloader',
   	function (FarmServices,LoginService,$scope,initData,$state, preloader) {
     //log
     	var modName = 'VoteCtrl';
@@ -64,7 +63,7 @@ angular.module('theFarmApp')
 
       // ----------------------------------------- //
 
-	//Methods 
+      //Methods 
 		function callStatusAndCheck()
 			{
 				FarmServices.getStatus()
@@ -90,26 +89,47 @@ angular.module('theFarmApp')
 				});
 			}
 
-		function open(){
-			log('open','<--');
-			//if( internalState !== 23  )
+		function showVote()
 			{
-				log('open','update vote');
-				$scope.state    = 'open';
-	  			$scope.title    = FarmServices.status.current.frame.data.title;
+				$scope.title    = FarmServices.status.current.frame.data.title;
 	  			$scope.options  = FarmServices.status.current.frame.data.options;
 	  			$scope.vid      = FarmServices.status.current.frame.data.vid;
-	  			$scope.selected = -1 ; 
+	  			
+	  			$scope.selected = -1 ; 	
+			}
 
-	  			//hide overla
+		function showHen()
+			{
+				$scope.success = true  ; 
+				$scope.overlay = true ;
+			}
+
+		function showRabbit()
+			{
+				$scope.timeOut = true  ; 
+				$scope.overlay = true ;
+			}
+
+		function resetOverlay()
+			{
 	  			$scope.timeOut = false;
   				$scope.overlay = false;  
   				$scope.success = false;		
+
 			}
-			//else
-			{
-				log('open','nothing to do here');
-			}
+
+
+		function open(){
+			log('open','<--');
+
+
+				log('open','update vote');
+				$scope.state    = 'open';
+				showVote();
+	  			resetOverlay();
+
+
+
   		}
 
   		function warning (argument) {
@@ -120,8 +140,8 @@ angular.module('theFarmApp')
   		function closed (argument) {
   			log('closed',' <--');
   			if( internalState !== 2 || FarmServices.updatedStatus() ){
-  				$scope.timeOut = true;
-  				$scope.overlay = true;  				
+  				showVote();
+  				showRabbit();  				
   			}
   		}
 		function check(){
@@ -133,8 +153,9 @@ angular.module('theFarmApp')
 				if(LoginService.allreadyVoted()){
 
 					log('check','allready voted');
-					$scope.success = true  ; 
-					$scope.overlay = true ;
+					showVote();
+					showHen();
+
 				} else {
 					log('check','update vote frame');
 
@@ -152,6 +173,10 @@ angular.module('theFarmApp')
 
 					 			}	
 					 			
+					 	}
+					 else
+					 	{
+					 		showVote();
 					 	}
 					    
 					internalState = FarmServices.status.current.frame.status;
@@ -172,15 +197,11 @@ angular.module('theFarmApp')
   			LoginService.vote(id).
   				then(function(response){
   					log('answer','vote('+id+') success');
-  					$scope.success = true;
-  					$scope.overlay = true;
-
+  					showHen();
   					//persistir voto
   				},function(err){
   					log('answer','vote('+id+') fail');
-					$scope.success = true;
-					$scope.overlay = true;
-
+					showHen();
   				});
   		}
 
@@ -192,10 +213,10 @@ angular.module('theFarmApp')
   			log('Status updated !','<--');
  			
   			if(LoginService.allreadyVoted()){
-  				log('_llreadyVoted','<--');
-				$scope.success = true ; 
-				$scope.overlay = true ;
+  				log('_llreadyVoted','<--');				
 
+				showVote();
+				showHen();
 				callDelayedStatusAndCheck()
 
 			}else{

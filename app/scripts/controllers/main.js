@@ -13,7 +13,7 @@ angular.module('theFarmApp')
         {
           LoginService.forgetState();
           FarmServices.clean();
-          $state.go('prompt');
+          $state.go('landing',LoginService.getSocial());
         }
 
         // $scope.productionFlag =  (FarmServices.config.productionMode)? {display:'none'}: {position:'',background:'red', color:'white', 'font-weight':'bold',padding:'10px 5px 0px 5px','margin-top':'9px'} ; 

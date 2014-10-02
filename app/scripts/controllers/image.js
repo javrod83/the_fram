@@ -8,10 +8,9 @@
  * Controller of the theFarmApp
  */
 angular.module('theFarmApp')
-    .controller('ImageCtrl', 
+    .controller('ImageCtrl',    	
     	['FarmServices','$scope','$state','preloader',
-    	function (FarmServices,$scope,$state, preloader) {
-	//log
+    	function (FarmServices,$scope,$state, preloader) {	//log
 		var modName = 'ImageCtrl';
 		var updateCount = 0 ;
 
@@ -51,7 +50,6 @@ angular.module('theFarmApp')
 	              console.info( "Percent loaded:", event.percent );
 	          }
 	      );
-
       // ----------------------------------------- //
 
     ///Methods

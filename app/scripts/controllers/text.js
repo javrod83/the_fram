@@ -8,10 +8,9 @@
  * Controller of the theFarmApp
  */
 angular.module('theFarmApp')
-  .controller('TextCtrl', 
-  	['FarmServices','$scope','$state', 'preloader', 
+  .controller('TextCtrl', 	['FarmServices','$scope','$state', 'preloader', 
   	function (FarmServices,$scope,$state, preloader) {
-	//log
+  	//log
 		var modName     = 'TextCtrl';
 		var updateCount = 0 ;
 
@@ -19,9 +18,9 @@ angular.module('theFarmApp')
 			console.log('['+modName+']: '+method+' : '+msg);
 		}
 	 //atributes
-	$scope.txt = '' ; 
-	$scope.footerImages = ['cow','cow_big', 'ostrich', 'sheep', 'sheep_big', 'field', 'field_big'];
-	$scope.showBarn = true;
+    	$scope.txt = '' ; 
+    	$scope.footerImages = ['cow','cow_big', 'ostrich', 'sheep', 'sheep_big', 'field', 'field_big'];
+    	$scope.showBarn = true;
 
     // --------------- PRELOAD IMAGES --------------//
       $scope.isLoading = true;
