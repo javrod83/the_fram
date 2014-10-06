@@ -50,8 +50,9 @@ angular.module('theFarmApp')
             //return $http.get(url).then(function(response) {
                 if (response.status === 200) {
                     deferred.resolve(response.data);
-                     Collection.saveLocalLogin();
-
+                     if(response.data.result == "success"){
+                        Collection.saveLocalLogin(response.data.authToken, response.data.uid);
+                    }
                 } else {
                     deferred.reject({
                         'errorMsg': 'registration unsuccessfull ! '
@@ -83,10 +84,10 @@ angular.module('theFarmApp')
                 return false;
             }
         },
-        saveLocalLogin : function(){
+        saveLocalLogin : function(authToken,uid){
         	log('saveLocalLogin','<--');
-            localStorage.token  = Collection.params.token ;
-            localStorage.uid    = Collection.params.uid; 
+            localStorage.token  = authToken ;
+            localStorage.uid    = uid; 
             Collection.loged    = true ; 
         },
         saveSocial: function(args){

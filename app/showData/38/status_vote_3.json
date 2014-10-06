@@ -1,0 +1,36 @@
+{
+  "id": 1404293132115,
+  "frame": {
+    "fid": "4499",
+    "sid": "104",
+    "type": "vote",
+    "status": "25",
+    "vote": {
+      "vid": "1405",
+      "title": "Choose Next Week's Task for our contestants",
+      "vote-type": "4",
+      "options": [
+        {
+          "id": "1",
+          "text": "The 1st option to choose"
+        },
+        {
+          "id": "2",
+          "text": "The 2nd option to choose"
+        },
+        {
+          "id": "3",
+          "text": "The 3rd option to choose"
+        },
+        {
+          "id": "4",
+          "text": "The 4th option to choose"
+        }
+      ]
+    }
+  },
+  "interval": 5,
+  "timeout": 3,
+  "statusURL": "http://127.0.0.1:9000/api/9/status_vote.json",
+  "secretKeyUpdateTime": 1401281448
+}

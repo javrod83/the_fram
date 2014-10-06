@@ -119,9 +119,9 @@ angular.module('theFarmApp')
             var filename = (Collection.config.consumeQAStatus)?Collection.config.jsons['status-qa']:Collection.config.jsons.status; 
             
             log('getStatus','qa-status: '+(Collection.config.consumeQAStatus));
-            log('getStatus','status is '+((Collection.status.current.id === -1)? 'original :'+ url+tid+'/'+filename :'new: '+ Collection.status.current['status-url']));
+            log('getStatus','status is '+((Collection.status.current.id === -1)? 'original :'+ url+tid+'/'+filename :'new: '+ Collection.status.current['statusURL']));
 
-            var backedUrl =  (Collection.status.current.id === -1)? url+tid+'/'+filename : Collection.status.current['status-url'];            
+            var backedUrl =  (Collection.status.current.id === -1)? url+tid+'/'+filename : Collection.status.current['statusURL'];            
                 
             return $http.get(backedUrl,{headers: {'Content-type': 'application/json'}}).then(function(response) {
                 log('getData','success');

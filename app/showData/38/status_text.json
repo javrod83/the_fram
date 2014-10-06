@@ -1,0 +1,18 @@
+{
+  "id": 1404293132113,
+  "frame": {
+    "fid": "4499",
+    "sid": "104",
+    "type": "text",
+    "data": {
+      "title": "This is the title",
+      "text": "This is a test text for the text template screen of the farm...bla bla bla bla"
+    },
+    "status": "11",
+    "order": "2"
+  },
+  "interval": 2,
+  "timeout": 3,
+  "statusURL": "api/9/status.json",
+  "secretKeyUpdateTime": 1401281448
+}

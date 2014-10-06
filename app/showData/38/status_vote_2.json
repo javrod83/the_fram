@@ -1,14 +1,14 @@
 {
-  "id": 2010,  
+  "id": 2005,
    
   "frame": {
-    "fid": "4499",  
+    "fid": "4499", 
     "sid": "104",  
-    "type": "vote", 
+    "type": "vote",
     "data": { 
       "vid": "1405", 
-      "title": "Chooose Nixt Week's Task for our contestants", 
-      "voteType": "4",
+      "title": "Choose Next Week's Task for our contestants", 
+      "voteType": "4", 
       "options": [ 
         {
           "id": "1", 
@@ -29,11 +29,11 @@
       ],
       "allowed": "1" 
     },
-  "status": "1",
+  "status": "1", 
   "order": "3"
   },
   "interval": 2, 
-  "timeout": 3, 
-  "statusURL": "http://192.168.1.101:9000/api/9/status.json", 
-  "secret-key-update-time": 1401281448 
+  "timeout": 3,
+  "statusURL": "showData/38/status.json",
+  "secretKeyUpdateTime": 1401281448 
 }

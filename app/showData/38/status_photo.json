@@ -1,0 +1,19 @@
+{
+  "id": 2005,
+  "frame": {
+    "fid": "4499", 
+    "sid": "104",  
+    "type": "image", 
+    "data": {
+      "title": "This is the image title",
+      "large": "media/joker.jpg",
+      "medium": "media/joker.jpg"
+    },
+    "status": "11",  
+    "order": "1"
+  },
+  "interval": 2, 
+  "timeout": 3, 
+  "statusURL": "showData/38/status.json", 
+  "secretKeyUpdateTime": 1401281448 
+}

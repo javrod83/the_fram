@@ -6,13 +6,13 @@
     "status": "status.json",
     "status-qa": "statusqa.json"
   },
-  "productionMode":false,
+  "productionMode":true,
   "consumeQAStatus":false,
 
   "urls": {
     "base": "api/",
-    "login": "http://127.0.0.1:8080/api/login",
-    "vote": "http://127.0.0.1:8080/api/v?"
+    "login": "api/approvepic",
+    "vote": "api/v?"
   },
   "social": {
     "networks": [

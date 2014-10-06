@@ -21,12 +21,12 @@ angular
     'ui.router'
   ]).config(function ($stateProvider, $urlRouterProvider) {
   
-     $urlRouterProvider.otherwise('/landing');
+     $urlRouterProvider.otherwise('/land');
 
-     $stateProvider.state('landing', {
-      url: '/landing/:id/:token?qa',
-      templateUrl: 'views/landing.html',
-      controller: 'LandingCtrl',
+     $stateProvider.state('land', {
+      url: '/land/:id/:token?qa',
+      templateUrl: 'views/land.html',
+      controller: 'LandCtrl',
       resolve:{
               FarmServices:'FarmServices',
               initData:function(FarmServices) {

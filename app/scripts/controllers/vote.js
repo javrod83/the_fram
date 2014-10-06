@@ -27,7 +27,11 @@ angular.module('theFarmApp')
       	$scope.successText  = FarmServices.data.dictionary.vote.after.text;
       	$scope.missedTitle  = FarmServices.data.dictionary.vote.missed.title;
  		$scope.missedText   = FarmServices.data.dictionary.vote.missed.text;
-
+ 		$scope.options      = '';
+		$scope.title        = '';
+	  	$scope.options      = '';
+	  	$scope.vid          = -1;
+	  			
   		var internalState = null;
 
 		var voteStatus = {
@@ -115,22 +119,17 @@ angular.module('theFarmApp')
 	  			$scope.timeOut = false;
   				$scope.overlay = false;  
   				$scope.success = false;		
-
 			}
 
-
-		function open(){
-			log('open','<--');
-
-
+		function open()
+			{
+				log('open','<--');
+				console.log(FarmServices.updatedStatus());
 				log('open','update vote');
 				$scope.state    = 'open';
 				showVote();
-	  			resetOverlay();
-
-
-
-  		}
+				resetOverlay();
+			}
 
   		function warning (argument) {
   			log('warning',' <--');
@@ -174,7 +173,7 @@ angular.module('theFarmApp')
 					 			}	
 					 			
 					 	}
-					 else
+					  else if ($scope.vid == -1)
 					 	{
 					 		showVote();
 					 	}
