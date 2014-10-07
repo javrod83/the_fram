@@ -34,6 +34,15 @@ angular.module('theFarmApp').controller('LandCtrl',[
             $scope.missedText  = txt;
         }
 
+var leCounter =0 ;
+ $scope.count = function ()
+    {
+      leCounter ++;
+      log('count: ',leCounter);
+    }
+
+
+
       //footer setup  
       $scope.footerImages = ['cow','cow_big', 'ostrich', 'sheep', 'sheep_big', 'field', 'field_big'];
       $scope.showBarn     = true;

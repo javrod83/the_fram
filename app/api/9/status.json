@@ -34,6 +34,6 @@
   },
   "interval": 2, 
   "timeout": 3, 
-  "statusURL": "http://192.168.1.101:9000/api/9/status.json", 
+  "statusURL": "api/9/status.json", 
   "secret-key-update-time": 1401281448 
 }

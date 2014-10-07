@@ -27,7 +27,16 @@ angular.module('theFarmApp')
           //            });
 
 
-       
+       $scope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
+    if (toState.resolve) {
+        console.log("entering resolve");
+    }
+});
+$scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
+    if (toState.resolve) {
+        console.log("resolve success");
+    }
+});
         //footer config
         $scope.footerImages = ['rabbit','hen', 'field_login'];
         $scope.showBarn = false;
