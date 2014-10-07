@@ -57,7 +57,7 @@ angular.module('theFarmApp').controller('LandCtrl',[
           function handleResolve( imageLocations ) {
               // Loading was successful.
               $scope.isLoading = false;
-              $scope.isSuccessful = true;
+             // $scope.isSuccessful = true;
               console.info( "Preload Successful" );
           },
           function handleReject( imageLocation ) {
