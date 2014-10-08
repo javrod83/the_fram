@@ -40,7 +40,7 @@ body {
   
   width: 100%;
   position: absolute;
-  z-index: 50;
+  z-index: 100;
   a{
     position: absolute;
     z-index: 50;
@@ -48,6 +48,7 @@ body {
   }
   .closeHeader{
     padding: 0 15px 0 0;
+
   }
   .a:active, .a:focus, .a:visited, .a:hover{
     background: none;
@@ -91,7 +92,7 @@ body {
   margin-top:-30px;
   .social-container, .wood-confirm-container, .wood-container{
     li{
-      margin-bottom: 3%;
+      margin-bottom: 0.7vh;
     }
     .login-text, .social-text{
       color: #fff;
@@ -137,9 +138,13 @@ body {
   .wood-confirm-container{
     .wood-agree{
       background-image: url('../images/wood-agree.png');
+             min-height:13vh;
+        padding-top: 1.5vh;
     }
     .wood-disagree{
       background-image: url('../images/wood-disagree.png');
+             min-height:13vh;
+        padding-top: 1.5vh;
     }
     .answer-text{
       position: relative;
@@ -158,19 +163,21 @@ body {
 
   .wood-container{
     @include center-block;
-    width: 100%;
+    width: 97%;
     display: inline;
     .wood-1-container, .wood-2-container{
       @include center-block;
       width: 100%;
       .wood-1{
         background-image: url('../images/wood-1.png');
+        min-height:13vh;
+        padding-top: 1.5vh;
       }
     }
     .answer-text{
       position: relative;
       padding-top: 4%;
-      font-size: 5vh;
+      font-size: 2.5vh;
       text-align: center;
       color: #eb965f;
     }
