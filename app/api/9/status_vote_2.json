@@ -1,18 +1,18 @@
 {
-  "id": 1404293132113, //Token incremental. 
+  "id": 1404293132113,
    
   "frame": {
-    "fid": "4499",  //Frame ID. This identifies which frame we are on.
-    "sid": "104",  //Show ID. This identifies which show we are on.
-    "type": "vote", //This indicates we are on a vote flow screen (see possible types)
-    "data": { //Vote data
-      "vid": "1405", //Vote ID. Should be sent when posting the vote to the server.
-      "title": "Choose Next Week's Task for our contestants", //This should be shown in the vote screen
-      "voteType": "4", //Number of options to vote (can be 2-4)
-      "options": [ //Array of options to vote (size can be 2-4)
+    "fid": "4499",  
+    "sid": "104",  
+    "type": "vote",
+    "data": { 
+      "vid": "1405", 
+      "title": "Choose Next Week's Task for our contestants", 
+      "voteType": "4", 
+      "options": [ 
         {
-          "id": "1", //Vote option ID. Should be sent when posting the vote to the server
-          "text": "The 1st option to choose" //Text relevant for the vote option.
+          "id": "1", 
+          "text": "The 1st option to choose" 
         },
         {
           "id": "2",
@@ -27,13 +27,13 @@
           "text": "The 4th option to choose"
         }
       ],
-      "allowed": "1" //Ignore
+      "allowed": "1" 
     },
-  "status": "1", //Based on this relevant screen should be displayed (see possible statuses)
+  "status": "1", 
   "order": "3"
   },
-  "interval": 2, //Send requests each “interval” time
-  "timeout": 3, //Timeout to wait for each request
-  "status-url": "api/9/status.json", //URL to fetch “next” status.json
-  "secret-key-update-time": 1401281448 //If bigger than currently stored then need to re-send registration request
+  "interval": 2, 
+  "timeout": 3,
+  "status-url": "api/9/status.json", 
+  "secret-key-update-time": 1401281448 
 }

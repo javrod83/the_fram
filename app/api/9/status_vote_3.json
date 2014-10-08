@@ -4,7 +4,7 @@
     "fid": "4499",
     "sid": "104",
     "type": "vote",
-    "status": "25",
+    "status": "1",
     "vote": {
       "vid": "1405",
       "title": "Choose Next Week's Task for our contestants",
@@ -31,6 +31,6 @@
   },
   "interval": 5,
   "timeout": 3,
-  "status-url": "http://127.0.0.1:9000/api/9/status_vote.json",
+  "statusUrl": "http://127.0.0.1:9000/api/9/status_vote.json",
   "secret-key-update-time": 1401281448
 }

@@ -34,7 +34,8 @@ angular.module('theFarmApp')
 	  			
   		var internalState = null;
   		var votedFlag = false ;
-
+  		var shownFlag = false ;
+  		var lastID = -1 ; 
 		var voteStatus = {
 			1 : open,
 			2 : closed
@@ -96,11 +97,15 @@ angular.module('theFarmApp')
 
 		function showVote()
 			{
-				$scope.title    = FarmServices.status.current.frame.data.title;
-	  			$scope.options  = FarmServices.status.current.frame.data.options;
-	  			$scope.vid      = FarmServices.status.current.frame.data.vid;
-	  			
-	  			$scope.selected = -1 ; 	
+				if(!shownFlag)
+					{	
+						$scope.title    = FarmServices.status.current.frame.data.title;
+			  			$scope.options  = FarmServices.status.current.frame.data.options;
+			  			$scope.vid      = FarmServices.status.current.frame.data.vid;
+			  			
+			  			$scope.selected = -1 ;
+			  			shownFlag = true ; 
+					} 	
 			}
 
 		function showHen()
@@ -128,6 +133,7 @@ angular.module('theFarmApp')
 				console.log(FarmServices.updatedStatus());
 				log('open','update vote');
 				$scope.state    = 'open';
+				shownFlag = false;
 				showVote();
 				resetOverlay();
 			}
@@ -164,8 +170,9 @@ angular.module('theFarmApp')
 				} else {
 					log('check','update vote frame');
 
-					 if( FarmServices.status.current.id !== FarmServices.status.last.id)
+					 if( FarmServices.status.current.id !== lastID)
 					 	{
+					 		lastID =  FarmServices.status.current.id ;
 					 		var currentStatus = FarmServices.status.current.frame.status; 
 					 		if( parseInt(currentStatus) >= 1 && parseInt(currentStatus) <= 2)
 					 			{

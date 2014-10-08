@@ -127,6 +127,7 @@ angular.module('theFarmApp')
                 log('getData','success');
                 if (response.status === 200) {
                     deferred.resolve(response.data);
+                    log('getStatus','new status arrived');
                     Collection.status.last = Collection.status.current; 
                     Collection.status.current = response.data; 
 

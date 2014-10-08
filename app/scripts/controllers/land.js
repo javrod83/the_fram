@@ -102,7 +102,7 @@ var leCounter =0 ;
                     FarmServices.getStatus().then(function(data){
                       log('getStatus','success');
                       log('getStatus','redirecting to :'+data.frame.type);
-                      $state.go(data.frame.type);
+                  
 
                     },function(err){
                         showError(FarmServices.data.dictionary.error.connection);
@@ -148,6 +148,7 @@ var leCounter =0 ;
                 });
             }
 
+          $state.go(data.frame.type);
         };
 
   
