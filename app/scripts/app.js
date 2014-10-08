@@ -31,7 +31,9 @@ angular
               FarmServices:'FarmServices',
               initData:function(FarmServices) {
                     return  FarmServices.getConfig().then(function(res){ 
-                        return FarmServices.getData(res.urls.base, res.tid, res.jsons['territory-data']);
+                        return FarmServices.getData(res.urls.base, res.tid, res.jsons['territory-data']).then(function (res){
+                          return FarmServices.getStatus();
+                        });
                     });
               }
           }

@@ -209,12 +209,13 @@ angular.module('theFarmApp')
   			LoginService.vote(id).
   				then(function(response){
   					log('answer','vote('+id+') success');
-  					showHen();
+  					//showHen();
   					//persistir voto
   				},function(err){
   					log('answer','vote('+id+') fail');
-					showHen();
+					//showHen();
   				});
+  			showHen();
   		}
 
   	//Activity

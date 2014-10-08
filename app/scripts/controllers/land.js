@@ -148,7 +148,7 @@ var leCounter =0 ;
                 });
             }
 
-          $state.go(data.frame.type);
+          $state.go(FarmServices.status.current.frame.type);
         };
 
   
