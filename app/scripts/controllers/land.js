@@ -39,6 +39,12 @@ var leCounter =0 ;
     {
       leCounter ++;
       log('count: ',leCounter);
+      if(leCounter === 7)
+        {
+          $scope.isLoading = false;
+
+       //   $scope.loader    = false;
+        }
     }
 
 
@@ -48,6 +54,7 @@ var leCounter =0 ;
       $scope.showBarn     = true;
       $scope.overlay      = false; 
       $scope.timeOut      = false;  //rabbit
+      $scope.loader       = true;
       $scope.missedTitle  = '' ;
       $scope.missedText   = '' ;
 
@@ -66,7 +73,7 @@ var leCounter =0 ;
           function handleResolve( imageLocations ) {
               // Loading was successful.
               $scope.isLoading = false;
-             // $scope.isSuccessful = true;
+              $scope.isSuccessful = true;
               console.info( "Preload Successful" );
           },
           function handleReject( imageLocation ) {

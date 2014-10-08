@@ -33,6 +33,7 @@ angular.module('theFarmApp')
 	  	$scope.vid          = -1;
 	  			
   		var internalState = null;
+  		var votedFlag = false ;
 
 		var voteStatus = {
 			1 : open,
@@ -152,8 +153,13 @@ angular.module('theFarmApp')
 				if(LoginService.allreadyVoted()){
 
 					log('check','allready voted');
-					showVote();
-					showHen();
+					if (!votedFlag)
+						{
+							showVote();
+							showHen();
+							votedFlag = true ;	
+						}
+					
 
 				} else {
 					log('check','update vote frame');

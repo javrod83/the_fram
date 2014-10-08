@@ -64,6 +64,28 @@ body {
   bottom: 0px;
 }
 
+
+.overlay-loader{
+  background-color: #007dc5;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 49;
+  bottom: 0px;
+  .logo{
+    padding-top: 0px;
+    margin-top: -19px;
+  }
+  .preloader{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 23%;
+    font-size: 20px;
+    color: white;
+    display: table;
+  }
+}
+
 .fluid-container{
   .logo{
     @include center-block;
