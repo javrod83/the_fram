@@ -104,7 +104,7 @@ angular.module('theFarmApp')
 
 		function showHen()
 			{
-				$scope.timeOut = true  ; 
+				$scope.success = true  ; 
 				$scope.overlay = true ;
 			}
 
