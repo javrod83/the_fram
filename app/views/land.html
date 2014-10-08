@@ -8,15 +8,22 @@
 	<div class="rope-container-right animated fadeInDownBig"></div>
 	<img class="logo" src="images/logo.png" />
 	<div class="row-fluid  animated fadeInDownBig">
+
 		 <ul class="wood-confirm-container">
-		 	<p class="login-text anim-zoom-in  anim-slide-left">{{title}}</p>
+		 	<p class="login-text anim-zoom-in anim-slide-left">{{title}}</p>
 		 	<li class="btn-group" ng-click="approve(1)">
-		 		<img class="expand social-buttons" src="images/wood-agree.png" />
-		 		<p class="answer-text success-text">{{yes}}</p>
+		 		<div class="wood-agree-container">
+		 			<div class="wood-agree">
+		 				<p class="answer-text success-text">{{yes}}</p>
+		 			</div>
+		 		</div>
 		 	</li>
 		 	<li class="btn-group" ng-click="approve(0)">
-		 		<img class="expand social-buttons" src="images/wood-disagree.png" />
-		 		<p class="answer-text error-text">{{no}}</p>
+		 		<div class="wood-disagree-container">
+		 			<div class="wood-disagree">
+		 				<p class="answer-text error-text">{{no}}</p>
+		 			</div>
+		 		</div>
 		 	</li>
 		 </ul>
 	</div>
@@ -33,9 +40,12 @@
         </div>
     </div>
 </div> -->
+
 <div class="footer animated fadeIn">
-    <img ng-repeat="img in footerImages" ng-src="images/{{img}}.png" class="{{img}}" imageOnLoad="count();"/>
+    <div ng-repeat="img in footerImages" class="{{img}}-container">
+		<div class="{{img}} animated fadeIn"></div>
+	</div>
     <div ng-if="showBarn" class="barn-container">
-    	<img img-preload class="barn" src="images/barn.png" />
+    	<div class="barn animated fadeIn"></div>
     </div>
 </div>

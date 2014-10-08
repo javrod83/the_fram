@@ -40,7 +40,7 @@ body {
   
   width: 100%;
   position: absolute;
-  z-index: 50;
+  z-index: 100;
   a{
     position: absolute;
     z-index: 50;
@@ -48,6 +48,7 @@ body {
   }
   .closeHeader{
     padding: 0 15px 0 0;
+
   }
   .a:active, .a:focus, .a:visited, .a:hover{
     background: none;
@@ -56,7 +57,7 @@ body {
 
 .overlay{
   background-color: #007dc5;
-  opacity: 0.6;
+  opacity: 0.7;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -87,15 +88,24 @@ body {
 }
 
 .fluid-container{
-  .logo{
+  .logo-container{
     @include center-block;
     padding-top: 10px;
     margin-bottom: -15%;
   }
-  .logo-absolute {
+  .logo-absolute-container {
     position: absolute;
-    margin: 2% 0 0 21%;
-    width: 50%;
+    margin-top: 3%;
+    width: 90%;
+  }
+  .logo{
+    background-image: url('../images/logo.png');
+    width: 100%;
+    height: 100%;
+    min-width: 237px;
+    min-height: 220px;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 }
 
@@ -104,7 +114,7 @@ body {
   margin-top:-30px;
   .social-container, .wood-confirm-container, .wood-container{
     li{
-      margin-bottom: 7%;
+      margin-bottom: 0.7vh;
     }
     .login-text, .social-text{
       color: #fff;
@@ -137,11 +147,32 @@ body {
     color: #fff;
   }
 
+  .wood-agree,.wood-disagree,.wood-1{
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-width: 100%;
+    min-height: 100%;
+    background-size: 100%;
+  }
+
   .wood-confirm-container{
+    .wood-agree{
+      background-image: url('../images/wood-agree.png');
+             min-height:13vh;
+        padding-top: 1.5vh;
+    }
+    .wood-disagree{
+      background-image: url('../images/wood-disagree.png');
+             min-height:13vh;
+        padding-top: 1.5vh;
+    }
     .answer-text{
       position: relative;
-      margin-top: -16%;
-      font-size: 3.3vh;
+      /* margin-top: -16%; */
+      padding-top: 4%;
+      font-size: 4vh;
       text-align: center;
     }
     .success-text{
@@ -154,16 +185,21 @@ body {
 
   .wood-container{
     @include center-block;
-    width: 100%;
+    width: 97%;
     display: inline;
-    .wood-1, .wood-2{
+    .wood-1-container, .wood-2-container{
       @include center-block;
       width: 100%;
+      .wood-1{
+        background-image: url('../images/wood-1.png');
+        min-height:13vh;
+        padding-top: 1.5vh;
+      }
     }
     .answer-text{
       position: relative;
-      margin-top: -14%;
-      font-size: 3vh;
+      padding-top: 4%;
+      font-size: 2.5vh;
       text-align: center;
       color: #eb965f;
     }
@@ -201,21 +237,35 @@ body {
 
 .rabbit-container{
   z-index: 51;
-  .rabbit_big, .text, .dammit{
+  .rabbit_big-container, .text, .dammit{
     @include center-block;
+    .rabbit_big{
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-image: url('../images/rabbit_big.png');
+      min-width: 171px;
+      min-height: 376px;
+    }
   }
-  .field_login{
+  .field_login-container{
     width: 100%;
     bottom: 0;
     position: absolute;
     z-index: -1;
-  }
-  .rabbit_big{
-    max-width: 45%;
+    .field_login{
+      background-image: url('../images/field_login.png');
+      min-width: 454px;
+      min-height: 332px;
+      width: 100%;
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
   }
   .text{
     z-index: 53;
-    width: 50%;
+    width: 60%;
     .login-text, .dammit{
       color: #fff;
       font-family: "Myriad Pro", "Gill Sans", "Gill Sans MT", "Calibri", sans-serif;
@@ -234,28 +284,51 @@ body {
 .hen-container{
   @include center-block;
   z-index: 52;
-  .hen_big, .hands, .thanks-for-voting{
+  .hen_big,.hands{
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80%;
+  }
+  .hen_big-container, .hands-container, .thanks-for-voting{
     position: absolute;
     bottom: 0;
+    .hen_big{
+      background-image: url('../images/hen_big.png');
+      min-width: 354px;
+      min-height: 705px;
+      background-position-y: 100%;
+    }
+    .hands{
+      background-image: url('../images/hands.png');
+      min-width: 383px;
+      min-height: 174px;
+    }
   }
+  /* .hen_big-container{
+    bottom: 0;
+    top: 0;
+  } */
 
-  .hen_big{
+  /* .hen_big-container{
     left: 35%;
-  }
+  }*/
 
-  .hands{
-    left: 32%;
-    margin-bottom: 30px;
+  .hands-container{
+    /* left: 32%; */
+    /* margin-bottom: 30px; */
     min-width: 275px;
-  }
+    .thanks-for-voting{
+      font-size: 6vh;
+      line-height: 1;
+      text-align: center;
+      color: #fff;
+      z-index: 53;
+      margin-bottom: 23%;
+    }
+  } 
 
-  .thanks-for-voting{
-    font-size: 5vh;
-    line-height: 1;
-    text-align: center;
-    color: #fff;
-    z-index: 53;
-  }
 }
 
 .photo-container{
@@ -292,12 +365,41 @@ body {
   background-position-x: -430px;
   height: 167px;
   
-  .field, .field_big, .field_login{
+  .barn,.cow,.cow_big,.sheep,.sheep_big,.rabbit,.hen,.ostrich{
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .field,.field_big,.field_login{
+    width: 100%;
+    height: 100%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+
+  .field-container, .field_big-container, .field_login-container{
     width: 100%;
     bottom:0; 
     left:0;
     position: absolute;
     z-index: -3;
+    .field{
+      background-image: url('../images/field.png');
+      min-width: 311px;
+      min-height: 167px;
+    }
+    .field_big{
+      background-image: url('../images/field_big.png');
+      min-width: 986px;
+      min-height: 167px;
+    }
+    .field_login{
+      background-image: url('../images/field_login.png');
+      min-width: 454px;
+      min-height: 332px;
+    }
   }
 
   .barn-container{
@@ -308,44 +410,84 @@ body {
     z-index: -2;
     bottom:0; 
     position: absolute;
+    .barn{
+      background-image: url('../images/barn.png');
+      min-width: 226px;
+      min-height: 184px;
+    }
   }
   
-  .cow{
+  .cow-container{
     padding: 0 0 15px 15px;
     bottom:0; 
     position: absolute;
     left: 0;
     z-index: -1;
+    .cow{
+      background-image: url('../images/cow.png');
+      min-width: 70px;
+      min-height: 92px;
+    }
   }
 
-  .sheep, .rabbit{
+  .sheep-container, .rabbit-container{
     right: 0;
     margin-right: 16px;
     bottom:0; 
     position: absolute;
     z-index: -1;
+    .sheep{
+      background-image: url('../images/sheep.png');
+      min-width: 91px;
+      min-height: 99px;
+    }
+    .rabbit{
+      background-image: url('../images/rabbit.png');
+      min-width: 102px;
+      min-height: 148px;
+    }
   }
 
-  .cow_big{
+  .cow_big-container{
     right: 0;
     z-index: -1;
     bottom:0; 
     position: absolute;
+    .cow_big{
+      background-image: url('../images/cow_big.png');
+      min-width: 181px;
+      min-height: 241px;
+    }
   }
 
-  .sheep_big, .hen{
+  .sheep_big-container, .hen-container{
     left:0;
     z-index: -1;
     bottom:0; 
     position: absolute;
+    .sheep_big{
+      background-image: url('../images/sheep_big.png');
+      min-width: 235px;
+      min-height: 207px;
+    }
+    .hen{
+      background-image: url('../images/hen.png');
+      min-width: 102px;
+      min-height: 167px;
+    }
   }
 
-  .ostrich{
+  .ostrich-container{
     right: 0;
     margin: 0 120px 20px;
     z-index: -1;
     bottom:0; 
     position: absolute;
+    .ostrich{
+      background-image: url('../images/ostrich.png');
+      min-width: 37px;
+      min-height: 94px;
+    }
   }
 }
 
