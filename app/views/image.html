@@ -11,12 +11,20 @@
 	</div>
 </div>
 
-<div ng-switch="isLoading">
+<!-- <div ng-switch="isLoading">
     <div class="footer animated fadeIn" ng-switch-when="false" ng-switch="isSuccessful">
         <div ng-switch-when="true">
-            <img ng-repeat="img in footerImages" ng-src="images/{{img}}.png" class="{{img}}"/>
-            <div ng-if="showBarn" class="barn-container"><img img-preload class="barn" src="images/barn.png" /></div>
+            <img ng-repeat="img in footerImages" ng-src="images/{{img}}.png" class="{{img}}" imageOnLoad="count();"/>
+            <div ng-if="showBarn" class="barn-container">
+            	<img img-preload class="barn" src="images/barn.png" />
+            </div>
         </div>
+    </div>
+</div> -->
+<div class="footer animated fadeIn">
+    <img ng-repeat="img in footerImages" ng-src="images/{{img}}.png" class="{{img}}"/>
+    <div ng-if="showBarn" class="barn-container">
+    	<img img-preload class="barn" src="images/barn.png" />
     </div>
 </div>
   
