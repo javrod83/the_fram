@@ -22,19 +22,11 @@
 </div>
 <div class="col-xs-0 col-sm-4 col-md-4 col-lg-4"></div>
 
-<!-- <div ng-switch="isLoading">
-    <div class="footer animated fadeIn" ng-switch-when="false" ng-switch="isSuccessful">
-        <div ng-switch-when="true">
-            <img ng-repeat="img in footerImages" ng-src="images/{{img}}.png" class="{{img}}" imageOnLoad="count();"/>
-            <div ng-if="showBarn" class="barn-container">
-            	<img img-preload class="barn" src="images/barn.png" />
-            </div>
-        </div>
-    </div>
-</div> -->
 <div class="footer animated fadeIn">
-    <img ng-repeat="img in footerImages" ng-src="images/{{img}}.png" class="{{img}}"/>
+    <div ng-repeat="img in footerImages" class="{{img}}-container">
+		<div class="{{img}} animated fadeIn"></div>
+	</div>
     <div ng-if="showBarn" class="barn-container">
-    	<img img-preload class="barn" src="images/barn.png" />
+    	<div class="barn animated fadeIn"></div>
     </div>
 </div>

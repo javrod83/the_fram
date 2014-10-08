@@ -4,34 +4,33 @@
 
 <div class="rope-left col-xs-0 col-sm-4 col-md-4 col-lg-4"></div>
 <div class="content col-xs-12 col-sm-4 col-md-4 col-lg-4 animated fadeIn" >
-	<div class="rope-container-left animated fadeInDownBig"></div>
-	<div class="rope-container-right animated fadeInDownBig"></div>
-	<img class="logo" src="images/logo.png" />
-	<div class="row-fluid animated fadeInDownBig">
-		<ul class="wood-container animated fadeInDownBig">
+	<div class="rope-container-left animated da3 fadeInDownBig"></div>
+	<div class="rope-container-right animated da3 fadeInDownBig"></div>
+	<div class="logo-container">
+		<div class="logo animated fadeIn"></div>
+	</div>
+	<div class="row-fluid animated da3 fadeInDownBig">
+		<ul class="wood-container animated da3 fadeInDownBig">
 		 	<p class="login-text">{{title}}</p>
 		 	<li ng-repeat='opt in options' ng-click='answer(opt.id)'>
-		 		<img class="wood-1" src="images/wood-1.png" />
-		 		<p class="answer-text">{{opt.text}}</p>
+		 		<!-- <img class="wood-1" src="images/wood-1.png" /> -->
+		 		<div class="wood-1-container">
+		 			<div class="wood-1">
+		 				<p class="answer-text">{{opt.text}}</p>
+		 			</div>
+		 		</div>
 		 	</li>
 		 </ul>
 	</div>
 </div>
 <div class="rope-left col-xs-0 col-sm-4 col-md-4 col-lg-4"></div>
 
-<!-- <div ng-switch="isLoading">
-    <div class="footer animated fadeIn" ng-switch-when="false" ng-switch="isSuccessful">
-        <div ng-switch-when="true">
-            <img ng-repeat="img in footerImages" ng-src="images/{{img}}.png" class="{{img}}" imageOnLoad="count();"/>
-            <div ng-if="showBarn" class="barn-container">
-            	<img img-preload class="barn" src="images/barn.png" />
-            </div>
-        </div>
-    </div>
-</div> -->
 <div class="footer animated fadeIn">
-    <img ng-repeat="img in footerImages" ng-src="images/{{img}}.png" class="{{img}}"/>
+    <div ng-repeat="img in footerImages" class="{{img}}-container">
+		<div class="{{img}} animated fadeIn"></div>
+	</div>
     <div ng-if="showBarn" class="barn-container">
-    	<img img-preload class="barn" src="images/barn.png" />
+    	<div class="barn animated fadeIn"></div>
     </div>
 </div>
+

@@ -69,7 +69,8 @@ module.exports = function (grunt) {
         port: 9000,
         // Change this to '0.0.0.0' to access the server from outside.
         //hostname: 'thefram.com.ar',
-        hostname: '0.0.0.0',
+        //hostname: '0.0.0.0',
+        hostname: '127.0.0.1',
 
         livereload: 35729
       },
