@@ -102,8 +102,11 @@ body {
   }
   .logo{
     /*background-image: url('../images/logo.png');*/
-    width: 100%;
-    height: 100%;
+    width: 68%;
+    height: 74%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-left: auto;
     min-width: 237px;
     min-height: 220px;
     background-repeat: no-repeat;
@@ -184,15 +187,28 @@ body {
   }
 
   .wood-confirm-container{
-    .wood-agree{
-      /*background-image: url('../images/wood-agree.png');*/
-             min-height:13vh;
-        padding-top: 1.5vh;
+    
+    .wood-agree-container{
+        overflow: hidden;
+        width: 89%;
+        margin-left: auto;
+        margin-right: auto;
+        
+        .wood-agree{
+            min-height:11vh;
+            padding-top: 1.5vh;
+        }
     }
-    .wood-disagree{
-      /*background-image: url('../images/wood-disagree.png');*/
-             min-height:13vh;
-        padding-top: 1.5vh;
+
+    .wood-disagree-container{
+        margin-left: auto;
+        margin-right: auto;
+        overflow: hidden;
+        width: 89%;
+        .wood-disagree{
+            min-height:13vh;
+            padding-top: 1.5vh;
+        }
     }
     .answer-text{
       position: relative;
