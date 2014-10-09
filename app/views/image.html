@@ -7,7 +7,7 @@
 	</div>
 	<div class="row-fluid animated zoomIn">
 	  <div class="photo-container animated da3 fadeInDownBig" >
-	    <img class="frame" src="images/frame.png" />
+	    <div class="images-frame frame" src="images/frame.png" ></div>
 	    <img class="img-frame" ng-src="{{imgSrc}}">
 	  </div>
 	</div>
@@ -15,9 +15,9 @@
 
 <div class="footer animated fadeIn">
     <div ng-repeat="img in footerImages" class="{{img}}-container">
-		<div class="{{img}} animated fadeIn"></div>
+		<div class="images-{{img}} {{img}} animated fadeIn"></div>
 	</div>
     <div ng-if="showBarn" class="barn-container">
-    	<div class="barn animated fadeIn"></div>
+    	<div class="images-barn barn animated fadeIn"></div>
     </div>
 </div>
