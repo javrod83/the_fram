@@ -110,6 +110,7 @@ body {
     min-width: 237px;
     min-height: 220px;
     background-repeat: no-repeat;
+
     /*background-position: center;*/
   }
   .login-text{
@@ -390,6 +391,28 @@ body {
 
 }
 
+
+.text-container{
+  .board{
+    width:100;
+    min-width:440px;
+    min-height:586px;
+    zoom:0.7;
+  }
+
+    .text{
+    @include center-block;
+    color: #fff;
+    font-family: "Myriad Pro", "Gill Sans", "Gill Sans MT", "Calibri", sans-serif;
+    font-size: 3vh;
+    line-height: 1;
+    text-align: center;
+    width: 72%;
+    position: relative;
+    margin-top: -60%;
+  }
+}
+
 .photo-container{
   @include center-block;
  /* margin-top: 60px; */
@@ -410,17 +433,7 @@ body {
     -webkit-transform: rotate(3deg);
     transform: rotate(3deg);
   }
-  .login-text{
-    @include center-block;
-    color: #fff;
-    font-family: "Myriad Pro", "Gill Sans", "Gill Sans MT", "Calibri", sans-serif;
-    font-size: 3vh;
-    line-height: 1;
-    text-align: center;
-    width: 72%;
-    position: relative;
-    margin-top: -60%;
-  }
+
 }
 
 .footer {

@@ -1,18 +1,18 @@
 {
-  "id": 234234234234,
-"frame":{    "fid": "4499", 
-    "sid": "104",  
-    "type": "image", 
+  "id": 1404293132113,
+  "frame": {
+    "fid": "4499",
+    "sid": "104",
+    "type": "text",
     "data": {
-      "title": "This is the image title",
-      "large": "media/joker.jpg",
-      "medium": "media/joker.jpg"
+      "title": "This is the title",
+      "text": "This is a test text for the text template screen of the farm...bla bla bla bla"
     },
-    "status": "11",  
-    "order": "1"
+    "status": "11",
+    "order": "2"
   },
-  "interval": 2, 
-  "timeout": 3, 
-  "status-url": "api/9/status.json", 
-  "secret-key-update-time": 1401281448 
+  "interval": 2,
+  "timeout": 3,
+  "status-url": "api/9/status.json",
+  "secret-key-update-time": 1401281448
 }
