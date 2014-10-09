@@ -22,9 +22,10 @@
 
 <div class="footer animated fadeIn">
     <div ng-repeat="img in footerImages" class="{{img}}-container">
-		<div class="{{img}} animated fadeIn"></div>
+		<div class="images-{{img}} {{img}} animated fadeIn"></div>
 	</div>
     <div ng-if="showBarn" class="barn-container">
-    	<div class="barn animated fadeIn"></div>
+    	<div class="images-barn barn animated fadeIn"></div>
     </div>
 </div>
+
