@@ -1136,6 +1136,9 @@ Copyright (c) 2014 Daniel Eden
           animation-name: fadeInDownBig,bounce;
 }
 
+
+
+
 @-webkit-keyframes fadeInLeft {
   0% {
     opacity: 0;
@@ -3162,3 +3165,12 @@ Copyright (c) 2014 Daniel Eden
   -webkit-animation-name: slideOutUp;
           animation-name: slideOutUp;
 }
+
+
+
+
+.zommingIn{
+  -webkit-animation-name: zoomIn;
+          animation-name: zoomIn;
+}
+

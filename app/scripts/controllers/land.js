@@ -165,12 +165,7 @@ var leCounter =0 ;
              }
 
 
-          if (LoginService.loadLocalLogin())
-            {
-              $state.go('vote');
-            }
-          //user is logued  to a social network ? 
-          else if($stateParams.id !== undefined)
+           if($stateParams.id !== undefined)
             {
               //$state.go('login');
               log('social-login','id: '+$stateParams.id+' token: '+$stateParams.token); 

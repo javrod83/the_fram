@@ -107,6 +107,17 @@ body {
     background-repeat: no-repeat;
     background-position: center;
   }
+  .login-text{
+      font-size: 4vh;
+      line-height: 1;
+      text-align: center;
+      padding: 1% 15%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      color:white;
+    }
+
 }
 
 .content{
@@ -189,7 +200,9 @@ body {
     display: inline;
     .wood-1-container, .wood-2-container{
       @include center-block;
-      width: 100%;
+      width: 85%;
+      height: 11vh;
+
       .wood-1{
         background-image: url('../images/wood-1.png');
         min-height:13vh;
