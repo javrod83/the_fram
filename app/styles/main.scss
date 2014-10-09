@@ -115,6 +115,7 @@ body {
       display: block;
       margin-left: auto;
       margin-right: auto;
+      margin-top: -6vh;
       color:white;
     }
 
@@ -122,7 +123,7 @@ body {
 
 .content{
   z-index: 15;
-  margin-top:-30px;
+  margin-top:-7px;
   .social-container, .wood-confirm-container, .wood-container{
     li{
       margin-bottom: 0.7vh;
@@ -156,6 +157,10 @@ body {
   
   .answer-text:active, .success-text:active, .error-text:active{
     color: #fff;
+  }
+
+  .woods-row{
+    margin-top: 5vh
   }
 
   .wood-agree,.wood-disagree,.wood-1{
@@ -212,7 +217,7 @@ body {
     .answer-text{
       position: relative;
       padding-top: 4%;
-      font-size: 2.5vh;
+      font-size: 3.1vh;
       text-align: center;
       color: #eb965f;
     }
@@ -227,11 +232,11 @@ body {
   }
 
   .rope-container-left{
-    margin-left: 5%;
+    margin-left: 9%;
   }
 
   .rope-container-right{
-    margin-left: 81%; 
+    margin-left: 80%; 
   }
 
 }
@@ -339,6 +344,7 @@ body {
       color: #fff;
       z-index: 53;
       margin-bottom: 23%;
+      padding:0;
     }
   } 
 
