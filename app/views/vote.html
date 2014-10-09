@@ -2,12 +2,12 @@
 <div  ng-include src='"partials/rabbit.html"'></div>
 <div  ng-include src='"partials/hen.html"'></div>
 
-<div class="rope-left col-xs-0 col-sm-4 col-md-4 col-lg-4"></div>
+<div class="col-xs-0 col-sm-4 col-md-4 col-lg-4"></div>
 <div class="content col-xs-12 col-sm-4 col-md-4 col-lg-4 animated fadeIn" >
 	<div class="rope-container-left animated da3 fadeInDownBig"></div>
 	<div class="rope-container-right animated da3 fadeInDownBig"></div>
 	<div class="logo-container">
-		<div class="logo animated fadeIn"></div>
+		<div class="images-logo logo animated fadeIn"></div>
 		<p class="login-text animated zoomIn ">{{title}}</p>
 	</div>
 	<div class="woods-row row-fluid animated da3 fadeInDownBig">
@@ -16,7 +16,7 @@
 		 	<li ng-repeat='opt in options' ng-click='answer(opt.id)'>
 		 		<!-- <img class="wood-1" src="images/wood-1.png" /> -->
 		 		<div class="wood-1-container">
-		 			<div class="wood-1">
+		 			<div class="images-wood-1 wood-1">
 		 				<p class="answer-text">{{opt.text}}</p>
 		 			</div>
 		 		</div>
@@ -24,14 +24,14 @@
 		 </ul>
 	</div>
 </div>
-<div class="rope-left col-xs-0 col-sm-4 col-md-4 col-lg-4"></div>
+<div class="col-xs-0 col-sm-4 col-md-4 col-lg-4"></div>
 
 <div class="footer animated fadeIn">
     <div ng-repeat="img in footerImages" class="{{img}}-container">
-		<div class="{{img}} animated fadeIn"></div>
+		<div class="images-{{img}} {{img}} animated fadeIn"></div>
 	</div>
     <div ng-if="showBarn" class="barn-container">
-    	<div class="barn animated fadeIn"></div>
+    	<div class="images-barn barn animated fadeIn"></div>
     </div>
 </div>
 
