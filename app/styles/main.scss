@@ -2,7 +2,9 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
-
+@import "compass/utilities/sprites";
+@import "../images/*.png";
+@include all-images-sprites;
 
 .nav > li > a:hover, .nav > li > a:focus, a > img:focus{
   background-color: transparent;
@@ -99,13 +101,13 @@ body {
     width: 90%;
   }
   .logo{
-    background-image: url('../images/logo.png');
+    /*background-image: url('../images/logo.png');*/
     width: 100%;
     height: 100%;
     min-width: 237px;
     min-height: 220px;
     background-repeat: no-repeat;
-    background-position: center;
+    /*background-position: center;*/
   }
   .login-text{
       font-size: 4vh;
@@ -159,23 +161,31 @@ body {
   }
 
   .wood-agree,.wood-disagree,.wood-1{
-    width: 100%;
+    /*width: 100%;
     height: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    min-width: 100%;
-    min-height: 100%;
-    background-size: 100%;
+    background-repeat: no-repeat;*/
+    /*background-position: center;*/
+    /*min-width: 100%;
+    min-height: 100%;*/
+    /*background-size: 100%;*/
+    zoom:0.75;
+    -moz-transform:scale(0.75);
+    -moz-transform-origin: 0 0;
+  }
+  .wood-1{
+    zoom:0.63;
+    -moz-transform:scale(0.63);
+    -moz-transform-origin: 0 0;
   }
 
   .wood-confirm-container{
     .wood-agree{
-      background-image: url('../images/wood-agree.png');
+      /*background-image: url('../images/wood-agree.png');*/
              min-height:13vh;
         padding-top: 1.5vh;
     }
     .wood-disagree{
-      background-image: url('../images/wood-disagree.png');
+      /*background-image: url('../images/wood-disagree.png');*/
              min-height:13vh;
         padding-top: 1.5vh;
     }
@@ -204,7 +214,7 @@ body {
       height: 11vh;
 
       .wood-1{
-        background-image: url('../images/wood-1.png');
+        /*background-image: url('../images/wood-1.png');*/
         min-height:13vh;
         padding-top: 1.5vh;
       }
@@ -237,7 +247,7 @@ body {
 }
 
 .rope-left, .rope-right{
-  background-image: url('../images/rope.png');
+  /*background-image: url('../images/rope.png');*/
   margin-top: -1px;
 }
 
@@ -253,13 +263,14 @@ body {
   .rabbit_big-container, .text, .dammit{
     @include center-block;
     .rabbit_big{
-      width: 100%;
+      /*width: 100%;
       height: 100%;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-image: url('../images/rabbit_big.png');
+      background-repeat: no-repeat;*/
+      /*background-position: center;*/
+      /*background-image: url('../images/rabbit_big.png');*/
       min-width: 171px;
       min-height: 376px;
+      margin-left: 40%;
     }
   }
   .field_login-container{
@@ -268,11 +279,11 @@ body {
     position: absolute;
     z-index: -1;
     .field_login{
-      background-image: url('../images/field_login.png');
+      /*background-image: url('../images/field_login.png');*/
       min-width: 454px;
       min-height: 332px;
       width: 100%;
-      background-size: 100%;
+      /*background-size: 100%;*/
       background-repeat: no-repeat;
     }
   }
@@ -301,22 +312,30 @@ body {
     width: 100%;
     height: 100%;
     background-repeat: no-repeat;
-    background-position: center;
-    background-size: 80%;
+    /*background-position: center;*/
+    /*background-size: 80%;*/
   }
   .hen_big-container, .hands-container, .thanks-for-voting{
     position: absolute;
     bottom: 0;
+    width: 29%;
+    left: 35%;
     .hen_big{
-      background-image: url('../images/hen_big.png');
+      /*background-image: url('../images/hen_big.png');*/
       min-width: 354px;
       min-height: 705px;
-      background-position-y: 100%;
+      zoom:0.9;
+      -moz-transform:scale(0.9);
+      -moz-transform-origin: 0 0;
+      /*background-position-y: 100%;*/
     }
     .hands{
-      background-image: url('../images/hands.png');
+      /*background-image: url('../images/hands.png');*/
       min-width: 383px;
       min-height: 174px;
+      zoom:0.85;
+      -moz-transform:scale(0.85);
+      -moz-transform-origin: 0 0;
     }
   }
   /* .hen_big-container{
@@ -329,8 +348,8 @@ body {
   }*/
 
   .hands-container{
-    /* left: 32%; */
-    /* margin-bottom: 30px; */
+    left: 34%;
+    margin-bottom: 30px;
     min-width: 275px;
     .thanks-for-voting{
       font-size: 6vh;
@@ -338,7 +357,9 @@ body {
       text-align: center;
       color: #fff;
       z-index: 53;
-      margin-bottom: 23%;
+      margin-bottom: 19%;
+      width: 85%;
+      left: 18%;
     }
   } 
 
@@ -382,13 +403,13 @@ body {
     width: 100%;
     height: 100%;
     background-repeat: no-repeat;
-    background-position: center;
+    /*background-position: center;*/
   }
 
   .field,.field_big,.field_login{
     width: 100%;
     height: 100%;
-    background-size: 100%;
+    /*background-size: 100%;*/
     background-repeat: no-repeat;
   }
 
@@ -399,17 +420,17 @@ body {
     position: absolute;
     z-index: -3;
     .field{
-      background-image: url('../images/field.png');
+      /*background-image: url('../images/field.png');*/
       min-width: 311px;
       min-height: 167px;
     }
     .field_big{
-      background-image: url('../images/field_big.png');
+      /*background-image: url('../images/field_big.png');*/
       min-width: 986px;
       min-height: 167px;
     }
     .field_login{
-      background-image: url('../images/field_login.png');
+      /*background-image: url('../images/field_login.png');*/
       min-width: 454px;
       min-height: 332px;
     }
@@ -424,7 +445,7 @@ body {
     bottom:0; 
     position: absolute;
     .barn{
-      background-image: url('../images/barn.png');
+      /*background-image: url('../images/barn.png');*/
       min-width: 226px;
       min-height: 184px;
     }
@@ -437,7 +458,7 @@ body {
     left: 0;
     z-index: -1;
     .cow{
-      background-image: url('../images/cow.png');
+      /*background-image: url('../images/cow.png');*/
       min-width: 70px;
       min-height: 92px;
     }
@@ -450,12 +471,12 @@ body {
     position: absolute;
     z-index: -1;
     .sheep{
-      background-image: url('../images/sheep.png');
+      /*background-image: url('../images/sheep.png');*/
       min-width: 91px;
       min-height: 99px;
     }
     .rabbit{
-      background-image: url('../images/rabbit.png');
+      /*background-image: url('../images/rabbit.png');*/
       min-width: 102px;
       min-height: 148px;
     }
@@ -467,7 +488,7 @@ body {
     bottom:0; 
     position: absolute;
     .cow_big{
-      background-image: url('../images/cow_big.png');
+      /*background-image: url('../images/cow_big.png');*/
       min-width: 181px;
       min-height: 241px;
     }
@@ -479,12 +500,12 @@ body {
     bottom:0; 
     position: absolute;
     .sheep_big{
-      background-image: url('../images/sheep_big.png');
+      /*background-image: url('../images/sheep_big.png');*/
       min-width: 235px;
       min-height: 207px;
     }
     .hen{
-      background-image: url('../images/hen.png');
+      /*background-image: url('../images/hen.png');*/
       min-width: 102px;
       min-height: 167px;
     }
@@ -497,7 +518,7 @@ body {
     bottom:0; 
     position: absolute;
     .ostrich{
-      background-image: url('../images/ostrich.png');
+      /*background-image: url('../images/ostrich.png');*/
       min-width: 37px;
       min-height: 94px;
     }
