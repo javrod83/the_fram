@@ -121,7 +121,7 @@ var leCounter =0 ;
                   
                 });
             }
-
+          console.log(FarmServices.status.current.frame.type);
           $state.go(FarmServices.status.current.frame.type);
         };
 

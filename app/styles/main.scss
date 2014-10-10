@@ -818,6 +818,57 @@ body {
 
 
 */
+
+
+
+//Motorola Droid 3 / 4 / Rarz / Atrix 4G / Atrix 2
+//Samsung Galaxy Note 3
+//Sony Xperia Sola / U
+@media screen and (max-width: 550px) {
+
+  .wood-confirm-container{
+
+   
+     .wood-disagree-container,.wood-agree-container{
+        .wood-disagree,.wood-agree{
+          zoom: 0.9;
+          -moz-transform: scale(0.9);
+          -moz-transform-origin: 0 0;
+          max-height:89px;
+        }
+
+    }
+  }
+
+  .footer {
+    background-position-x: 0px;
+  }
+
+  .field_big, .cow_big, .sheep_big{
+    display: none;
+  }
+
+  .hen-container{
+    .hen_big{
+      left: 13%
+    }
+    .hands{
+      width: 400px;
+      margin-bottom: 6%;
+      left: 11%
+    }
+    .login-text{
+
+      margin-bottom: 18%;
+      font-size: 38px;
+      line-height: 38px;
+      width: 200px;
+    }
+  }
+}
+
+
+
 //Low res media queries
 @media screen and  (min-width: 240px) {
 
@@ -929,8 +980,6 @@ body {
   }
 
 }
-
-
 
 
 @mixin center-block {

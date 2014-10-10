@@ -35,9 +35,9 @@ angular
               initData:function(FarmServices) {
                 return  FarmServices.getConfig().then(function(res){ 
                   return FarmServices.getData(res.urls.base, res.tid, res.jsons['territory-data']).then(function (res){
-                    image.onload = function () {
+                   // image.onload = function () {
                       return FarmServices.getStatus();
-                    }
+                    //}
                   });
                 });
               }
