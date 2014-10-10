@@ -1,0 +1,156 @@
+
+
+  .content {
+    .logo-container-text{
+      .logo-text{
+
+      }
+    }
+
+    .wood-confirm-container{   
+     .wood-disagree-container,.wood-agree-container{
+        .wood-disagree,.wood-agree{
+          zoom: 0.85;
+          -moz-transform: scale(0.85);
+          -moz-transform-origin: 0 0;
+        }
+        .wood-agree{
+         
+        }
+
+    }
+  }
+
+    .wood-1 {
+      zoom: 0.76;
+      -moz-transform: scale(0.76);
+      -moz-transform-origin: 0 0;
+    }
+  }
+
+
+
+
+  .footer {
+    background-position-x: 0px;
+  }
+
+  .field_big, .cow_big, .sheep_big{
+    display: none;
+  }
+
+  .hen-container{
+    .hen_big{
+      left: 13%
+    }
+    .hands{
+      width: 400px;
+      margin-bottom: 6%;
+      left: 11%
+    }
+    .login-text{
+
+      margin-bottom: 18%;
+      font-size: 38px;
+      line-height: 38px;
+      width: 200px;
+    }
+  }
+/*
+@media screen and (min-width: 750px) {
+
+  .fluid-container .logo-absolute {
+    margin: 3% 0 0 24%;
+    width: 50%;
+  }
+
+  .photo-container{
+   
+  }
+
+  .footer {
+    background-position-x: 0px;
+  }
+
+  .barn-container{
+    width: 200px!important;
+    margin-right: 108px!important;
+  }
+
+  .ostrich{
+    margin: 0 210px 20px!important;
+  }
+
+  .field, .cow, .sheep{
+    display: none;
+  }
+
+  .field_big, .cow_big, .sheep_big{
+    display: block;
+  }
+
+}
+
+
+//Google Nexus 7 / 7.2
+@media screen and (min-width: 900px) {
+
+  .hen-container{
+    z-index: 51;
+    .hen_big{
+      width: 29%;
+      left: 35%;
+    }
+    .hands{
+      width: 36%;
+      margin-bottom: 2%;
+      left: 32%;
+    }
+    .thanks-for-voting{
+      left: 43%;
+      margin-bottom: 8%;
+      width: 15%;
+    }
+  }
+
+}
+
+
+@media screen and (max-width: 750px) {
+
+  .footer {
+    background-position-x: 0px;
+  }
+}
+
+//Motorola Droid Rarz HD
+@media screen and (max-width: 720px) {
+
+  .footer {
+    background-position-x: 0px;
+  }
+
+  .field_big, .cow_big, .sheep_big{
+    display: none;
+  }
+
+  .hen-container{
+    .hen_big{
+      width: 72%;
+      left: 14%;
+    }
+    .hands{
+      width: 72%;
+      margin-bottom: 7%;
+      left: 12%;
+    }
+    .thanks-for-voting{
+
+      margin-bottom: 18%;
+      width: 37%;
+      font-size: 4vh;
+      line-height: 1;
+    }
+  }
+}
+*/

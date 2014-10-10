@@ -95,6 +95,7 @@ body {
    
     margin-bottom: -4vh;
   }
+
   .logo-absolute-container {
     position: absolute;
     margin-top: 3%;
@@ -102,13 +103,14 @@ body {
   }
   .logo{
     /*background-image: url('../images/logo.png');*/
-    width: 68%;
-    height: 74%;
     margin-left: auto;
     margin-right: auto;
     margin-left: auto;
     min-width: 237px;
     min-height: 220px;
+    max-width: 237px;
+    max-height: 220px;
+    
     background-repeat: no-repeat;
 
     /*background-position: center;*/
@@ -441,21 +443,19 @@ body {
     width: 83%;
     min-width: 453px;
     min-height: 557px;
-    zoom:0.7;
+    zoom: 0.61;
   }
   .img-frame{
-    @include center-block;
-    width: 82%;
-    position: relative;
-    margin-top: -74%;
-    z-index: -1;
-    -ms-transform: rotate(3deg);
-    -webkit-transform: rotate(3deg);
-    transform: rotate(3deg);
+      @include center-block;
+      width: 81%;
+      position: relative;
+      margin-top: -74%;
+      z-index: -1;
+      -ms-transform: rotate(3.5deg);
+      -webkit-transform: rotate(3.5deg);
+      transform: rotate(3.5deg);
   }
-
 }
-
 .footer {
   background-position-x: -430px;
   height: 167px;
@@ -590,246 +590,9 @@ body {
 
 
 
-/*
-
-@media screen and (min-width: 750px) {
-
-  .fluid-container .logo-absolute {
-    margin: 3% 0 0 24%;
-    width: 50%;
-  }
-
-  .photo-container{
-   
-  }
-
-  .footer {
-    background-position-x: 0px;
-  }
-
-  .barn-container{
-    width: 200px!important;
-    margin-right: 108px!important;
-  }
-
-  .ostrich{
-    margin: 0 210px 20px!important;
-  }
-
-  .field, .cow, .sheep{
-    display: none;
-  }
-
-  .field_big, .cow_big, .sheep_big{
-    display: block;
-  }
-
-}
 
 
-//Google Nexus 7 / 7.2
-@media screen and (min-width: 900px) {
-
-  .hen-container{
-    z-index: 51;
-    .hen_big{
-      width: 29%;
-      left: 35%;
-    }
-    .hands{
-      width: 36%;
-      margin-bottom: 2%;
-      left: 32%;
-    }
-    .thanks-for-voting{
-      left: 43%;
-      margin-bottom: 8%;
-      width: 15%;
-    }
-  }
-
-}
-
-//Amazon Kindle Fire (First Gen)
-//Apple iPad 1 / 2 / iPad Mini / 3 / 4
-//BlackBerry PlayBook
-//Samsung Galaxy Tab
-@media screen and (min-width: 1023px) { 
-
-  .hen-container{
-    z-index: 51;
-    .hen_big{
-      width: 29%;
-      left: 35%;
-    }
-    .hands{
-      width: 36%;
-      margin-bottom: 2%;
-      left: 32%;
-    }
-    .thanks-for-voting{
-      left: 43%;
-      margin-bottom: 6%;
-      width: 15%;
-    }
-  }
-}
-
-//Google Nexus 10
-//Motorola Xoom, Xyboard
-//Samsung Galaxy Tab 7.7 / 8.9 / 10.1
-//Generic netbook
-//Notebook with touch
-@media screen and (min-width: 1223px) {
-  .hen-container{
-    .hen_big{
-      width: 32%;
-      left: 35%;
-    }
-    .hands{
-      width: 36%;
-      margin-bottom: 2%;
-      left: 32%;
-    }
-    .thanks-for-voting{
-      left: 43%;
-      margin-bottom: 6%;
-      width: 15%;
-    }
-  }
-}
-
-//Notebook with HiDPI screen
-@media screen and (min-width: 1440px) {
-
-}
-
-//Amazon Kindle Fire HDX 7"
-//Amazon Kindle Fire HDX 8.9"
-@media screen and (min-width: 1500px) {
-
-  .hen-container{
-    .hen_big{
-      width: 25%;
-      left: 39%;
-    }
-    .hands{
-      width: 30%;
-      margin-bottom: 1%;
-      left: 35%;  
-    }
-    .thanks-for-voting{
-      left: 43%;
-      margin-bottom: 6%;
-      width: 15%;
-    }
-  }
-}
-
-@media screen and (min-width: 2000px){
- 
-}
-
-@media screen and (max-width: 750px) {
-
-  .footer {
-    background-position-x: 0px;
-  }
-}
-
-//Motorola Droid Rarz HD
-@media screen and (max-width: 720px) {
-
-  .footer {
-    background-position-x: 0px;
-  }
-
-  .field_big, .cow_big, .sheep_big{
-    display: none;
-  }
-
-  .hen-container{
-    .hen_big{
-      width: 72%;
-      left: 14%;
-    }
-    .hands{
-      width: 72%;
-      margin-bottom: 7%;
-      left: 12%;
-    }
-    .thanks-for-voting{
-
-      margin-bottom: 18%;
-      width: 37%;
-      font-size: 4vh;
-      line-height: 1;
-    }
-  }
-}
-
-//Motorola Droid 3 / 4 / Rarz / Atrix 4G / Atrix 2
-//Samsung Galaxy Note 3
-//Sony Xperia Sola / U
-@media screen and (max-width: 550px) {
-
-  .footer {
-    background-position-x: 0px;
-  }
-
-  .field_big, .cow_big, .sheep_big{
-    display: none;
-  }
-
-  .hen-container{
-    .hen_big{
-      left: 13%
-    }
-    .hands{
-      width: 400px;
-      margin-bottom: 6%;
-      left: 11%
-    }
-    .login-text{
-
-      margin-bottom: 18%;
-      font-size: 38px;
-      line-height: 38px;
-      width: 200px;
-    }
-  }
-}
-
-//BlackBerry Z10
-//Google Nexus 4
-//LG Optimus G / LTE / 4X HD
-//Samsung Galaxy Note
-
-
-//BlackBerry Z30
-//Google Nexus 5
-//HTC One X / EVO LTE / Sensation / EVO 3D
-//Nokia C5 / C6 / C7 / N97 / N8 / X7
-//Samsung Galaxy Note 2 / S2 / Nexus / S4
-//Sony Xperia S / Ion / Z / Z1
-@media screen and (max-width: 380px) {
-
-
-}
-
-//Apple iPhone 3GS / 4 / 5
-//Google Nexus S
-//HTC Evo / Touch / Desire
-//LG Optimus 2X / 3D / Black / One
-//Motorola Defy / Droid / Droid X / Milestone
-//Nokia Lumia 7X0 / Lumia 8XX / Lumia 900 / N800 / N900
-//Samsung Galaxy S / S2 / W
-
-
-*/
-//Motorola Droid 3 / 4 / Rarz / Atrix 4G / Atrix 2
-//Samsung Galaxy Note 3
-//Sony Xperia Sola / U
+// media queries
 
 
 
@@ -837,6 +600,15 @@ body {
 //Low res media queries
 
 @media screen and  (min-width: 240px) {
+   
+
+
+
+    .logo-absolute-container{
+      .logo{
+        zoom:0.6;
+      }
+    }
 
   .logo-absolute{
     margin: 21% 0 0 29%;
@@ -851,6 +623,12 @@ body {
   .content{
     margin-top: 0px;
     width: 100%;
+
+    .photo-container{
+      .frame{
+        zoom:0.615;
+      }
+    }
 
     .logo-container{
         margin-top: 3vh;
@@ -896,7 +674,12 @@ body {
   }
 
 
-
+ .board{
+  .text{
+    padding: 1vh 13vw;
+    margin-top:54vh;
+  }
+ }
 
 
   .rabbit-container{
@@ -924,68 +707,15 @@ body {
 }
 
 
-@media screen and (max-width: 550px) {
-
-
-
-
-  .content {
-    .logo-container-text{
-      .logo-text{
-
-      }
-    }
-
-    .wood-confirm-container{   
-     .wood-disagree-container,.wood-agree-container{
-        .wood-disagree,.wood-agree{
-          zoom: 0.85;
-          -moz-transform: scale(0.85);
-          -moz-transform-origin: 0 0;
-        }
-        .wood-agree{
-         
-        }
-
-    }
-  }
-
-    .wood-1 {
-      zoom: 0.76;
-      -moz-transform: scale(0.76);
-      -moz-transform-origin: 0 0;
-    }
-  }
-
-
-
-
-  .footer {
-    background-position-x: 0px;
-  }
-
-  .field_big, .cow_big, .sheep_big{
-    display: none;
-  }
-
-  .hen-container{
-    .hen_big{
-      left: 13%
-    }
-    .hands{
-      width: 400px;
-      margin-bottom: 6%;
-      left: 11%
-    }
-    .login-text{
-
-      margin-bottom: 18%;
-      font-size: 38px;
-      line-height: 38px;
-      width: 200px;
-    }
-  }
+@media screen and (min-width: 750px) {
+   @import "midResolutions";
 }
+
+
+ @media screen and (min-width: 1023px) { 
+  @import "highResolutions";
+}
+
 
 
 @mixin center-block {
