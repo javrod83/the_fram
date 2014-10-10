@@ -189,7 +189,9 @@ angular.module('theFarmApp')
   					log('answer','vote('+id+') fail');
 					//showHen();
   				});
-  			showHen();
+  			setTimeout(function () {
+  				showHen();
+  			}, 900)
   		}
 
   	//Activity
