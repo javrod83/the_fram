@@ -1,39 +1,18 @@
 {
   "id": 1404293132113,
-   
   "frame": {
-    "fid": "4499",  
-    "sid": "104",  
-    "type": "vote",
-    "data": { 
-      "vid": "1405", 
-      "title": "Choose Next Week's Task for our contestants", 
-      "voteType": "4", 
-      "options": [ 
-        {
-          "id": "1", 
-          "text": "The 1st option to choose" 
-        },
-        {
-          "id": "2",
-          "text": "The 2nd option to choose"
-        },
-        {
-          "id": "3",
-          "text": "The 3rd option to choose"
-        },
-        {
-          "id": "4",
-          "text": "The 4th option to choose"
-        }
-      ],
-      "allowed": "1" 
+    "fid": "4499",
+    "sid": "104",
+    "type": "text",
+    "data": {
+      "title": "This is the title",
+      "text": "This is a test text for the text template screen of the farm...bla bla bla bla"
     },
-  "status": "1", 
-  "order": "3"
+    "status": "11",
+    "order": "2"
   },
-  "interval": 2, 
+  "interval": 2,
   "timeout": 3,
-  "status-url": "api/9/status.json", 
-  "secret-key-update-time": 1401281448 
+  "status-url": "api/9/status.json",
+  "secret-key-update-time": 1401281448
 }
