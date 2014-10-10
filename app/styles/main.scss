@@ -288,14 +288,12 @@ body {
   .rabbit_big-container, .text, .dammit{
     @include center-block;
     .rabbit_big{
-      /*width: 100%;
-      height: 100%;
-      background-repeat: no-repeat;*/
-      /*background-position: center;*/
-      /*background-image: url('../images/rabbit_big.png');*/
+      margin-left: auto;
+      margin-right: auto;
+      width: 20vw;
       min-width: 171px;
       min-height: 376px;
-      margin-left: 40%;
+ 
     }
   }
   .field_login-container{
@@ -897,7 +895,10 @@ body {
     
   }
 
-
+  .rabbit_big{
+    zoom:0.5;
+    margin-bottom: 10vh;
+  }
 
   .logo-absolute{
     margin: 21% 0 0 25%;
