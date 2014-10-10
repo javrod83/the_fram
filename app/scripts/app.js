@@ -33,14 +33,13 @@ angular
       resolve:{
               FarmServices:'FarmServices',
               initData:function(FarmServices) {
-                console.log(image)
-                  image.onload = function () {
-                    return  FarmServices.getConfig().then(function(res){ 
-                        return FarmServices.getData(res.urls.base, res.tid, res.jsons['territory-data']).then(function (res){
-                          return FarmServices.getStatus();
-                        });
-                    });
-                  };
+                return  FarmServices.getConfig().then(function(res){ 
+                  return FarmServices.getData(res.urls.base, res.tid, res.jsons['territory-data']).then(function (res){
+                    image.onload = function () {
+                      return FarmServices.getStatus();
+                    }
+                  });
+                });
               }
           }
     }).state('vote', {
@@ -50,11 +49,9 @@ angular
       resolve:{
               FarmServices:'FarmServices',
               initData:function(FarmServices) {
-                image.onload = function () {
-                    return  FarmServices.getConfig().then(function(res){ 
+                    return  FarmServices.getConfig().then(function(res){
                         return FarmServices.getData(res.urls.base, res.tid, res.jsons['territory-data']);
                     });
-                }
               }
           }
     }).state('image', {
@@ -64,11 +61,9 @@ angular
       resolve:{
               FarmServices:'FarmServices',
               initData:function(FarmServices) {
-                  image.onload = function () {
                     return  FarmServices.getConfig().then(function(res){ 
                         return FarmServices.getData(res.urls.base, res.tid, res.jsons['territory-data']);
                     });
-                  }
               }
           }
     }).state('text', {
@@ -78,11 +73,9 @@ angular
       resolve:{
               FarmServices:'FarmServices',
               initData:function(FarmServices) {
-                image.onload = function () {
                     return  FarmServices.getConfig().then(function(res){ 
                         return FarmServices.getData(res.urls.base, res.tid, res.jsons['territory-data']);
                     });
-                  }
               }
           }
     });
