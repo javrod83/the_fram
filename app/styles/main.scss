@@ -810,7 +810,7 @@ body {
 
 */
 //Low res media queries
-@media screen and (max-width: 325px) {
+@media screen and  (min-width: 240px) {
 
   .logo-absolute{
     margin: 21% 0 0 29%;
@@ -821,23 +821,6 @@ body {
     height: 60px;
   }
 
-  .hen-container{
-    .hen_big{
-      width: 73%;
-      left: 15%;
-    }
-    .hands{
-      width: 30%;
-      left: 7%;
-      margin-bottom: 3%;
-    }
-    .thanks-for-voting{
-      left: 27%;
-      margin-bottom: 16%;
-      width: 150px;
-    }
-
-  }
 
   .content{
     margin-top: 0px !important;
@@ -884,9 +867,37 @@ body {
 
     }
   }
-}
 
-@media screen and (max-width: 424px) {
+
+  .hen-container{
+    
+    .hen_big{
+      width: 72%;
+      left: 14%;
+    }
+
+    .hands{
+      width: 36%;
+      margin-bottom: 7%;
+      left: 12%;
+    }
+
+    .thanks-for-voting{
+        margin-bottom: 15vh !important;
+        width: 100% !important;
+        font-size: 4vh;
+        line-height: 1;
+        margin-right: auto;
+        margin-left: auto;
+        padding: 0 25vw 0 25vw;
+        height: 16vh;
+        display: block;
+
+    }
+    
+  }
+
+
 
   .logo-absolute{
     margin: 21% 0 0 25%;
@@ -901,25 +912,8 @@ body {
     display: none;
   }
 
-  .hen-container{
-    .hen_big{
-      width: 72%;
-      left: 14%;
-    }
-    .hands{
-      width: 36%;
-      margin-bottom: 7%;
-      left: 12%;
-    }
-    .thanks-for-voting{
-
-      margin-bottom: 18%;
-      width: 37%;
-      font-size: 4vh;
-      line-height: 1;
-    }
-  }
 }
+
 
 
 
