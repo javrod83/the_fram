@@ -175,10 +175,11 @@ angular.module('theFarmApp')
 			}		
 		}
 
+		$scope.selected = 0;
 
   		$scope.answer = function (id) {
   			log('answer',' <--');
-
+  			$scope.selected = id-1;
   			LoginService.vote(id).
   				then(function(response){
   					log('answer','vote('+id+') success');
