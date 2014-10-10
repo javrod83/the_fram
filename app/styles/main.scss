@@ -140,6 +140,7 @@ body {
     }
     .login-text{
       font-size: 4vh;
+      font-weight: bold;
       line-height: 1;
       text-align: center;
       /*margin-bottom: 15px;
@@ -226,6 +227,7 @@ body {
       position: relative;
       /* margin-top: -16%; */
       padding-top: 4%;
+      font-weight:bold;
       font-size: 4vh;
       text-align: center;
     }
@@ -297,14 +299,12 @@ body {
   .rabbit_big-container, .text, .dammit{
     @include center-block;
     .rabbit_big{
-      /*width: 100%;
-      height: 100%;
-      background-repeat: no-repeat;*/
-      /*background-position: center;*/
-      /*background-image: url('../images/rabbit_big.png');*/
+      margin-left: auto;
+      margin-right: auto;
+      width: 20vw;
       min-width: 171px;
       min-height: 376px;
-      margin-left: 40%;
+ 
     }
   }
   .field_login-container{
@@ -577,6 +577,12 @@ body {
   }
 }
 
+
+
+
+
+/*
+
 @media screen and (min-width: 750px) {
 
   .fluid-container .logo-absolute {
@@ -585,7 +591,7 @@ body {
   }
 
   .photo-container{
-    /*width: 50%;*/
+   
   }
 
   .footer {
@@ -610,8 +616,6 @@ body {
   }
 
 }
-
-
 
 
 //Google Nexus 7 / 7.2
@@ -688,7 +692,6 @@ body {
 
 //Notebook with HiDPI screen
 @media screen and (min-width: 1440px) {
-
 
 }
 
@@ -792,40 +795,7 @@ body {
 //Google Nexus 4
 //LG Optimus G / LTE / 4X HD
 //Samsung Galaxy Note
-@media screen and (max-width: 424px) {
 
-  .logo-absolute{
-    margin: 21% 0 0 25%;
-    width: 46%;
-  }
-
-  .footer {
-    background-position-x: 0px;
-  }
-
-  .field_big, .cow_big, .sheep_big{
-    display: none;
-  }
-
-  .hen-container{
-    .hen_big{
-      width: 72%;
-      left: 14%;
-    }
-    .hands{
-      width: 36%;
-      margin-bottom: 7%;
-      left: 12%;
-    }
-    .thanks-for-voting{
-
-      margin-bottom: 18%;
-      width: 37%;
-      font-size: 4vh;
-      line-height: 1;
-    }
-  }
-}
 
 //BlackBerry Z30
 //Google Nexus 5
@@ -845,13 +815,12 @@ body {
 //Motorola Defy / Droid / Droid X / Milestone
 //Nokia Lumia 7X0 / Lumia 8XX / Lumia 900 / N800 / N900
 //Samsung Galaxy S / S2 / W
-@media screen and (max-width: 325px) {
 
-  .logo {
-    width: 65%;
-    padding-top: 55px;
-  }
-  
+
+*/
+//Low res media queries
+@media screen and  (min-width: 240px) {
+
   .logo-absolute{
     margin: 21% 0 0 29%;
     width: 36%;
@@ -861,33 +830,110 @@ body {
     height: 60px;
   }
 
+
+  .content{
+    margin-top: 0px !important;
+    .logo-container{
+        margin-top: 3vh;
+        
+        .logo {
+          zoom: 0.6;
+          display: block;
+          max-width: 19vw;
+        }
+
+      .login-text{
+          margin-bottom: 4vh;
+      }
+
+    }
+  }
+
+  .wood-confirm-container{
+    display: block;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+
+    .wood-agree-container,.wood-disagree-container{
+      width:100% !important;
+      min-height: 15vh !important;
+      
+      .wood-disagree,.wood-agree{
+        width:100%;
+        height:100%;
+        display:block;
+        min-height: 14.5vh!important;
+        
+
+        .answer-text{
+           font-size: 6vh!important;
+        
+        }
+
+      }
+
+    }
+  }
+
+
   .hen-container{
+    
     .hen_big{
-      width: 73%;
-      left: 15%;
-    }
-    .hands{
-      width: 30%;
-      left: 7%;
-      margin-bottom: 3%;
-    }
-    .thanks-for-voting{
-      left: 27%;
-      margin-bottom: 16%;
-      width: 150px;
+      width: 72%;
+      left: 14%;
     }
 
+    .hands{
+      width: 36%;
+      margin-bottom: 7%;
+      left: 12%;
+    }
+
+    .thanks-for-voting{
+        margin-bottom: 15vh !important;
+        width: 100% !important;
+        font-size: 4vh;
+        line-height: 1;
+        margin-right: auto;
+        margin-left: auto;
+        padding: 0 25vw 0 25vw;
+        height: 16vh;
+        display: block;
+
+    }
+    
   }
+
+  .rabbit_big{
+    zoom:0.5;
+    margin-bottom: 10vh;
+  }
+
+  .logo-absolute{
+    margin: 21% 0 0 25%;
+    width: 46%;
+  }
+
+  .footer {
+    background-position-x: 0px;
+  }
+
+  .field_big, .cow_big, .sheep_big{
+    display: none;
+  }
+
 }
+
+
+
 
 @mixin center-block {
   display: block;
   margin-left: 5%;
   margin-right: 5%;
 }
-
-
-
 
 /*Animations*/
 

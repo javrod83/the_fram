@@ -15,7 +15,7 @@ angular.module('theFarmApp')
 		var updateCount = 0 ;
 
 		function log(method,msg){
-			console.log('['+modName+']: '+method+' : '+msg);
+		//	console.log('['+modName+']: '+method+' : '+msg);
 		}
 
     //Atributes

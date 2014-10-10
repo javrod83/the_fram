@@ -22,7 +22,7 @@ angular.module('theFarmApp').controller('LandCtrl',[
 
       function log(method,msg)
         {
-          console.log('['+modName+']: '+method+' : '+msg);
+          //console.log('['+modName+']: '+method+' : '+msg);
         }
 
       function showError(txt)
