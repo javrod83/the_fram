@@ -55,7 +55,7 @@ angular.module('theFarmApp')
       }
 
       var image = document.createElement('img');
-      image.src = getBgUrl(document.getElementById('logo'));
+      image.src = getBgUrl(document.getElementById('preload'));
 
       image.onload = function() {
         setTimeout(function () {
