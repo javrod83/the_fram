@@ -277,6 +277,13 @@ module.exports = function (grunt) {
           cwd: '<%= yeoman.app %>/images',
           src: '{,*/}*.{png,jpg,jpeg,gif}',
           dest: '<%= yeoman.dist %>/images'
+        }, {
+            // Copy generated sprites over to the dist/
+            // folder during the build step.
+            expand: true,
+            cwd: '.tmp/images',
+            src: '{,*/}*.png',
+            dest: '<%= yeoman.dist %>/images'
         }]
       }
     },
