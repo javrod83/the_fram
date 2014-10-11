@@ -186,14 +186,12 @@ body {
     -webkit-filter: blur(6px);
     filter: url('blur.svg#blur');
     background-color: #fff;
-    width: 93%;
-    height: 100%;
     z-index: -3;
     position: relative;
-    margin-top: -20%;
+
   }
 
-  .wood-agree,.wood-disagree,.wood-1{
+  .wood-agree,.wood-disagree,.wood-1,.blur{
       min-height   :  77px;
       min-width    : 394px;
       max-height   :  77px;
@@ -817,8 +815,6 @@ body {
        }        
     }
 }
-
-
 
 
 
