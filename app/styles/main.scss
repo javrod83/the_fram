@@ -418,6 +418,8 @@ body {
     min-height: 586px;
     zoom: 0.65;
     overflow: hidden;
+    -moz-transform: scale(0.65);
+    -moz-transform-origin: 0 0;
   }
 
     .text{
@@ -444,6 +446,8 @@ body {
     min-width: 453px;
     min-height: 557px;
     zoom: 0.61;
+    -moz-transform: scale(0.61);
+    -moz-transform-origin: 0 0;
   }
   .img-frame{
       @include center-block;
@@ -607,6 +611,8 @@ body {
     .logo-absolute-container{
       .logo{
         zoom:0.6;
+        -moz-transform: scale(0.6);
+        -moz-transform-origin: 0 0;
       }
     }
 
@@ -627,6 +633,8 @@ body {
     .photo-container{
       .frame{
         zoom:0.615;
+        -moz-transform: scale(0.615);
+        -moz-transform-origin: 0 0;
       }
     }
 
@@ -637,6 +645,8 @@ body {
           zoom: 0.6;
           display: block;
           max-width: 19vw;
+          -moz-transform: scale(0.6);
+          -moz-transform-origin: 0 0;
         }
 
       .login-text{
@@ -662,6 +672,8 @@ body {
         display:block;
       
           zoom:0.7;
+          -moz-transform: scale(0.7);
+          -moz-transform-origin: 0 0;
 
         .answer-text{
            font-size: 6vh;
@@ -688,6 +700,8 @@ body {
 
   .rabbit_big{
     zoom:0.5;
+    -moz-transform: scale(0.5);
+    -moz-transform-origin: 0 0;
     bottom:0;
   }
 
@@ -827,4 +841,9 @@ body {
 .obj.ng-leave-active {
   /*left: 600px;*/
   opacity: 1;
+}
+
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
 }
