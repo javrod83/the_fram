@@ -23,8 +23,7 @@
 
     <!-- Add your site or application content here -->
 
-    <div class="mobile-container " ng-controller="MainCtrl">
-      <div id="logo" class="images-logo logo" ng-show="logo"></div>
+    <div class="mobile-container " ng-controller="MainCtrl" ng-cloak>
       <div class="header">
         <ul class="nav nav-pills pull-right">
 
@@ -35,8 +34,8 @@
             </li>
         </ul>
       </div>
-
-      <div ui-view class="fluid-container"></div>
+      <p id="preload" class="images-blank animated fadeOut ">{{title}}</p>
+      <div ui-view class="fluid-container" class="animated fadeIn" ng-switch="preloadReady"></div>
 
     </div>
 

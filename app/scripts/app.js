@@ -23,9 +23,6 @@ angular
   
      $urlRouterProvider.otherwise('/land');
 
-     var image = document.createElement('img');
-     image.src = getBgUrl(document.getElementById('logo'));
-
      $stateProvider.state('land', {
       url: '/land/:id/:token?qa',
       templateUrl: 'views/land.html',
@@ -35,9 +32,7 @@ angular
               initData:function(FarmServices) {
                 return  FarmServices.getConfig().then(function(res){ 
                   return FarmServices.getData(res.urls.base, res.tid, res.jsons['territory-data']).then(function (res){
-                   // image.onload = function () {
                       return FarmServices.getStatus();
-                    //}
                   });
                 });
               }
@@ -79,17 +74,5 @@ angular
               }
           }
     });
-    
-    function getBgUrl(el) {
-      var bg = "";
-      if (el.currentStyle) { // IE
-          bg = el.currentStyle.backgroundImage;
-      } else if (document.defaultView && document.defaultView.getComputedStyle) { // Firefox
-          bg = document.defaultView.getComputedStyle(el, "").backgroundImage;
-      } else { // try and get inline style
-          bg = el.style.backgroundImage;
-      }
-      return bg.replace(/url\(['"]?(.*?)['"]?\)/i, "$1");
-    }
 
   });
