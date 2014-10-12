@@ -93,17 +93,10 @@ body {
   .logo-container{
     @include center-block;
    
-    margin-bottom: -4vh;
+    margin-bottom: -1vh;
   }
 
-  .logo-absolute-container {
-    position: absolute;
-    margin-top: 3%;
-    width: 90%;
-      .logo{
-        zoom:0.6;
-      }
-  }
+
 
 
   .logo{
@@ -137,10 +130,10 @@ body {
 .content{
   z-index: 15;
   margin-top:-7px;
+  width: 100%;
 
-  .row-fluid{
-    margin-top: 11vh;
-  }
+
+  
   .social-container, .wood-confirm-container, .wood-container{
 
     li{
@@ -417,6 +410,17 @@ body {
 
 }
 
+  .logo-absolute-container {
+    width: 100%;
+    position: absolute;
+   display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: -4vh;
+      .logo{
+        zoom:0.7;
+      }
+  }
 
 .text-container{
   overflow: hidden;
@@ -424,10 +428,14 @@ body {
     width: 100%;
     min-width: 440px;
     min-height: 586px;
+    max-width: 440px;
+    max-height: 586px;
     zoom: 0.65;
     overflow: hidden;
     -moz-transform: scale(0.65);
     -moz-transform-origin: 0 0;
+    margin-left: auto;
+    margin-right: auto;
   }
 
     .text{
@@ -439,8 +447,8 @@ body {
     text-align: center;
     width: 100%;
     position: relative;
-    padding:1vh 20vw;
-    margin-top: 72vh;
+    padding: 1vh 14vw;
+    margin-top: 44vh;
 
   }
 }
@@ -453,7 +461,11 @@ body {
     width: 83%;
     min-width: 453px;
     min-height: 557px;
+    max-width: 453px;
+    max-height: 557px;
     zoom: 0.61;
+    margin-left: auto;
+    margin-right: auto;
     -moz-transform: scale(0.61);
     -moz-transform-origin: 0 0;
   }
@@ -477,6 +489,9 @@ body {
     height: 100%;
     background-repeat: no-repeat;
     /*background-position: center;*/
+  }
+  .rabbit{
+    zoom:0.5;
   }
 
   .field,.field_big,.field_login{
@@ -545,8 +560,10 @@ body {
     z-index: -1;
     .sheep{
       /*background-image: url('../images/sheep.png');*/
-      min-width: 91px;
-      min-height: 99px;
+      min-width: 96px;
+      min-height: 96px;
+      max-width: 96px;
+      max-height: 96px;
     }
     .rabbit{
       /*background-image: url('../images/rabbit.png');*/
@@ -600,9 +617,7 @@ body {
 
 
 
-  .field_big, .cow_big, .sheep_big{
-    display: none;
-  }
+
 
 
 
@@ -735,10 +750,10 @@ body {
 
 
 
-//verysmall
+// very small
 @media screen and (min-width : 200px) and (max-width : 319px) and (-webkit-min-device-pixel-ratio: 1) {
     //rojo
-    div{background-color:rgba(254, 1, 0, 0.16);}
+    //div{background-color:rgba(254, 1, 0, 0.16);}
 
 
 
@@ -782,16 +797,35 @@ body {
             }
           }
     }
+    .text-container{
+      .board{
+        zoom:0.3;
+      }
+      .text{
+        padding: 0 13vh 0 11vh;
+        margin-top: 82%;
+        font-size: 11vh;
+      }
+    }
+    .photo-container {
+     .frame {
+        width: 57%;
+        min-width: 453px;
+        min-height: 557px;
+        zoom: 0.387;}
+    }
 
-
+  .field_big, .cow_big, .sheep_big,.ostrich {
+        display: none;
+  }
 
 }
 
 
 //small
-@media screen and (min-width : 320px) and (-webkit-min-device-pixel-ratio: 1) {
+@media screen and (min-width : 320px) and  (max-width : 500px ) and (-webkit-min-device-pixel-ratio: 1) {
     //verde
-    div{background-color:rgba(0, 128, 0, 0.16);}
+    //div{background-color:rgba(0, 128, 0, 0.16);}
 
         .content{
               .logo{
@@ -810,31 +844,58 @@ body {
              }        
         }
 
+
+
          //Hen
         .hen-container{
-           .hen_big-container{
-            .hen_big{
-            
-              zoom: 0.5;
-              -moz-transform: scale(0.5);
-              -moz-transform-origin: 0 0;
-            }
-          }
-
-          .hands-container{
-            .hands{
-              zoom:.45;
-              -moz-transform: scale(0.45);
-              -moz-transform-origin: 0 0;
-              width: 20vw;
-              .thanks-for-voting{
+             .hen_big-container{
+              .hen_big{
+              
+                zoom: 0.5;
+                -moz-transform: scale(0.5);
+                -moz-transform-origin: 0 0;
               }
             }
-          }
 
+            .hands-container{
+              .hands{
+                zoom:.45;
+                -moz-transform: scale(0.45);
+                -moz-transform-origin: 0 0;
+                width: 20vw;
+                .thanks-for-voting{
+                  padding: 4vh 10vh 0 10vh;
+                }
+              }
+            }
         }
 
 
+        .text-container{
+          .board{
+             zoom: .45;
+          }
+          .text{
+            font-size: 7vh;
+            margin-top: 35vh;
+          }
+        }
+      .rabbit-container{
+        .text{
+          z-index: 53;
+          width: 60%;
+          margin-top: 20vh;
+          }
+
+            .rabbit_big-container{
+              .rabbit_big{
+              zoom:0.3;
+            }
+            }
+      }
+      .field_big, .cow_big, .sheep_big{
+        display: none;
+      }
 }
 
 // smart phones 1
@@ -862,6 +923,7 @@ body {
          }        
     }
 
+
     .hands-container{
       .hands{
         zoom:.45;
@@ -873,16 +935,48 @@ body {
         }
       }
     }
+
+    .text-container{
+      .board{
+         zoom: .7;
+      }
+      .text{
+        margin-top: 40.5vh;
+      }
+    }
+
+        .photo-container {
+         .frame {
+          
+          
+           zoom: 0.746;
+         }
+        }
+      .field_big, .cow_big, .sheep_big{
+    display: none;
+  }
 }
 
 // smart phones 2 
-@media screen and ( min-width : 540px ) and ( max-width : 767px )  and  (-webkit-device-pixel-ratio: 1),
+@media screen and ( min-width : 540px ) and ( max-width : 719px )  and  (-webkit-device-pixel-ratio: 1),
               (max-width : 399px) and (min-webkit-device-pixel-ratio: 1.1)
 {
   //purpura
-    div{background-color:rgba(128, 0, 128, 0.15);}
+    //div{background-color:rgba(128, 0, 128, 0.15);}
 
     .content{
+      .text-container{
+        .board {
+          zoom: 1.3;
+          -moz-transform: scale(0.65);
+          -moz-transform-origin: 0 0;
+        }
+        .text{
+          font-size: 3vh;
+          margin-top: 34vh;
+        }
+      }
+
         .logo{
             zoom:0.75;
         }
@@ -898,25 +992,113 @@ body {
           }  
        }        
     }
+
+  .field_big, .cow_big, .sheep_big{
+    display: none;
+  }
 }
 
 
 
 // high resolution
- @media screen and ( min-width : 400px ) and (-webkit-min-device-pixel-ratio: 2),
+ @media screen and ( min-width : 400px ) and (-webkit-min-device-pixel-ratio: 1.4),
                    ( min-width : 720px ) and (-webkit-min-device-pixel-ratio: 1)
  {
   //amarillo
-     div{background-color:rgba(255, 255, 0, 0.18)}
+   //  div{background-color:rgba(255, 255, 0, 0.18)}
+ 
+     
      .content {
+      .text-container{
+        .board {
+          zoom: 1.3;
+          -moz-transform: scale(0.65);
+          -moz-transform-origin: 0 0;
+        }
+        .text{
+          font-size: 3vh;
+          margin-top: 71vh;
+        }
+      }
+
+      .wood-1{
+        zoom: 1;
+      }
+      .logo{
+        zoom:1.4;
+      }
+      .woods-row{
+        .wood-container{
+          .wood-1-container{
+            zoom:1.55;
+            .wood-1{
+              .answer-text{
+                font-size: 2vh;
+                padding-top:0;
+              }
+            }          
+          }
+        }
+      }
+
+
         .wood-confirm-container{
-          .wood-agree-container{
+          .answer-text{
+              font-size:3vh;
+              padding-top:0.7vh;
+          }
+
+          .wood-agree-container,.wood-disagree-container,.wood-container{
+
+            .wood-1-container{
+              .wood-1{
+                zoom: 1.5;
+
+              
+              }
+            }
              .wood-agree,.wood-disagree{
               zoom: 1.6;
+              padding-top: 0;
              }
           }
         }
      }
+
+        .hen-container{
+          .hands-container{
+            .hands{
+              zoom:1.6;
+              -moz-transform: scale(1.6);
+              -moz-transform-origin: 0 0;
+              width: 20vw;
+              .thanks-for-voting{
+                  font-size: 3vh;
+              }
+            }
+          }
+          .hen_big-container{
+             
+              .hen_big{
+            
+              zoom: 1.6;
+              -moz-transform: scale(1.6);
+              -moz-transform-origin: 0 0;
+            }
+          }
+        } 
+
+        .text-container{
+          .board{
+             zoom: 1.4;
+          }
+        }
+
+      .sheep,.barn,.ostrich {
+        display: none;
+
+      }
+
  }
 
 // ultra resolution
@@ -924,7 +1106,7 @@ body {
                    ( min-width : 768px ) and (-webkit-min-device-pixel-ratio: 1)
  {
   //white
-     div{background-color:rgba(255, 255, 255, 0.18)}
+  //   div{background-color:rgba(255, 255, 255, 0.18)}
  }
 @mixin center-block {
   display: block;
