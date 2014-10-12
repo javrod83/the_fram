@@ -230,8 +230,6 @@ body {
       
       .answer-text{
         position: relative;
-        /* margin-top: -16%; */
-        padding-top: 4%;
         font-weight:bold;
         font-size: 4vh;
         text-align: center;
@@ -395,6 +393,8 @@ body {
         /*background-image: url('../images/hands.png');*/
         min-width: 383px;
         min-height: 174px;
+        max-width: 383px;
+        max-height: 174px;
         zoom:0.85;
         -moz-transform:scale(0.85);
         -moz-transform-origin: 0 0;
@@ -409,7 +409,7 @@ body {
           z-index: 53;
           margin: 0;
           width: 100%;
-          padding: 2vh 25vw;
+          padding: 4vh 13vw 0 10vw;
         }
     }
     
@@ -761,6 +761,18 @@ body {
     
     //Hen
     .hen-container{
+
+        .hands-container{
+            .hands{
+              zoom:.4;
+              .thanks-for-voting{
+                width: 43%;
+                margin-left: 35vw;
+                padding-top: 15vh;
+                font-size: 9vh;
+              }
+            }
+          }
        .hen_big-container{
             .hen_big{
             
@@ -769,18 +781,9 @@ body {
               -moz-transform-origin: 0 0;
             }
           }
-      .hands-container{
-        .hands{
-          zoom:.5;
-          .thanks-for-voting{
-            width: 43%;
-            margin-left: 35vw;
-            padding-top: 15vh;
-            font-size: 9vh;
-          }
-        }
-      }
     }
+
+
 
 }
 
@@ -825,7 +828,6 @@ body {
               -moz-transform-origin: 0 0;
               width: 20vw;
               .thanks-for-voting{
-                   padding-top: 10vh;
               }
             }
           }
@@ -867,14 +869,15 @@ body {
         -moz-transform-origin: 0 0;
         width: 20vw;
         .thanks-for-voting{
-             padding-top: 10vh;
+            // padding: 4vh 15vw 0 15vw;
         }
       }
     }
 }
 
 // smart phones 2 
-@media screen and ( min-width : 540px )  and  (-webkit-device-pixel-ratio: 1)
+@media screen and ( min-width : 540px ) and ( max-width : 767px )  and  (-webkit-device-pixel-ratio: 1),
+              (max-width : 399px) and (min-webkit-device-pixel-ratio: 1.1)
 {
   //purpura
     div{background-color:rgba(128, 0, 128, 0.15);}
@@ -901,10 +904,19 @@ body {
 
 // high resolution
  @media screen and ( min-width : 400px ) and (-webkit-min-device-pixel-ratio: 2),
-                   ( min-width : 768px ) and (-webkit-min-device-pixel-ratio: 1)
+                   ( min-width : 720px ) and (-webkit-min-device-pixel-ratio: 1)
  {
   //amarillo
      div{background-color:rgba(255, 255, 0, 0.18)}
+     .content {
+        .wood-confirm-container{
+          .wood-agree-container{
+             .wood-agree,.wood-disagree{
+              zoom: 1.6;
+             }
+          }
+        }
+     }
  }
 
 // ultra resolution
