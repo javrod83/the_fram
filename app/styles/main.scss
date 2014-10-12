@@ -186,9 +186,9 @@ body {
     -webkit-filter: blur(6px);
     filter: url('blur.svg#blur');
     background-color: #fff;
-    z-index: -3;
-    position: relative;
-
+    z-index: -8;
+    position: absolute;
+    margin-left: 6%!important;
   }
 
   .wood-agree,.wood-disagree,.wood-1,.blur{
