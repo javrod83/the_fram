@@ -7,7 +7,7 @@
 	<div class="rope-container-left animated fadeInDownBig"></div>
 	<div class="rope-container-right animated fadeInDownBig"></div>
 	<div class="logo-container">
-		<div class="images-logo logo animated fadeIn"></div>
+		<div class="images-logo logo animated fadeIn"  ng-style="{'zoom':logoZoom}"></div>
 		<p class="login-text animated zoomIn ">{{title}}</p>
 	</div>
 	<div class="row-fluid  animated fadeInDownBig">
@@ -16,14 +16,14 @@
 
 		 	<li class="btn-group" ng-click="approve(1)">
 		 		<div class="wood-agree-container">
-		 			<div class="images-wood-agree wood-agree">
+		 			<div class="images-wood-agree wood-agree " ng-style="{'zoom':woodZoom}">
 		 				<p class="answer-text success-text">{{yes}}</p>
 		 			</div>
 		 		</div>
 		 	</li>
 		 	<li class="btn-group" ng-click="approve(0)">
 		 		<div class="wood-disagree-container">
-		 			<div class="images-wood-disagree wood-disagree">
+		 			<div class="images-wood-disagree wood-disagree" ng-style="{'zoom':woodZoom}">
 		 				<p class="answer-text error-text">{{no}}</p>
 		 			</div>
 		 		</div>
@@ -44,7 +44,7 @@
     </div>
 </div> -->
 
-<div class="footer animated fadeIn">
+<div class="footer animated fadeIn" ng-style="{zoom:footerZoom}">
     <div ng-repeat="img in footerImages" class="{{img}}-container">
 		<div class="images-{{img}} {{img}} animated fadeIn"></div>
 	</div>

@@ -51,6 +51,7 @@ angular.module('theFarmApp')
         } else { // try and get inline style
           bg = el.style.backgroundImage;
         }
+        
         return bg.replace(/url\(['"]?(.*?)['"]?\)/i, "$1");
       }
 

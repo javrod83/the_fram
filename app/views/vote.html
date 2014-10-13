@@ -7,7 +7,7 @@
 	<div class="rope-container-left animated fadeInDownBig"></div>
 	<div class="rope-container-right animated fadeInDownBig"></div>
 	<div class="logo-container">
-		<div class="images-logo logo animated fadeIn"></div>
+		<div class="images-logo logo animated fadeIn" ng-style="{'zoom':logoZoom}"></div>
 		<p class="login-text animated zoomIn ">{{title}}</p>
 	</div>
 	<div class="woods-row row-fluid animated da3 fadeInDownBig">
@@ -16,8 +16,8 @@
 		 	<li ng-repeat='opt in options' ng-click='answer(opt.id)'>
 		 		<!-- <img class="wood-1" src="images/wood-1.png" /> -->
 		 		<div class="wood-1-container">
-		 			<div ng-class="{blur: $index == selected}"></div>
-		 			<div class="images-wood-1 wood-1">
+		 			<div ng-class="{blur: $index == selected}" ng-style="{'zoom':woodZoom}"></div>
+		 			<div class="images-wood-1 wood-1" ng-style="{'zoom':woodZoom}">
 		 				<p class="answer-text">{{opt.text}}</p>
 		 			</div>
 		 		</div>
@@ -27,8 +27,8 @@
 </div>
 <div class="col-xs-0 col-sm-4 col-md-4 col-lg-4"></div>
 
-<div class="footer animated fadeIn">
-    <div ng-repeat="img in footerImages" class="{{img}}-container">
+<div class="footer animated fadeIn" ng-style="{zoom:footerZoom}">
+    <div ng-repeat="img in footerImages" class="{{img}}-container" >
 		<div class="images-{{img}} {{img}} animated fadeIn"></div>
 	</div>
     <div ng-if="showBarn" class="barn-container">

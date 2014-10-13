@@ -76,3 +76,95 @@ angular
     });
 
   });
+
+
+
+
+function viewportWidth()
+  {
+    return (Math.max(document.documentElement.clientWidth, window.innerWidth || 0) );
+//    return (Math.max(document.documentElement.clientWidth, window.innerWidth || 0) * window.devicePixelRatio);
+  }
+function viewportHeight()
+  {
+    return (Math.max(document.documentElement.clientHeight, window.innerHeight || 0) );
+//    return (Math.max(document.documentElement.clientWidth, window.innerWidth || 0) * window.devicePixelRatio);
+  }
+
+
+function getZoom(area,originalWidth)
+  {
+    return  ((viewportWidth()*area)/originalWidth)
+  }
+
+function getWoodZoom()
+  {
+      var woodArea = 0.89 ; 
+      var woodActualWidth = 394 ;
+      return getZoom(woodArea,woodActualWidth);
+  }
+
+ 
+function getLogoZoom()
+  {
+      var logoArea = 0.50 ; 
+      var logoActualWidth = 237;
+      return getZoom(logoArea,logoActualWidth);
+  }
+
+
+function getHenZoom()
+  {
+    var HenArea = 0.85;
+    var henActualWidth = 354 ;
+    return getZoom(HenArea,henActualWidth);
+  }
+
+function getRabbitZoom()
+  {
+    var rabbitArea = 0.35;
+    var rabbitActualWidth = 171 ;
+    return getZoom(rabbitArea,rabbitActualWidth);
+  }
+
+function getRabbitBackZoom()
+  {
+    var rabbitArea = 1;
+    var rabbitActualWidth = 454 ;
+    return getZoom(rabbitArea,rabbitActualWidth);
+  }
+
+
+function getFooterBackZoom()
+  {
+    var fieldArea = 0.7;
+    var footerActualWidth = 311 ;
+    return getZoom(fieldArea,footerActualWidth);
+  }
+
+function getBoardZoom()
+  {
+    var boardArea = 0.85;
+    var boardActualWidth = 440 ;
+    return getZoom(boardArea,boardActualWidth);
+
+  }
+
+function getFrameZoom()
+  {
+    var frameArea = 0.85;
+    var frameActualWidth = 440 ;
+    return getZoom(frameArea,frameActualWidth);
+
+  }
+
+function printviewPortData()
+  {
+      console.log('viewport data:');
+      console.log('---------------------------');
+      console.log('  w: '+viewportWidth()+' h: '+viewportHeight());
+      console.log(' pr: '+window.devicePixelRatio+' rw: '+(viewportWidth()*window.devicePixelRatio)+' rh: '+(viewportHeight()*window.devicePixelRatio));
+      console.log(' wZ: '+getWoodZoom());
+      console.log('iwZ: '+getInvertedWoodZoom());
+      console.log('wNW: '+getWoodZoom()*woodActualWidth);
+  }

@@ -1,39 +1,18 @@
 {
-  "id": 1404293132113,
-   
-  "frame": {
-    "fid": "4499",  
+  "id": 234234234234,
+"frame":{    "fid": "4499", 
     "sid": "104",  
-    "type": "vote",
-    "data": { 
-      "vid": "1405", 
-      "title": "Choose Next Week's Task for our contestants", 
-      "voteType": "4", 
-      "options": [ 
-        {
-          "id": "1", 
-          "text": "The 1st option to choose" 
-        },
-        {
-          "id": "2",
-          "text": "The 2nd option to choose"
-        },
-        {
-          "id": "3",
-          "text": "The 3rd option to choose"
-        },
-        {
-          "id": "4",
-          "text": "The 4th option to choose"
-        }
-      ],
-      "allowed": "1" 
+    "type": "image", 
+    "data": {
+      "title": "This is the image title",
+      "large": "media/joker.jpg",
+      "medium": "media/joker.jpg"
     },
-  "status": "2", 
-  "order": "3"
+    "status": "11",  
+    "order": "1"
   },
   "interval": 2, 
-  "timeout": 3,
+  "timeout": 3, 
   "status-url": "api/9/status.json", 
   "secret-key-update-time": 1401281448 
 }

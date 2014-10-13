@@ -18,7 +18,15 @@ angular.module('theFarmApp')
 			//console.log('['+modName+']: '+method+' : '+msg);
     	}
 
-  	
+  		// scaling 
+     	$scope.woodZoom       = getWoodZoom();
+     	$scope.logoZoom       = getLogoZoom();
+     	$scope.henZoom        = getHenZoom();
+     	$scope.rabbitZoom     = getRabbitZoom();
+     	$scope.rabbitBackZoom = getRabbitBackZoom();
+     	$scope.footerZoom     = getFooterBackZoom();
+
+  		
   		$scope.footerImages = ['cow','cow_big', 'ostrich', 'sheep', 'sheep_big', 'field', 'field_big'];
       	$scope.showBarn     = true;
       	$scope.success      = false; //hen

@@ -64,6 +64,10 @@ var leCounter =0 ;
       $scope.no    = FarmServices.data.dictionary['pic-approve'].no;
 
       
+      //wood scaling 
+      $scope.woodZoom = getWoodZoom();
+      $scope.logoZoom = getLogoZoom();
+      $scope.footerZoom = getFooterBackZoom();
 
       //Methods
       $scope.approve = function(desition){

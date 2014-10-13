@@ -26,6 +26,8 @@ angular.module('theFarmApp')
 		$scope.timeOut      = false;  //rabbit
 
 
+    	$scope.footerZoom  = getFooterBackZoom();
+    	$scope.frameZoom   = getFrameZoom();
 
     ///Methods
     	function check(){

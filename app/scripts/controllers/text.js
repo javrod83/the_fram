@@ -22,7 +22,9 @@ angular.module('theFarmApp')
     	$scope.footerImages = ['cow','cow_big', 'ostrich', 'sheep', 'sheep_big', 'field', 'field_big'];
     	$scope.showBarn = true;
 
-
+    	$scope.footerZoom  = getFooterBackZoom();
+    	$scope.boardZoom   = getBoardZoom();
+    	$scope.logoZoom    = getLogoZoom();
 
     	
 
