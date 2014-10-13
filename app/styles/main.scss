@@ -4,6 +4,8 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // endbower
 @import "compass/utilities/sprites";
 @import "../images/*.png";
+
+@import "animate.css";
 @include all-images-sprites;
 
 .nav > li > a:hover, .nav > li > a:focus, a > img:focus{
@@ -29,6 +31,7 @@ body {
   right: 0;
   bottom: 0;
 }
+
 
 .mobile-container{
   max-width: 100%;
@@ -111,6 +114,21 @@ body {
 
     /*background-position: center;*/
   }
+  .images-logo_alta{
+    /*background-image: url('../images/logo.png');*/
+    margin-left: auto;
+    margin-right: auto;
+    margin-left: auto;
+    min-width: 391px;
+    min-height: 409px;
+    max-width: 391px;
+    max-height: 409px;
+    background-repeat: no-repeat;
+
+    /*background-position: center;*/
+  }
+
+  
   .login-text{
       font-size: 3.5vh;
       line-height: 1;

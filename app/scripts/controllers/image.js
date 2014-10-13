@@ -10,13 +10,17 @@
 angular.module('theFarmApp')
     .controller('ImageCtrl',    	
     	['FarmServices','$scope','$state','preloader',
-    	function (FarmServices,$scope,$state, preloader) {	//log
+    	function (FarmServices,$scope,$state, preloader) {	
+
+    	ios7Fix();
+    	//log
 		var modName = 'ImageCtrl';
 		var updateCount = 0 ;
 
 		function log(method,msg){
 		//	console.log('['+modName+']: '+method+' : '+msg);
 		}
+
 
     //Atributes
 		$scope.imgSrc       = '';

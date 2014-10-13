@@ -11,6 +11,7 @@ angular.module('theFarmApp')
   .controller('TextCtrl', 	['FarmServices','$scope','$state', 'preloader', 
   	function (FarmServices,$scope,$state, preloader) {
   	//log
+  		ios7Fix();
 		var modName     = 'TextCtrl';
 		var updateCount = 0 ;
 

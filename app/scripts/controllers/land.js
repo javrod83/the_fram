@@ -16,7 +16,7 @@ angular.module('theFarmApp').controller('LandCtrl',[
     '$stateParams',
     'preloader',
   function ($scope,FarmServices,LoginService,$state,initData,$stateParams,preloader) {
-
+      ios7Fix();
       //log
       var modName = 'LandCtrl';
 
@@ -34,21 +34,9 @@ angular.module('theFarmApp').controller('LandCtrl',[
             $scope.missedText  = txt;
         }
 
-var leCounter =0 ;
- $scope.count = function ()
-    {
-      leCounter ++;
-      log('count: ',leCounter);
-      if(leCounter === 7)
-        {
-          $scope.isLoading = false;
 
-       //   $scope.loader    = false;
-        }
-    }
-
-
-
+      //show landing
+      $scope.visibility = 'none' ; 
       //footer setup  
       $scope.footerImages = ['cow','cow_big', 'ostrich', 'sheep', 'sheep_big', 'field', 'field_big'];
       $scope.showBarn     = true;
@@ -131,6 +119,17 @@ var leCounter =0 ;
 
   
       //Activity
+
+
+          if(LoginService.loadLocalLogin())
+            {
+              $state.go(FarmServices.status.current.frame.type);
+            }
+            else
+            {
+              
+            }
+
           console.log($stateParams)
           if ($stateParams.qa !== undefined)
             {

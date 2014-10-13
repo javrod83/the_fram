@@ -8,7 +8,7 @@
 angular.module('theFarmApp')
   .controller('MainCtrl', ['FarmServices', 'LoginService', '$scope', '$state',
     function(FarmServices, LoginService, $scope, $state) {
-
+      ios7Fix();
       $scope.preloadReady = false;
 
       $scope.closeAction = function() {

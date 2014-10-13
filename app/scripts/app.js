@@ -108,7 +108,7 @@ function getWoodZoom()
 function getLogoZoom()
   {
       var logoArea = 0.50 ; 
-      var logoActualWidth = 237;
+      var logoActualWidth = 391;
       return getZoom(logoArea,logoActualWidth);
   }
 
@@ -168,3 +168,22 @@ function printviewPortData()
       console.log('iwZ: '+getInvertedWoodZoom());
       console.log('wNW: '+getWoodZoom()*woodActualWidth);
   }
+
+
+  //the ios 7 background isue fix
+
+ var sriteSize = '986p× 5720px' ;
+function isInSprite()
+  {
+    var currBackPos = $(this).css('background-position') ;
+
+    return ( currBackPos !== '0% 0%' && currBackPos !== '0px 0px, 0px 0px' ) 
+  }
+
+  function ios7Fix()
+    {
+      var x = $('*').filter(isInSprite);
+     $(x).each(function(i,e){
+        $(e).css('background-size',sriteSize);
+      })
+    }

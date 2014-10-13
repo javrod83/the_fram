@@ -11,6 +11,7 @@ angular.module('theFarmApp')
   .controller('VoteCtrl',['FarmServices','LoginService' ,'$scope','initData', '$state', 'preloader',
   	function (FarmServices,LoginService,$scope,initData,$state, preloader) {
     //log
+    	ios7Fix();
     	var modName = 'VoteCtrl';
     	var updateCount = 0 ;
 
