@@ -271,6 +271,9 @@ module.exports = function (grunt) {
     // },
 
     imagemin: {
+      options: {
+        optimizationLevel: 5
+      },
       dist: {
         files: [{
           expand: true,
@@ -384,7 +387,7 @@ module.exports = function (grunt) {
       ],
       dist: [
         'compass:dist',
-        'imagemin',
+        //'imagemin',
         'svgmin'
       ]
     },
